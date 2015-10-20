@@ -114,6 +114,52 @@ class Database
         return $this->fetch($req);
     }
 
+    public function addTask($identifier, $desc, $expectedDuration = 0)
+    {
+        $req = $this->_db->prepare("INSERT INTO Tasks(taskIdentifier, taskDescription,
+                                                            taskExpectedDuration)
+                                                VALUES(?, ?, ?)");
+        $req->execute(array($identifier, $desc, $expectedDuration));
+        $req->closeCursor();
+    }
+
+    public function updateTask($id, $identifier, $desc, $expectedDuration = 0)
+    {
+        $req = $this->_db->prepare("UPDATE Tasks SET taskIdentifier = ?, taskDescription = ?,
+                                                            taskExpectedDuration = ?
+                                                WHERE taskId = ?");
+        $req->execute(array($identifier, $desc, $expectedDuration, $id));
+        $req->closeCursor();
+    }
+
+    public function delTask($id)
+    {
+        $req = $this->_db->prepare("DELETE FROM Tasks WHERE taskId = ?");
+        $req->execute(array($id));
+        $req->closeCursor();
+    }
+
+    public function setTaskComment($id, $comment)
+    {
+        $req = $this->_db->prepare("UPDATE Tasks SET taskComment = ? WHERE taskId = ?");
+        $req->execute(array($comment, $id));
+        $req->closeCursor();
+    }
+
+    public function setTaskState($id, $state)
+    {
+        $req = $this->_db->prepare("UPDATE Tasks SET taskState = ? WHERE taskId = ?");
+        $req->execute(array($state, $id));
+        $req->closeCursor();
+    }
+
+    public function setTaskDuration($id, $duration)
+    {
+        $req = $this->_db->prepare("UPDATE Tasks SET taskDuration = ? WHERE taskId = ?");
+        $req->execute(array($duration, $id));
+        $req->closeCursor();
+    }
+
 
     // Sprints handling.
     
