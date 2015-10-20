@@ -38,13 +38,18 @@ Les champs pour la modification d'une tâche sont :
 Ces variables sont passées par formulaire, en POST.
 
 
+### Visualisation d'une tâche
+
+La vue doit rajouter dans l'URL 'id=' et l'id de la tâche à utiliser.
+
+
 ### Suppression
 
 Pour la suppression, une variable 'del' est définie dans l'URL, suivie 
 de l'id de la tâche à supprimer (ceci ne nécessite pas de formulaire).
 
 
-### Pour les autres valeurs (plus tard).
+### Pour les autres valeurs (plus tard)
 
 Il sera possible ensuite de mettre le temps effectif qu'a duré la tâche,
 un tout petit formulaire sur la page de visualisation de la tâche est souhaitable.
@@ -56,3 +61,12 @@ avec un champs de nom 'set_task_state' sera présent.
 Pour permettre une meilleure compréhension de la tâche, l'utilisateur doit aussi
 pouvoir rajouter une description, ceci se fera grâce à un formulaire et un champs
 'set_task_comment'
+
+
+### Variables du contrôleur à utiliser dans les vues
+
+Pour que les vues puissent afficher les données correctement, il faut que des variables
+soient définies.
+Ainsi, la vue se chargeant d'afficher la liste doit avoir accès à une variable 'tasks',
+et lorsqu'une vue traite une tâche en particulier, il faut qu'elle ait accès à une variable 'task'.
+Celle-ci refereront aux données cherchées.
