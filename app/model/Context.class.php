@@ -4,17 +4,17 @@
 class Context
 {
     private $_pageUrl;
-    private $_prefixPageUrl
+    private $_prefixPageUrl;
     private $_pageTitle;
     private $_pageId;
 
 
-    public __construct()
+    public function __construct()
     {
-        $_pageUrl = "welcome.php";
-        $_prefixPageUrl = "/view/content/";
-        $_pageTitle = "Welcome"
-        $_pageId = "welcome";
+        $this->_pageUrl = "welcome.php";
+        $this->_prefixPageUrl = "view/content";
+        $this->_pageTitle = "Welcome";
+        $this->_pageId = "welcome";
     }
 
 
@@ -22,11 +22,11 @@ class Context
         return $this->_prefixPageUrl . "/" . $this->_pageUrl;
     }
 
-    public setPageUrl($url) {
+    public function setPageUrl($url) {
         $this->_pageUrl = $url;
     }
 
-    public setPrefixPageUrl($prefix) {
+    public function setPrefixPageUrl($prefix) {
         $this->_prefixPageUrl = $prefix;
     }
 
@@ -35,7 +35,7 @@ class Context
         return $this->_pageTitle;
     }
 
-    public setPageUrl($title) {
+    public function setPageTitle($title) {
         $this->_pageTitle = $title;
     }
 
@@ -44,7 +44,7 @@ class Context
         return $this->_pageId;
     }
 
-    public setPageUrl($id) {
+    public function setPageId($id) {
         $this->_pageId = $id;
     }
 }

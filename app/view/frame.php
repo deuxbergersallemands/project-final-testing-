@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>
-        <?php echo $context->getPageTitle ?>
+        <?php echo $context->getPageTitle(); ?>
     </title>
 </head>
 
