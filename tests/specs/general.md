@@ -2,22 +2,18 @@
 # Spécification générale de l'outil
 
 L'outil se base sur le pattern MVC.
-    - la partie modèle sera essentiellement l'accès à la base de données,
-    - la partie contrôleur contiendra tous les traitements à faire,
-    - la partie vue sera ce que verra l'utilisateur, et sa possibilité d'interaction.
+* la partie modèle sera essentiellement l'accès à la base de données,
+* la partie contrôleur contiendra tous les traitements à faire,
+* la partie vue sera ce que verra l'utilisateur, et sa possibilité d'interaction.
 
 
 ## Organisation des fichiers
 
 Afin de bien structurer l'outil, plusieurs sous-dossiers doivent être présents :
-    - model,
-    - view,
-    - controller,
-    - assets -> contiendra tous les fichiers utiles, images, scripts, feuilles de styles CSS.
-                - images,
-                - css,
-                - js,
-                - ...
+* model,
+* view,
+* controller,
+* assets -> contiendra tous les fichiers utiles, images, scripts, feuilles de styles CSS.
 
 Idéalement, les vues seront composées de deux ou plus pages HTML. Typiquement, la structure
 générale d'une page peut être défini dans un fichier, dans lequel sera inclue la partie changeante

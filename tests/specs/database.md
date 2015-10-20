@@ -12,25 +12,26 @@ sera donc étoffée au fur et à mesure de l'avancement du projet.
 
 Nom: UserStories
 Champs:
-    - usId -> int (identifiant unique en base de données)
-    - usIdentifier -> string (identifiant pour le backlog),
-    - usDescription -> string (courte description de l'US),
-    - usPriority -> int (priorité de l'US),
-    - usDifficulty -> int (diffulté de l'US),
-    - usState -> int (état d'avancement de l'US),
-    - usComment -> text (description et commentaire de l'US).
+* usId -> int (identifiant unique en base de données)   [obligatoire]
+* usIdentifier -> string (identifiant pour le backlog), [obligatoire]
+* usDescription -> string (courte description de l'US), [obligatoire]
+* usPriority -> int (priorité de l'US),
+* usDifficulty -> int (diffulté de l'US),
+* usState -> string (état d'avancement de l'US),
+* usDuration -> int (temps effectif en hj pour achever la tâches)
+* usComment -> text (description et commentaire de l'US).
 
 ### Méthodes
 
-- getUserStories()
-- getUserStory(id)
-- addUserStory(identifier, desc)
-- updateUserStory(id, identifier, desc)
-- delUserStory(id)
+* getUserStories()
+* getUserStory(id)
+* addUserStory(identifier, desc, prio, diff)
+* updateUserStory(id, identifier, desc, prio, diff)
+* delUserStory(id)
 
-- setUserStoryComment(id, desc)
-- setUserStoryPriority(id, prio)
-- setUserStoryDifficulty(id, diff)
+* setUserStoryComment(id, desc)
+* setUserStoryState(id, state)
+* setUserStoryDuration(id, dur)
 
 
 ## Tâches
@@ -38,21 +39,26 @@ Champs:
 
 Nom: Tasks
 Champs:
-    - taskId -> int,
-    - taskIdentifier -> string
-    - taskDescription -> string,
-    - taskState -> int,
-    - taskComment -> text.
+* taskId -> int,                [obligatoire]
+* taskIdentifier -> string,     [obligatoire]
+* taskDescription -> string,    [obligatoire]
+* taskExpectedDuration -> int (nombre d'hj attendu pour la tâche)
+* taskDuration -> int (nombre d'hj réel)
+* taskState -> state,
+* taskComment -> text,
+* devId -> int (id du developpeur chargé de la tâche).
 
 ### Méthodes
 
-- getTasks()
-- getTask(id)
-- addTask(identifier, desc)
-- updateTask(id, identifier, desc)
-- delTask(id)
+* getTasks()
+* getTask(id)
+* addTask(identifier, desc, expDur)
+* updateTask(id, identifier, desc, expDur)
+* delTask(id)
 
-- setTaskComment(id, desc)
+* setTaskComment(id, desc)
+* setTaskState(id, state)
+* setTaskDuration(id, dur)
 
 
 ## Sprints
@@ -60,21 +66,22 @@ Champs:
 
 Nom: Sprints
 Champs:
-    - sprintId -> int,
-    - sprintName -> string,
-    - sprintDuration -> int (nom de jours pour un sprint),
-    - sprintState -> int,
-    - sprintComment.
+* sprintId -> int,              [obligatoire]
+* sprintIdentifier -> string    [obligatoire],
+* sprintDuration -> int (nombre de jours pour un sprint) [obligatoire],
+* sprintState -> state,
+* sprintComment.
 
 ### Méthodes
 
-- getSprints()
-- getSprint(id)
-- addSprint(identifier, desc)
-- updateSprint(id, identifier, desc)
-- delSprint(id)
+* getSprints()
+* getSprint(id)
+* addSprint(identifier, desc, dur)
+* updateSprint(id, identifier, desc, dur)
+* delSprint(id)
 
-- setSprintComment(id, desc)
+* setSprintComment(id, desc)
+* setSprintState(id, state)
 
 
 ## Développeurs
@@ -82,17 +89,17 @@ Champs:
 
 Noms: Developpers
 Champs:
-    - devId -> int,
-    - devName -> string,
-    - devFirstName -> string,
-    - devComment -> text.
+* devId -> int,             [obligatoire]
+* devName -> string,        [obligatoire]
+* devFirstName -> string,   [obligatoire]
+* devComment -> text.
 
 ### Méthodes
 
-- getDeveloppers()
-- getDevelopper(id)
-- addDevelopper(name, fname)
-- updateDevelopper(id, name, fname)
-- delDevelopper(id)
+* getDeveloppers()
+* getDevelopper(id)
+* addDevelopper(name, fname)
+* updateDevelopper(id, name, fname)
+* delDevelopper(id)
 
-- setDevelopperComment(id, desc)
+* setDevelopperComment(id, desc)
