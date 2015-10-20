@@ -1,6 +1,6 @@
 
 ## Interface de la classe Context:
 
-- get/setPageUrl,
-- get/setPageTitle,
-- get/setPageId
+* get/setPageUrl,
+* get/setPageTitle,
+* get/setPageId
