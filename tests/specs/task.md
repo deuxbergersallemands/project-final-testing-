@@ -63,10 +63,8 @@ pouvoir rajouter une description, ceci se fera grâce à un formulaire et un cha
 'set_task_comment'
 
 
-### Variables du contrôleur à utiliser dans les vues
+### Communication vue/contrôleur
 
-Pour que les vues puissent afficher les données correctement, il faut que des variables
-soient définies.
-Ainsi, la vue se chargeant d'afficher la liste doit avoir accès à une variable 'tasks',
-et lorsqu'une vue traite une tâche en particulier, il faut qu'elle ait accès à une variable 'task'.
-Celle-ci refereront aux données cherchées.
+Via le context, la vue et le contrôleur peuvent communiquer.
+La vue se chargeant du listage, doit recevoir une liste de tâches, celles s'occupant
+de la modification ou l'affichage d'une tâche, doivent en recevoir une seule.
