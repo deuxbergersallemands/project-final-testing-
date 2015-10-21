@@ -3,9 +3,9 @@
 class Database
 {
     private $_host = "localhost";
-    private $_dbname = "raphael_m4a1";
-    private $_username = "raphael_m4a1";
-    private $_passwd = "wfusdfcf";
+    private $_dbname = "rjorel";
+    private $_username = "rjorel";
+    private $_passwd = "truc";
     private $_db;
 
 
@@ -174,6 +174,45 @@ class Database
         return $this->fetch($req);
     }
 
+    public function addSprint($identifier, $desc, $duration = 7)
+    {
+        $req = $this->_db->prepare("INSERT INTO Sprints(sprintIdentifier, sprintDescription,
+                                                            sprintDuration)
+                                                VALUES(?, ?, ?)");
+        $req->execute(array($identifier, $desc, $duration));
+        $req->closeCursor();
+    }
+
+    public function updateSprint($id, $identifier, $desc, $duration = 7)
+    {
+        $req = $this->_db->prepare("UPDATE Sprints SET sprintIdentifier = ?, sprintDescription = ?,
+                                                            sprintDuration = ?
+                                                WHERE sprintId = ?");
+        $req->execute(array($identifier, $desc, $duration, $id));
+        $req->closeCursor();
+    }
+
+    public function delSprint($id)
+    {
+        $req = $this->_db->prepare("DELETE FROM Sprints WHERE sprintId = ?");
+        $req->execute(array($id));
+        $req->closeCursor();
+    }
+
+    public function setSprintComment($id, $comment)
+    {
+        $req = $this->_db->prepare("UPDATE Sprints SET sprintComment = ? WHERE sprintId = ?");
+        $req->execute(array($comment, $id));
+        $req->closeCursor();
+    }
+
+    public function setSprintState($id, $state)
+    {
+        $req = $this->_db->prepare("UPDATE Tasks SET sprintState = ? WHERE sprintId = ?");
+        $req->execute(array($state, $id));
+        $req->closeCursor();
+    }
+
 
     // Developpers handling.
 
@@ -187,4 +226,35 @@ class Database
         $req->execute(array($id));
         return $this->fetch($req);
     }
+    
+    public function addDevelopper($name, $fname)
+    {
+        $req = $this->_db->prepare("INSERT INTO Developpers(devName, devFirstName)
+                                                VALUES(?, ?)");
+        $req->execute(array($name, $fname));
+        $req->closeCursor();
+    }
+
+    public function updateDevelopper($id, $name, $fname)
+    {
+        $req = $this->_db->prepare("UPDATE Sprints SET devName = ?, devFirstName = ?
+                                                WHERE devId = ?");
+        $req->execute(array($name, $fname, $id));
+        $req->closeCursor();
+    }
+
+    public function delDevelopper($id)
+    {
+        $req = $this->_db->prepare("DELETE FROM Developpers WHERE devId = ?");
+        $req->execute(array($id));
+        $req->closeCursor();
+    }
+
+    public function setDevelopperComment($id, $comment)
+    {
+        $req = $this->_db->prepare("UPDATE Developpers SET devComment = ? WHERE devId = ?");
+        $req->execute(array($comment, $id));
+        $req->closeCursor();
+    }
+
 }
