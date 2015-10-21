@@ -1,3 +1,4 @@
+<?php $task = $context->getData(); ?>
 
 <form method="post" action="?task">
     <input type="hidden" name="edit_task_id" value="<?php echo $task->taskId; ?>" />

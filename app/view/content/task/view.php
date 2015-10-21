@@ -1,3 +1,4 @@
+<?php $task = $context->getData(); ?>
 
 <table>
     <tr>

@@ -8,6 +8,8 @@ class Context
     private $_pageTitle;
     private $_pageId;
 
+    private $_data;
+
 
     public function __construct()
     {
@@ -46,5 +48,14 @@ class Context
 
     public function setPageId($id) {
         $this->_pageId = $id;
+    }
+
+
+    public function getData() {
+        return $this->_data;
+    }
+
+    public function setData($data) {
+        $this->_data = $data;
     }
 }

@@ -7,7 +7,7 @@
     </tr>
 
 <?php
-foreach ($tasks as $task) {
+foreach ($context->getData() as $task) {
 ?>
     <tr>
         <td><?php echo $task->taskIdentifier; ?></td>
