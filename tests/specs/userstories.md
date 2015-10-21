@@ -7,7 +7,7 @@ est définie. Cette variable est 'userstories'.
 
 ## Interface des user stories
 
-Les différentes vues pour la gestion des userstories sont :
+Les différentes vues pour la gestion des user stories sont :
 * ajout,
 * modification,
 * suppression,
@@ -31,8 +31,8 @@ Les champs pour l'ajout d'une user story sont :
 
 * new_us_identifier -> identifiant de la user story (requis),
 * new_us_description -> description de la user story (requis),
-* new_us_Priority -> priorité de la user story ,
-* new_us_Difficulty -> difficulté de la user story ,
+* new_us_priority -> priorité de la user story ,
+* new_us_difficulty -> difficulté de la user story ,
 * new_us_comment -> commentaire 
 
 ### Champs HTML pour modification
@@ -44,8 +44,8 @@ Les champs pour la modification d'une user story sont :
 
 * edit_us_identifier -> identifiant de la user story (requis),
 * edit_us_description -> description de la user story (requis),
-* edit_us_Priority -> priorité de la user story ,
-* edit_us_Difficulty -> difficulté de la user story ,
+* edit_us_priority -> priorité de la user story ,
+* edit_us_difficulty -> difficulté de la user story ,
 * edit_us_comment -> commentaire 
 
 Ces variables sont passées par formulaire, en POST.
@@ -59,10 +59,10 @@ les champs pour la visualisation sont :
 
 * view_us_identifier -> identifiant de la user story (requis),
 * view_us_description -> description de la user story (requis),
-* view_us_Priority -> priorité de la user story ,
-* view_us_Difficulty -> difficulté de la user story ,
+* view_us_priority -> priorité de la user story ,
+* view_us_difficulty -> difficulté de la user story ,
 * view_us_State -> l'etat de la user story ,
-* view_us_Duration -> le temps de réalisation de la user story (s'affichera si la user story est validée)  ,
+* view_us_duration -> le temps de réalisation de la user story (s'affichera si la user story est validée)  ,
 * view_us_comment -> commentaire 
 
 ### Suppression
