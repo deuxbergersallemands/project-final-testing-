@@ -31,7 +31,7 @@ Les champs pour l'ajout d'un développeur sont :
 
 * new_dev_name -> prénom du développeur (requis),
 * new_dev_first_name -> nom du développeur (requis) ,
-* new_dev_comment -> commentaire 
+* new_dev_description -> commentaire 
 
 ### Champs HTML pour modification
 
@@ -42,7 +42,7 @@ Les champs pour la modification d'un développeur sont :
 
 * edit_dev_name -> prénom du développeur (requis),
 * edit_dev_first_name -> nom du développeur (requis) ,
-* edit_dev_comment -> commentaire 
+* edit_dev_description -> commentaire 
 
 Ces variables sont passées par formulaire, en POST.
 
