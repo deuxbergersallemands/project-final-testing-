@@ -40,6 +40,7 @@ et doit valoir l'id du développeur à modifier.
 
 Les champs pour la modification d'un développeur sont :
 
+* edit_dev_id -> id du développeur (requis),
 * edit_dev_name -> prénom du développeur (requis),
 * edit_dev_first_name -> nom du développeur (requis) ,
 * edit_dev_description -> commentaire 
