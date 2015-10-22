@@ -4,5 +4,5 @@ CREATE TABLE IF NOT EXISTS `Sprints`(
     `sprintIdentifier`  VARCHAR(255) NOT NULL,
     `sprintDuration`    VARCHAR(255) NOT NULL,
     `sprintState`       VARCHAR(255),
-    `sprintComment`     TEXT
+    `sprintDescription` TEXT
 )
