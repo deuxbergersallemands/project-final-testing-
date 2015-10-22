@@ -2,7 +2,7 @@
 ## Accès à la gestion des développeurs
 
 Afin que le site soit redirigé vers la gestion des développeurs, une variable d'URL
-est définie. Cette variable est 'developpers'.
+est définie. Cette variable est 'developers'.
 
 
 ## Interface des développeurs
