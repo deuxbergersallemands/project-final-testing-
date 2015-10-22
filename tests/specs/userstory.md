@@ -36,7 +36,7 @@ User Story à la BDD soit mettre à jour les détails d'une User Story déjà pr
 
 ### Champs HTML pour l'ajout / modification
 
-Les champs pour l'ajout/modification d'un développeur sont :
+Les champs pour l'ajout/modification d'une US sont :
 
 * user_story_form_identifiant ->  identifiant pour le backlog (requis),
 * user_story_form_summary -> Description courte de l'US (requis),
