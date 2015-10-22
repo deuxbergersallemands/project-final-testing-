@@ -6,8 +6,8 @@
         <td><?php echo $task->taskIdentifier; ?></td>
     </tr>
     <tr>
-        <th>Description:</th>
-        <td><?php echo $task->taskDescription; ?></td>
+        <th>Summary:</th>
+        <td><?php echo $task->taskSummary; ?></td>
     </tr>
     <tr>
         <th>Expected duration:</th>
@@ -22,7 +22,7 @@
         <td><?php echo $task->taskState; ?></td>
     </tr>
     <tr>
-        <th>Comment:</th>
-        <td><?php echo $task->taskComment; ?></td>
+        <th>Description:</th>
+        <td><?php echo $task->taskDescription; ?></td>
     </tr>
 </table>
