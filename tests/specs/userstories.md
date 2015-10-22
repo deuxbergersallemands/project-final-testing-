@@ -30,10 +30,10 @@ Pour aller sur la vue d'ajout d'une user story, 'add' doit être défini dans l'
 Les champs pour l'ajout d'une user story sont :
 
 * new_us_identifier -> identifiant de la user story (requis),
-* new_us_description -> description de la user story (requis),
+* new_us_summary -> description de la user story (requis),
 * new_us_priority -> priorité de la user story ,
 * new_us_difficulty -> difficulté de la user story ,
-* new_us_comment -> commentaire 
+* new_us_description -> commentaire 
 
 ### Champs HTML pour modification
 
@@ -43,10 +43,10 @@ et doit valoir l'id de l'user story à modifier.
 Les champs pour la modification d'une user story sont :
 
 * edit_us_identifier -> identifiant de la user story (requis),
-* edit_us_description -> description de la user story (requis),
+* edit_us_summary -> description de la user story (requis),
 * edit_us_priority -> priorité de la user story ,
 * edit_us_difficulty -> difficulté de la user story ,
-* edit_us_comment -> commentaire 
+* edit_us_description -> commentaire 
 
 Ces variables sont passées par formulaire, en POST.
 
@@ -58,12 +58,12 @@ l'id de la user story souhaitée.
 les champs pour la visualisation sont : 
 
 * view_us_identifier -> identifiant de la user story (requis),
-* view_us_description -> description de la user story (requis),
+* view_us_summary -> description de la user story (requis),
 * view_us_priority -> priorité de la user story ,
 * view_us_difficulty -> difficulté de la user story ,
 * view_us_State -> l'etat de la user story ,
 * view_us_duration -> le temps de réalisation de la user story (s'affichera si la user story est validée)  ,
-* view_us_comment -> commentaire 
+* view_us_description -> commentaire 
 
 ### Suppression
 
