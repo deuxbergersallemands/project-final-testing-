@@ -24,16 +24,18 @@ L'ajout et la modification nécessite un formulaire.
 Les champs pour l'ajout d'une tâche sont :
 
 * new_task_identifier -> identifiant de la tâche (requis),
-* new_task_description -> description de la tâche (requis),
-* new_task_expected_duration -> temps attendu (en hj) pour la tâche.
+* new_task_summary -> description courte de la tâche (requis),
+* new_task_expected_duration -> temps attendu (en hj) pour la tâche,
+* new_task_description -> description et commentaire.
 
 
 Les champs pour la modification d'une tâche sont :
 
 * edit_task_id -> id de la tâche (requis),
 * edit_task_identifier -> identifiant de la tâche (requis),
-* edit_task_description -> description de la tâche (requis),
-* edit_task_expected_duration -> temps attendu (en hj) pour la tâche.
+* edit_task_summary -> description courte de la tâche (requis),
+* edit_task_expected_duration -> temps attendu (en hj) pour la tâche,
+* edit_task_description.
 
 Ces variables sont passées par formulaire, en POST.
 
