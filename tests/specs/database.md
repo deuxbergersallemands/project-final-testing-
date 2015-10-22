@@ -29,7 +29,6 @@ Champs:
 * updateUserStory(id, identifier, desc, prio, diff)
 * delUserStory(id)
 
-* setUserStoryComment(id, desc)
 * setUserStoryState(id, state)
 * setUserStoryDuration(id, dur)
 
@@ -56,7 +55,6 @@ Champs:
 * updateTask(id, identifier, desc, expDur)
 * delTask(id)
 
-* setTaskComment(id, desc)
 * setTaskState(id, state)
 * setTaskDuration(id, dur)
 
@@ -80,7 +78,6 @@ Champs:
 * updateSprint(id, identifier, desc, dur)
 * delSprint(id)
 
-* setSprintComment(id, desc)
 * setSprintState(id, state)
 
 
@@ -101,5 +98,3 @@ Champs:
 * addDevelopper(name, fname)
 * updateDevelopper(id, name, fname)
 * delDevelopper(id)
-
-* setDevelopperComment(id, desc)
