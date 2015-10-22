@@ -14,19 +14,19 @@ Nom: UserStories
 Champs:
 * usId -> int (identifiant unique en base de données)   [obligatoire]
 * usIdentifier -> string (identifiant pour le backlog), [obligatoire]
-* usDescription -> string (courte description de l'US), [obligatoire]
+* usSummary -> string (courte summription de l'US), [obligatoire]
 * usPriority -> int (priorité de l'US),
 * usDifficulty -> int (diffulté de l'US),
 * usState -> string (état d'avancement de l'US),
 * usDuration -> int (temps effectif en hj pour achever la tâches)
-* usComment -> text (description et commentaire de l'US).
+* usDescription -> text (summription et commentaire de l'US).
 
 ### Méthodes
 
 * getUserStories()
 * getUserStory(id)
-* addUserStory(identifier, desc, prio, diff)
-* updateUserStory(id, identifier, desc, prio, diff)
+* addUserStory(identifier, summ, prio, diff, desc)
+* updateUserStory(id, identifier, summ, prio, diff, desc)
 * delUserStory(id)
 
 * setUserStoryState(id, state)
@@ -40,19 +40,19 @@ Nom: Tasks
 Champs:
 * taskId -> int,                [obligatoire]
 * taskIdentifier -> string,     [obligatoire]
-* taskDescription -> string,    [obligatoire]
+* taskSummary -> string,    [obligatoire]
 * taskExpectedDuration -> int (nombre d'hj attendu pour la tâche)
 * taskDuration -> int (nombre d'hj réel)
 * taskState -> state,
-* taskComment -> text,
+* taskDescription -> text,
 * devId -> int (id du developpeur chargé de la tâche).
 
 ### Méthodes
 
 * getTasks()
 * getTask(id)
-* addTask(identifier, desc, expDur)
-* updateTask(id, identifier, desc, expDur)
+* addTask(identifier, summ, expDur, desc)
+* updateTask(id, identifier, summ, expDur, desc)
 * delTask(id)
 
 * setTaskState(id, state)
@@ -68,14 +68,14 @@ Champs:
 * sprintIdentifier -> string    [obligatoire],
 * sprintDuration -> int (nombre de jours pour un sprint) [obligatoire],
 * sprintState -> state,
-* sprintComment.
+* sprintDescription.
 
 ### Méthodes
 
 * getSprints()
 * getSprint(id)
-* addSprint(identifier, desc, dur)
-* updateSprint(id, identifier, desc, dur)
+* addSprint(identifier, dur, desc)
+* updateSprint(id, identifier, dur, desc)
 * delSprint(id)
 
 * setSprintState(id, state)
@@ -89,12 +89,12 @@ Champs:
 * devId -> int,             [obligatoire]
 * devName -> string,        [obligatoire]
 * devFirstName -> string,   [obligatoire]
-* devComment -> text.
+* devDescription -> text.
 
 ### Méthodes
 
 * getDeveloppers()
 * getDevelopper(id)
-* addDevelopper(name, fname)
-* updateDevelopper(id, name, fname)
+* addDevelopper(name, fname, desc)
+* updateDevelopper(id, name, fname, desc)
 * delDevelopper(id)
