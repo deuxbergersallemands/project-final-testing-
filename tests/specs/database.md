@@ -84,7 +84,7 @@ Champs:
 ## Développeurs
 ### Tables
 
-Noms: Developpers
+Noms: Developers
 Champs:
 * devId -> int,             [obligatoire]
 * devName -> string,        [obligatoire]
