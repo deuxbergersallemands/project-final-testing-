@@ -2,7 +2,7 @@
 ## Accès à la gestion des développeurs
 
 Afin que le site soit redirigé vers la gestion des développeurs, une variable d'URL
-est définie. Cette variable est 'developpers'.
+est définie. Cette variable est 'developers'.
 
 
 ## Interface des développeurs
@@ -40,6 +40,7 @@ et doit valoir l'id du développeur à modifier.
 
 Les champs pour la modification d'un développeur sont :
 
+* edit_dev_id -> id du développeur (requis),
 * edit_dev_name -> prénom du développeur (requis),
 * edit_dev_first_name -> nom du développeur (requis) ,
 * edit_dev_description -> commentaire 
