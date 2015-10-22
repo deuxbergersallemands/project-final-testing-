@@ -42,6 +42,7 @@ et doit valoir l'id de l'user story à modifier.
 
 Les champs pour la modification d'une user story sont :
 
+* edit_us_id -> id de la user story (requis),
 * edit_us_identifier -> identifiant de la user story (requis),
 * edit_us_summary -> description de la user story (requis),
 * edit_us_priority -> priorité de la user story ,
