@@ -1,6 +1,6 @@
 <?php $task = $context->getData(); ?>
 
-<form method="post" action="?task">
+<form method="post" action="?tasks">
     <input type="hidden" name="edit_task_id" value="<?php echo $task->taskId; ?>" />
     <label>Identifier:</label><input type="text" name="edit_task_identifier"
                                 value="<?php echo $task->taskIdentifier; ?>" required /><br />

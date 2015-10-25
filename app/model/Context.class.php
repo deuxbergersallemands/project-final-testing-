@@ -4,10 +4,10 @@
 class Context
 {
     // Class constantes, to common button images.
-    const $VIEW_BUTTON_IMG  = "assets/images/";
-    const $ADD_BUTTON_IMG   = "assets/images/";
-    const $EDIT_BUTTON_IMG  = "assets/images/";
-    const $DEL_BUTTON_IMG   = "assets/images/";
+    const VIEW_BUTTON_IMG  = "assets/images/";
+    const ADD_BUTTON_IMG   = "assets/images/";
+    const EDIT_BUTTON_IMG  = "assets/images/";
+    const DEL_BUTTON_IMG   = "assets/images/";
 
     // Class variables.
     private $_pageUrl;
@@ -21,7 +21,7 @@ class Context
     public function __construct()
     {
         $this->_pageUrl = "welcome.php";
-        $this->_prefixPageUrl = "view/content";
+        $this->_prefixPageUrl = "view";
         $this->_pageTitle = "Welcome";
         $this->_pageId = "welcome";
     }

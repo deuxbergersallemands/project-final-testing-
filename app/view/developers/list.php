@@ -1,4 +1,5 @@
 
+<a href="?developers&amp;add">Add developer</a><br />
 <table>
     <tr>
         <th>Name</th>
