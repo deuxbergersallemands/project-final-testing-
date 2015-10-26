@@ -1,6 +1,7 @@
 <?php
 $context->setData($db->getSprints());         
 $context->setPageUrl("sprints/list.php");
+$context->setHeader("Sprints");
 
 if (isset($_GET['add']))
     $context->setPageUrl("sprints/add.php");

@@ -1,6 +1,7 @@
 <?php
 $context->setData($db->getUserStories());         
 $context->setPageUrl("userstories/list.php");
+$context->setHeader("Backlog");
 
 if (isset($_GET['add']))
     $context->setPageUrl("userstories/add.php");

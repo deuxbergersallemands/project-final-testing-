@@ -8,6 +8,9 @@
                                     value="<?php echo $dev->devFirstName; ?>" required /><br />
     <label>Description:</label><br /><textarea name="edit_dev_description">
                                         <?php echo $dev->devDescription; ?>
-                                     </textarea>
+                                     </textarea><br />
     <input type="submit" value="Edit developer">
 </form>
+
+<br />
+<a href="?developers"><img src="<?php echo $context::BACK_BUTTON_IMG; ?>" /><button type="button" class="btn btn-link">Back</button></a><br />

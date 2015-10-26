@@ -26,3 +26,6 @@
         <td><?php echo $task->taskDescription; ?></td>
     </tr>
 </table>
+
+<br />
+<a href="?tasks"><img src="<?php echo $context::BACK_BUTTON_IMG; ?>" /><button type="button" class="btn btn-link">Back</button></a><br />
