@@ -3,6 +3,13 @@
 
 class Context
 {
+    // Class constantes, to common button images.
+    const $VIEW_BUTTON_IMG  = "assets/images/";
+    const $ADD_BUTTON_IMG   = "assets/images/";
+    const $EDIT_BUTTON_IMG  = "assets/images/";
+    const $DEL_BUTTON_IMG   = "assets/images/";
+
+    // Class variables.
     private $_pageUrl;
     private $_prefixPageUrl;
     private $_pageTitle;
