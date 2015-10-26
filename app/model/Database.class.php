@@ -4,8 +4,8 @@ class Database
 {
     private $_host = "localhost";
     private $_dbname = "rjorel";
-    private $_username = "rjorel";
-    private $_passwd = "truc";
+    private $_username = "root";
+    private $_passwd = "wfusdfcf";
     private $_db;
 
 
@@ -44,7 +44,7 @@ class Database
     // UserStories handling.
 
     public function getUserStories() {
-        $this->fetchAll($this->_db->query("SELECT * FROM UserStories"));
+        return $this->fetchAll($this->_db->query("SELECT * FROM UserStories"));
     }
 
     public function getUserStory($id)
@@ -54,21 +54,22 @@ class Database
         return $this->fetch($req);
     }
 
-    public function addUserStory($identifier, $desc, $prio = 0, $diff = 0)
+    public function addUserStory($identifier, $summ, $prio = 0, $diff = 0, $desc = "")
     {
-        $req = $this->_db->prepare("INSERT INTO UserStories(usIdentifier, usDescription,
-                                                            usPriority, usDifficulty)
+        $req = $this->_db->prepare("INSERT INTO UserStories(usIdentifier, usSummary,
+                                                            usPriority, usDifficulty, usDescription)
                                                 VALUES(?, ?, ?, ?)");
-        $req->execute(array($identifier, $desc, $prio, $diff));
+        $req->execute(array($identifier, $summ, $prio, $diff, $desc));
         $req->closeCursor();
     }
 
-    public function updateUserStory($id, $identifier, $desc, $prio = 0, $diff = 0)
+    public function updateUserStory($id, $identifier, $summ, $prio = 0, $diff = 0, $desc = "")
     {
-        $req = $this->_db->prepare("UPDATE UserStories SET usIdentifier = ?, usDescription = ?,
-                                                            usPriority = ?, usDifficulty = ?
+        $req = $this->_db->prepare("UPDATE UserStories SET usIdentifier = ?, usSummary = ?,
+                                                            usPriority = ?, usDifficulty = ?,
+                                                            usDescription = ?
                                                 WHERE usId = ?");
-        $req->execute(array($identifier, $desc, $prio, $diff, $id));
+        $req->execute(array($identifier, $summ, $prio, $diff, $desc, $id));
         $req->closeCursor();
     }
 
@@ -76,13 +77,6 @@ class Database
     {
         $req = $this->_db->prepare("DELETE FROM UserStories WHERE usId = ?");
         $req->execute(array($id));
-        $req->closeCursor();
-    }
-
-    public function setUserStoryComment($id, $comment)
-    {
-        $req = $this->_db->prepare("UPDATE UserStories SET usComment = ? WHERE usId = ?");
-        $req->execute(array($comment, $id));
         $req->closeCursor();
     }
 
@@ -104,7 +98,7 @@ class Database
     // Tasks handling.
 
     public function getTasks() {
-        $this->fetchAll($this->_db->query("SELECT * FROM Tasks"));
+        return $this->fetchAll($this->_db->query("SELECT * FROM Tasks"));
     }
 
     public function getTask($id)
@@ -114,21 +108,21 @@ class Database
         return $this->fetch($req);
     }
 
-    public function addTask($identifier, $desc, $expectedDuration = 0)
+    public function addTask($identifier, $summ, $expectedDuration = 0, $desc = "")
     {
-        $req = $this->_db->prepare("INSERT INTO Tasks(taskIdentifier, taskDescription,
-                                                            taskExpectedDuration)
-                                                VALUES(?, ?, ?)");
-        $req->execute(array($identifier, $desc, $expectedDuration));
+        $req = $this->_db->prepare("INSERT INTO Tasks(taskIdentifier, taskSummary,
+                                                            taskExpectedDuration, taskDescription)
+                                                VALUES(?, ?, ?, ?)");
+        $req->execute(array($identifier, $summ, $expectedDuration, $desc));
         $req->closeCursor();
     }
 
-    public function updateTask($id, $identifier, $desc, $expectedDuration = 0)
+    public function updateTask($id, $identifier, $summ, $expectedDuration = 0, $desc = "")
     {
-        $req = $this->_db->prepare("UPDATE Tasks SET taskIdentifier = ?, taskDescription = ?,
-                                                            taskExpectedDuration = ?
+        $req = $this->_db->prepare("UPDATE Tasks SET taskIdentifier = ?, taskSummary = ?,
+                                                            taskExpectedDuration = ?, taskDescription = ?
                                                 WHERE taskId = ?");
-        $req->execute(array($identifier, $desc, $expectedDuration, $id));
+        $req->execute(array($identifier, $summ, $expectedDuration, $desc, $id));
         $req->closeCursor();
     }
 
@@ -136,13 +130,6 @@ class Database
     {
         $req = $this->_db->prepare("DELETE FROM Tasks WHERE taskId = ?");
         $req->execute(array($id));
-        $req->closeCursor();
-    }
-
-    public function setTaskComment($id, $comment)
-    {
-        $req = $this->_db->prepare("UPDATE Tasks SET taskComment = ? WHERE taskId = ?");
-        $req->execute(array($comment, $id));
         $req->closeCursor();
     }
 
@@ -164,7 +151,7 @@ class Database
     // Sprints handling.
     
     public function getSprints() {
-        $this->fetchAll($this->_db->query("SELECT * FROM Sprints"));
+        return $this->fetchAll($this->_db->query("SELECT * FROM Sprints"));
     }
 
     public function getSprint($id)
@@ -174,21 +161,21 @@ class Database
         return $this->fetch($req);
     }
 
-    public function addSprint($identifier, $desc, $duration = 7)
+    public function addSprint($identifier, $summ, $duration = 7, $desc = "")
     {
-        $req = $this->_db->prepare("INSERT INTO Sprints(sprintIdentifier, sprintDescription,
-                                                            sprintDuration)
+        $req = $this->_db->prepare("INSERT INTO Sprints(sprintIdentifier, sprintSummary,
+                                                            sprintDuration, sprintDescription)
                                                 VALUES(?, ?, ?)");
-        $req->execute(array($identifier, $desc, $duration));
+        $req->execute(array($identifier, $summ, $duration, $desc));
         $req->closeCursor();
     }
 
-    public function updateSprint($id, $identifier, $desc, $duration = 7)
+    public function updateSprint($id, $identifier, $summ, $duration = 7, $desc = "")
     {
-        $req = $this->_db->prepare("UPDATE Sprints SET sprintIdentifier = ?, sprintDescription = ?,
-                                                            sprintDuration = ?
+        $req = $this->_db->prepare("UPDATE Sprints SET sprintIdentifier = ?, sprintSummary = ?,
+                                                            sprintDuration = ?, sprintDescription = ?
                                                 WHERE sprintId = ?");
-        $req->execute(array($identifier, $desc, $duration, $id));
+        $req->execute(array($identifier, $summ, $duration, $desc, $id));
         $req->closeCursor();
     }
 
@@ -196,13 +183,6 @@ class Database
     {
         $req = $this->_db->prepare("DELETE FROM Sprints WHERE sprintId = ?");
         $req->execute(array($id));
-        $req->closeCursor();
-    }
-
-    public function setSprintComment($id, $comment)
-    {
-        $req = $this->_db->prepare("UPDATE Sprints SET sprintComment = ? WHERE sprintId = ?");
-        $req->execute(array($comment, $id));
         $req->closeCursor();
     }
 
@@ -214,47 +194,39 @@ class Database
     }
 
 
-    // Developpers handling.
+    // Developers handling.
 
-    public function getDeveloppers() {
-        $this->fetchAll($this->_db->query("SELECT * FROM Developpers"));
+    public function getDevelopers() {
+        return $this->fetchAll($this->_db->query("SELECT * FROM Developers"));
     }
 
-    public function getDevelopper($id)
+    public function getDeveloper($id)
     {
-        $req = $this->_db->prepare("SELECT * FROM Developpers WHERE devId = ?");
+        $req = $this->_db->prepare("SELECT * FROM Developers WHERE devId = ?");
         $req->execute(array($id));
         return $this->fetch($req);
     }
     
-    public function addDevelopper($name, $fname)
+    public function addDeveloper($name, $fname, $desc = "")
     {
-        $req = $this->_db->prepare("INSERT INTO Developpers(devName, devFirstName)
-                                                VALUES(?, ?)");
-        $req->execute(array($name, $fname));
+        $req = $this->_db->prepare("INSERT INTO Developers(devName, devFirstName, devDescription)
+                                                VALUES(?, ?, ?)");
+        $req->execute(array($name, $fname, $desc));
         $req->closeCursor();
     }
 
-    public function updateDevelopper($id, $name, $fname)
+    public function updateDeveloper($id, $name, $fname, $desc = "")
     {
-        $req = $this->_db->prepare("UPDATE Sprints SET devName = ?, devFirstName = ?
+        $req = $this->_db->prepare("UPDATE Developers SET devName = ?, devFirstName = ?, devDescription = ?
                                                 WHERE devId = ?");
-        $req->execute(array($name, $fname, $id));
+        $req->execute(array($name, $fname, $desc, $id));
         $req->closeCursor();
     }
 
-    public function delDevelopper($id)
+    public function delDeveloper($id)
     {
-        $req = $this->_db->prepare("DELETE FROM Developpers WHERE devId = ?");
+        $req = $this->_db->prepare("DELETE FROM Developers WHERE devId = ?");
         $req->execute(array($id));
         $req->closeCursor();
     }
-
-    public function setDevelopperComment($id, $comment)
-    {
-        $req = $this->_db->prepare("UPDATE Developpers SET devComment = ? WHERE devId = ?");
-        $req->execute(array($comment, $id));
-        $req->closeCursor();
-    }
-
 }

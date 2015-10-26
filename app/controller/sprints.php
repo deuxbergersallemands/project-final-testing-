@@ -1,6 +1,7 @@
 <?php
 $context->setData($db->getSprints());         
 $context->setPageUrl("sprints/list.php");
+$context->setHeader("Sprints");
 
 if (isset($_GET['add']))
     $context->setPageUrl("sprints/add.php");
@@ -14,18 +15,17 @@ else if (!empty($_GET['del']))
 	
 else if (!empty($_GET['id'])) {                       
     $context->setData($db->getSprint($_GET['id']));
-    $context->setPageUrl("sprints/view.php");} 
-
+    $context->setPageUrl("sprints/view.php");
+} 
 else if (!empty($_POST['new_sprint_identifier']) && !empty($_POST['new_sprint_duration']) ) {
 
     $comment = (!empty($_POST['new_sprint_description'])) ? $_POST['new_sprint_description'] : "";
 
-    $db->addSprint($_POST['new_sprint_identifier'], $_POST['new_sprint_duration']), $comment);
+    $db->addSprint($_POST['new_sprint_identifier'], $_POST['new_sprint_duration'], $comment);
 }
-	
 else if (!empty($_POST['edit_sprint_id']) && !empty($_POST['edit_sprint_identifier']) && !empty($_POST['edit_sprint_duration']) ) {
 
     $comment = (!empty($_POST['edit_sprint_description'])) ? $_POST['edit_sprint_description'] : "";
 	
-    $db->updateSprint($_POST['edit_sprint_id'], $_POST['edit_sprint_identifier'], $_POST['edit_sprint_duration']), $comment);
+    $db->updateSprint($_POST['edit_sprint_id'], $_POST['edit_sprint_identifier'], $_POST['edit_sprint_duration'], $comment);
 }

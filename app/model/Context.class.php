@@ -4,16 +4,20 @@
 class Context
 {
     // Class constantes, to common button images.
-    const $VIEW_BUTTON_IMG  = "assets/images/";
-    const $ADD_BUTTON_IMG   = "assets/images/";
-    const $EDIT_BUTTON_IMG  = "assets/images/";
-    const $DEL_BUTTON_IMG   = "assets/images/";
+    const VIEW_BUTTON_IMG  = "assets/images/";
+    const ADD_BUTTON_IMG   = "assets/images/add.png";
+    const EDIT_BUTTON_IMG  = "assets/images/edit.png";
+    const DEL_BUTTON_IMG   = "assets/images/delete.png";
+    const BACK_BUTTON_IMG  = "assets/images/back.png";
+    const HELP_BUTTON_IMG  = "assets/images/help.png";
+    const LOUPE_BUTTON_IMG  = "assets/images/loupe.png";
 
     // Class variables.
     private $_pageUrl;
     private $_prefixPageUrl;
     private $_pageTitle;
     private $_pageId;
+    private $_header;
 
     private $_data;
 
@@ -21,9 +25,10 @@ class Context
     public function __construct()
     {
         $this->_pageUrl = "welcome.php";
-        $this->_prefixPageUrl = "view/content";
+        $this->_prefixPageUrl = "view";
         $this->_pageTitle = "Welcome";
         $this->_pageId = "welcome";
+        $this->_header = "Welcome";
     }
 
 
@@ -57,6 +62,13 @@ class Context
         $this->_pageId = $id;
     }
 
+    public function getHeader() {
+        return $this->_header;
+    }
+
+    public function setHeader($header) {
+        $this->_header = $header;
+    }
 
     public function getData() {
         return $this->_data;
