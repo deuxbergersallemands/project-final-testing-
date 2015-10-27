@@ -1,18 +1,21 @@
 <?php
+
 $context->setData($db->getUserStories());         
 $context->setPageUrl("userstories/list.php");
 $context->setHeader("Backlog");
+
 
 if (isset($_GET['add']))
     $context->setPageUrl("userstories/add.php");
 
 else if (!empty($_GET['edit'])) {
     $context->setData($db->getUserStory($_GET['edit']));
-    $context->setPageUrl("userstories/edit.php");}
-
-else if (!empty($_GET['del']))
+    $context->setPageUrl("userstories/edit.php");
+}
+else if (!empty($_GET['del'])) {
     $db->delUserStory($_GET['del']);
-	
+    $context->setData($db->getUserStories());         
+}
 else if (!empty($_GET['id'])) {                       
     $context->setData($db->getUserStory($_GET['id']));
     $context->setPageUrl("userstories/view.php");
@@ -24,6 +27,7 @@ else if (!empty($_POST['new_us_identifier']) && !empty($_POST['new_us_summary'])
     $description = (!empty($_POST['new_us_description'])) ? $_POST['new_us_description'] : "";
 	
     $db->addUserStory($_POST['new_us_identifier'], $_POST['new_us_summary'], $priority, $difficulty, $description);
+    $context->setData($db->getUserStories());         
 }
 else if (!empty($_POST['edit_us_id']) && !empty($_POST['edit_us_identifier']) && !empty($_POST['edit_us_summary']) ) {
 
@@ -32,4 +36,5 @@ else if (!empty($_POST['edit_us_id']) && !empty($_POST['edit_us_identifier']) &&
     $description = (!empty($_POST['edit_us_description'])) ? $_POST['edit_us_description'] : "";
 	
     $db->updateUserStory($_POST['edit_us_id'], $_POST['edit_us_identifier'], $_POST['edit_us_summary'], $priority, $difficulty, $description);
+    $context->setData($db->getUserStories());         
 }

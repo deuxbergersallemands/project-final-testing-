@@ -1,9 +1,9 @@
 
-<form method="post" action="?userstories">
-    <label>Identifier:</label><input type="text" name="new_us_identifier" required /><br />
-    <label>Summary:</label><input type="text" name="new_us_summary" required /><br />
-    <label>Priority:</label><br /><input type="number" name="new_us_priority"><br />
-    <label>Difficulty:</label><br /><input type="number" name="new_us_difficulty"><br />
-    <label>description:</label><br /><textarea name="new_us_description"></textarea><br />
-    <input type="submit" value="Add user story">
+<form class="form-signin add" method="post" action="?userstories">
+    <label>Identifier:</label><input type="text" name="new_us_identifier" required />
+    <label>Summary:</label><input type="text" name="new_us_summary" required />
+    <label>Priority:</label><input type="number" name="new_us_priority">
+    <label>Difficulty:</label><input type="number" name="new_us_difficulty">
+    <label>description:</label><textarea name="new_us_description"></textarea>
+    <button  class="btn btn-lg" type="submit">Add</button>
 </form>

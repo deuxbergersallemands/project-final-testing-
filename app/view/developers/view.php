@@ -1,16 +1,16 @@
 <?php $dev = $context->getData(); ?>
 
-<table>
+<table class="table-list view">
     <tr>
         <th>Name:</th>
-        <td><?php echo $dev->devName; ?></td>
+        <td class="table-td"><?php echo $dev->devName; ?></td>
     </tr>
     <tr>
         <th>First name:</th>
-        <td><?php echo $dev->devFirstName; ?></td>
+        <td class="table-td"><?php echo $dev->devFirstName; ?></td>
     </tr>
     <tr>
         <th>Description:</th>
-        <td><?php echo $dev->devDescription; ?></td>
+        <td class="table-td"><?php echo $dev->devDescription; ?></td>
     </tr>
 </table>
