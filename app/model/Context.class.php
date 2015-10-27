@@ -10,6 +10,7 @@ class Context
     const DEL_BUTTON_IMG   = "assets/images/delete.png";
     const BACK_BUTTON_IMG  = "assets/images/back.png";
     const HELP_BUTTON_IMG  = "assets/images/help.png";
+    const LOUPE_BUTTON_IMG  = "assets/images/loupe.png";
 
     // Class variables.
     private $_pageUrl;

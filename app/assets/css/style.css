@@ -39,7 +39,21 @@
 }
 
 .add-block {
-    left: 10%;
+    
+	margin-right: 5%;
+	float : right;
+}
+.add label {
+	width:200px;
+}
+.add input {
+	width:200px;
+}
+.add textarea {
+	width:200px;
+}
+.add button {
+	width:100px;
 }
 
 .table-list {
@@ -53,6 +67,20 @@
     border: 2px solid white;
     font-family: open sans semibold, Arial, Verdana, sans-serif;
     background: #E8E8E8;
+}
+
+.view{
+width:50%;
+}
+
+.view th{
+	padding:25px; 
+	background-color:silver;
+	width:30%;
+}
+.icone{
+	float: right; 
+	padding: 5px;
 }
 
 .table-td {

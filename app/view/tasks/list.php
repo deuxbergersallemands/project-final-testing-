@@ -1,7 +1,9 @@
 <div class="add-block">
+	
     <a href="?tasks&amp;add"><img src="<?php echo $context::ADD_BUTTON_IMG; ?>" /><button type="button" class="btn btn-link">Add task</button></a>
-    <button id="help" class="btn btn-link"><img src="<?php echo $context::HELP_BUTTON_IMG; ?>" /></button>
-</div><br />
+    <button id="help" class="btn btn-link">
+	<img src="<?php echo $context::HELP_BUTTON_IMG; ?>" /></button>
+</div>
 
 
 <?php if (!empty($context->getData())) { ?>
@@ -15,18 +17,20 @@
 <?php
     foreach ($context->getData() as $task) {
 ?>
-    <tr>
+    <tr >
         <td class="table-td"><?php echo $task->taskIdentifier; ?></td>
         <td class="table-td">
-            <a href="?tasks&amp;id=<?php echo $task->taskId ?>">
+            
                 <?php echo $task->taskSummary; ?>
-            </a>
+            
         </td>
-        <td class="table-td"><?php echo $task->taskExpectedDuration; ?></td>
-        <td class="table-td">
-            <a href="?tasks&amp;edit=<?php echo $task->taskId; ?>"><img src="<?php echo $context::EDIT_BUTTON_IMG; ?>" /></a>
-            <a href="?tasks&amp;del=<?php echo $task->taskId; ?>"><img src="<?php echo $context::DEL_BUTTON_IMG; ?>" /></a>
-        </td>
+        <td class="table-td"><?php echo $task->taskExpectedDuration; ?>
+		<a class="icone"  href="?tasks&amp;edit=<?php echo $task->taskId; ?>"><img  src="<?php echo $context::EDIT_BUTTON_IMG; ?>" /></a>
+        <a class="icone"  href="?tasks&amp;del=<?php echo $task->taskId; ?>"><img src="<?php echo $context::DEL_BUTTON_IMG; ?>" /></a>
+        <a class="icone"  href="?tasks&amp;id=<?php echo $task->taskId; ?>"><img src="<?php echo $context::LOUPE_BUTTON_IMG; ?>" /></a>
+
+		</td>
+       
     </tr>
 <?php
     }
