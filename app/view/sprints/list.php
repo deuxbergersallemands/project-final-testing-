@@ -31,9 +31,6 @@
 ?>
 </table>
 
-<br />
-<a href="?"><img src="<?php echo $context::BACK_BUTTON_IMG; ?>" /><button type="button" class="btn btn-link">Back</button></a><br />
-
 <div id="description" title="Sprints">
     <p>
         <i><b>English</b></i><br />

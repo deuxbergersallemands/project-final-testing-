@@ -12,6 +12,3 @@
                                      </textarea><br />
     <input type="submit" value="Edit sprint">
 </form>
-
-<br />
-<a href="?sprints"><img src="<?php echo $context::BACK_BUTTON_IMG; ?>" /><button type="button" class="btn btn-link">Back</button></a><br />

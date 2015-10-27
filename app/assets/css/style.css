@@ -15,9 +15,27 @@
     margin-left: 7%;
 }
 
-.content {
+.body {
     margin-top: 5%;
-    margin-left: 5%;
+    margin-left: 1%
+}
+
+.menu {
+    display: table-cell;
+}
+
+.menu ul {
+    list-style-type: none;
+}
+
+.menu li {
+    border-top: 1px #AFAFAF solid;
+}
+
+.content {
+    padding-left: 40px;
+    width: 100%;
+    display: table-cell;
 }
 
 .add-block {

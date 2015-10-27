@@ -1,5 +1,5 @@
 <div class="add-block">
-    <a href="?userstories&amp;add"><img src="<?php echo $context::ADD_BUTTON_IMG; ?>" /><button type="button" class="btn btn-link">Add user_story</button></a>
+    <a href="?userstories&amp;add"><img src="<?php echo $context::ADD_BUTTON_IMG; ?>" /><button type="button" class="btn btn-link">Add user story</button></a>
     <button id="help" class="btn btn-link"><img src="<?php echo $context::HELP_BUTTON_IMG; ?>" /></button>
 </div><br />
 
@@ -30,9 +30,6 @@
 }
 ?>
 </table>
-
-<br />
-<a href="?"><img src="<?php echo $context::BACK_BUTTON_IMG; ?>" /><button type="button" class="btn btn-link">Back</button></a><br />
 
 <div id="description" title="User stories">
     <p>

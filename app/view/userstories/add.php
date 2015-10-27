@@ -5,8 +5,5 @@
     <label>Priority:</label><br /><input type="number" name="new_us_priority"><br />
     <label>Difficulty:</label><br /><input type="number" name="new_us_difficulty"><br />
     <label>description:</label><br /><textarea name="new_us_description"></textarea><br />
-    <input type="submit" value="Add user_story">
+    <input type="submit" value="Add user story">
 </form>
-
-<br />
-<a href="?userstories"><img src="<?php echo $context::BACK_BUTTON_IMG; ?>" /><button type="button" class="btn btn-link">Back</button></a><br />

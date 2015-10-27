@@ -14,8 +14,5 @@
     <label>Description:</label><br /><textarea name="edit_dev_description">
                                         <?php echo $us->usDescription; ?>
                                      </textarea><br />
-    <input type="submit" value="Edit user_story">
+    <input type="submit" value="Edit user story">
 </form>
-
-<br />
-<a href="?userstories"><img src="<?php echo $context::BACK_BUTTON_IMG; ?>" /><button type="button" class="btn btn-link">Back</button></a><br />

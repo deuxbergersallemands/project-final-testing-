@@ -6,7 +6,3 @@
     <label>Description:</label><br /><textarea name="new_task_description"></textarea><br />
     <input type="submit" value="Add task">
 </form>
-
-
-<br />
-<a href="?tasks"><img src="<?php echo $context::BACK_BUTTON_IMG; ?>" /><button type="button" class="btn btn-link">Back</button></a><br />

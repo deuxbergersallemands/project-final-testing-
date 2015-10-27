@@ -15,6 +15,3 @@
         <td><?php echo $sprint->sprintDescription; ?></td>
     </tr>
 </table>
-
-<br />
-<a href="?sprints"><img src="<?php echo $context::BACK_BUTTON_IMG; ?>" /><button type="button" class="btn btn-link">Back</button></a><br />

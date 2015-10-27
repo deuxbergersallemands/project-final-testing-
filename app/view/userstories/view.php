@@ -22,6 +22,3 @@
         <td><?php echo $us->usDescription; ?></td>
     </tr>
 </table>
-
-<br />
-<a href="?userstories"><img src="<?php echo $context::BACK_BUTTON_IMG; ?>" /><button type="button" class="btn btn-link">Back</button></a><br />
