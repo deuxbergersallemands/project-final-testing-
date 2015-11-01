@@ -58,7 +58,7 @@ class Database
     {
         $req = $this->_db->prepare("INSERT INTO UserStories(usIdentifier, usSummary,
                                                             usPriority, usDifficulty, usDescription)
-                                                VALUES(?, ?, ?, ?)");
+                                                VALUES(?, ?, ?, ?, ?)");
         $req->execute(array($identifier, $summ, $prio, $diff, $desc));
         $req->closeCursor();
     }
@@ -161,21 +161,21 @@ class Database
         return $this->fetch($req);
     }
 
-    public function addSprint($identifier, $summ, $duration = 7, $desc = "")
+    public function addSprint($identifier, $duration = 7, $desc = "")
     {
-        $req = $this->_db->prepare("INSERT INTO Sprints(sprintIdentifier, sprintSummary,
+        $req = $this->_db->prepare("INSERT INTO Sprints(sprintIdentifier,
                                                             sprintDuration, sprintDescription)
                                                 VALUES(?, ?, ?)");
-        $req->execute(array($identifier, $summ, $duration, $desc));
+        $req->execute(array($identifier, $duration, $desc));
         $req->closeCursor();
     }
 
-    public function updateSprint($id, $identifier, $summ, $duration = 7, $desc = "")
+    public function updateSprint($id, $identifier, $duration = 7, $desc = "")
     {
-        $req = $this->_db->prepare("UPDATE Sprints SET sprintIdentifier = ?, sprintSummary = ?,
+        $req = $this->_db->prepare("UPDATE Sprints SET sprintIdentifier = ?,
                                                             sprintDuration = ?, sprintDescription = ?
                                                 WHERE sprintId = ?");
-        $req->execute(array($identifier, $summ, $duration, $desc, $id));
+        $req->execute(array($identifier, $duration, $desc, $id));
         $req->closeCursor();
     }
 
@@ -188,7 +188,7 @@ class Database
 
     public function setSprintState($id, $state)
     {
-        $req = $this->_db->prepare("UPDATE Tasks SET sprintState = ? WHERE sprintId = ?");
+        $req = $this->_db->prepare("UPDATE Sprints SET sprintState = ? WHERE sprintId = ?");
         $req->execute(array($state, $id));
         $req->closeCursor();
     }

@@ -18,6 +18,16 @@
         <h3 class="title"><?php echo $context->getHeader(); ?></h3> 
     </div>
 
+    <div class="body">
+    <div class="menu">
+        <ul>
+            <li><a href="?userstories">Backlog</a></li>	
+            <li><a href="?tasks">Tasks</a></li>	
+            <li><a href="?sprints">Sprints</a></li>	
+            <li><a href="?developers">Developers</a></li>	
+        </ul>
+    </div>
+
     <div class="content">
 <?php
     include($context->getPageUrl());

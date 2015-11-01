@@ -1,7 +1,8 @@
 <div class="add-block">
     <a href="?developers&amp;add"><img src="<?php echo $context::ADD_BUTTON_IMG; ?>" /><button type="button" class="btn btn-link">Add developer</button></a>
-    <button id="help" class="btn btn-link"><img src="<?php echo $context::HELP_BUTTON_IMG; ?>" /></button>
-</div><br />
+    <button id="help" class="btn btn-link">
+    <img src="<?php echo $context::HELP_BUTTON_IMG; ?>" /></button>
+</div>
 
 <?php if (!empty($context->getData())) { ?>
 <table class="table-list">
@@ -16,13 +17,10 @@
     <tr>
         <td class="table-td"><?php echo $dev->devName; ?></td>
         <td class="table-td">
-            <a href="?developers&amp;id=<?php echo $dev->devId ?>">
-                <?php echo $dev->devFirstName; ?>
-            </a>
-        </td>
-        <td class="table-td">
-            <a href="?developers&amp;edit=<?php echo $dev->devId; ?>"><img src="<?php echo $context::EDIT_BUTTON_IMG; ?>" /></a>
-            <a href="?developers&amp;del=<?php echo $dev->devId; ?>"><img src="<?php echo $context::DEL_BUTTON_IMG; ?>" /></a>
+            <?php echo $dev->devFirstName; ?>
+            <a class="icon" href="?developers&amp;del=<?php echo $dev->devId; ?>"><img src="<?php echo $context::DEL_BUTTON_IMG; ?>" /></a>
+            <a class="icon" href="?developers&amp;edit=<?php echo $dev->devId; ?>"><img src="<?php echo $context::EDIT_BUTTON_IMG; ?>" /></a>
+            <a class="icon" href="?developers&amp;id=<?php echo $dev->devId; ?>"><img src="<?php echo $context::VIEW_BUTTON_IMG; ?>" /></a>
         </td>
     </tr>
 <?php
@@ -30,9 +28,6 @@
 }
 ?>
 </table>
-
-<br />
-<a href="?"><img src="<?php echo $context::BACK_BUTTON_IMG; ?>" /><button type="button" class="btn btn-link">Back</button></a><br />
 
 <div id="description" title="Developers / Développeurs">
     <p>

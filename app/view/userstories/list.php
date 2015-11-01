@@ -1,7 +1,7 @@
 <div class="add-block">
-    <a href="?userstories&amp;add"><img src="<?php echo $context::ADD_BUTTON_IMG; ?>" /><button type="button" class="btn btn-link">Add user_story</button></a>
+    <a href="?userstories&amp;add"><img src="<?php echo $context::ADD_BUTTON_IMG; ?>" /><button type="button" class="btn btn-link">Add user story</button></a>
     <button id="help" class="btn btn-link"><img src="<?php echo $context::HELP_BUTTON_IMG; ?>" /></button>
-</div><br />
+</div>
 
 <?php if (!empty($context->getData())) { ?>
 <table class="table-list">
@@ -16,13 +16,10 @@
     <tr>
         <td class="table-td"><?php echo $us->usIdentifier; ?></td>
         <td class="table-td">
-            <a href="?userstories&amp;id=<?php echo $us->usId ?>">
-                <?php echo $us->usSummary; ?>
-            </a>
-        </td>
-        <td class="table-td">
-            <a href="?userstories&amp;edit=<?php echo $us->usId; ?>"><img src="<?php echo $context::EDIT_BUTTON_IMG; ?>" /></a>
-            <a href="?userstories&amp;del=<?php echo $us->usId; ?>"><img src="<?php echo $context::DEL_BUTTON_IMG; ?>" /></a>
+            <?php echo $us->usSummary; ?>
+            <a class="icon" href="?userstories&amp;del=<?php echo $us->usId; ?>"><img src="<?php echo $context::DEL_BUTTON_IMG; ?>" /></a>
+            <a class="icon" href="?userstories&amp;edit=<?php echo $us->usId; ?>"><img src="<?php echo $context::EDIT_BUTTON_IMG; ?>" /></a>
+            <a class="icon" href="?userstories&amp;id=<?php echo $us->usId; ?>"><img src="<?php echo $context::VIEW_BUTTON_IMG; ?>" /></a>
         </td>
     </tr>
 <?php
@@ -30,9 +27,6 @@
 }
 ?>
 </table>
-
-<br />
-<a href="?"><img src="<?php echo $context::BACK_BUTTON_IMG; ?>" /><button type="button" class="btn btn-link">Back</button></a><br />
 
 <div id="description" title="User stories">
     <p>

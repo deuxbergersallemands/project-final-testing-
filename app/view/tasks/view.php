@@ -26,6 +26,3 @@
         <td  class="table-td"><?php echo $task->taskDescription; ?></td>
     </tr>
 </table>
-
-<br />
-    <button  class="btn btn-lg add" onclick="window.location.href = '?tasks';"  > Back</button>
