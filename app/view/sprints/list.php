@@ -17,9 +17,9 @@
         <td class="table-td"><?php echo $sprint->sprintIdentifier; ?></td>
         <td class="table-td">
             <?php echo $sprint->sprintDuration; ?>
-            <a class="icon" href="?sprints&amp;del=<?php echo $sprint->sprintId; ?>"><img src="<?php echo $context::DEL_BUTTON_IMG; ?>" /></a>
-            <a class="icon" href="?sprints&amp;edit=<?php echo $sprint->sprintId; ?>"><img src="<?php echo $context::EDIT_BUTTON_IMG; ?>" /></a>
-            <a class="icon" href="?sprints&amp;id=<?php echo $sprint->sprintId; ?>"><img src="<?php echo $context::VIEW_BUTTON_IMG; ?>" /></a>
+            <a class="icon" name="del" href="?sprints&amp;del=<?php echo $sprint->sprintId; ?>"><img src="<?php echo $context::DEL_BUTTON_IMG; ?>" /></a>
+            <a class="icon" name="edit" href="?sprints&amp;edit=<?php echo $sprint->sprintId; ?>"><img src="<?php echo $context::EDIT_BUTTON_IMG; ?>" /></a>
+            <a class="icon" name="view" href="?sprints&amp;id=<?php echo $sprint->sprintId; ?>"><img src="<?php echo $context::VIEW_BUTTON_IMG; ?>" /></a>
     </tr>
 <?php
     }
