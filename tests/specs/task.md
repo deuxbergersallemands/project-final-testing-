@@ -35,7 +35,8 @@ Les champs pour la modification d'une tâche sont :
 * edit_task_identifier -> identifiant de la tâche (requis),
 * edit_task_summary -> description courte de la tâche (requis),
 * edit_task_expected_duration -> temps attendu (en hj) pour la tâche,
-* edit_task_description.
+* edit_task_description
+* set_task_state -> l'état de la tâche (requis)
 
 Ces variables sont passées par formulaire, en POST.
 
@@ -58,7 +59,8 @@ un tout petit formulaire sur la page de visualisation de la tâche est souhaitab
 Le champs destiné sera 'set_task_duration'.
 
 De même, il sera possible d'avoir plusieurs état pour une tâche. Un formulaire
-avec un champs de nom 'set_task_state' sera présent.
+avec un champs de nom 'set_task_state' sera présent sur la page de modification d'une tâche
+dans la forme des radio button.  
 
 Pour permettre une meilleure compréhension de la tâche, l'utilisateur doit aussi
 pouvoir rajouter une description, ceci se fera grâce à un formulaire et un champs
