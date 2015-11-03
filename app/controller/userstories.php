@@ -1,5 +1,8 @@
 <?php
 
+// require "model/UserstoryDatabase.class.php"
+// $db = new UserstoryDatabase;
+
 $context->setData($db->getUserStories());         
 $context->setPageUrl("userstories/list.php");
 $context->setHeader("Backlog");

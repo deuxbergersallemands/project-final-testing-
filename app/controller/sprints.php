@@ -1,5 +1,8 @@
 <?php
 
+// require "model/SprintDatabase.class.php"
+// $db = new SprintDatabase;
+
 $context->setData($db->getSprints());         
 $context->setPageUrl("sprints/list.php");
 $context->setHeader("Sprints");

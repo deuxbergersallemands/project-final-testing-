@@ -4,8 +4,8 @@ class Database
 {
     private $_host = "localhost";
     private $_dbname = "rjorel";
-    private $_username = "root";
-    private $_passwd = "wfusdfcf";
+    private $_username = "rjorel";
+    private $_passwd = "truc";
     private $_db;
 
 
@@ -231,13 +231,21 @@ class Database
     }
 
 
-    // Bindings.
+    // Bindings for tasks and developers.
 
     public function getDeveloperByTask($taskId)
     {
-        $req = $this->_db->prepare("UPDATE Developers WHERE devId = ?");
+        $req = $this->_db->prepare("SELECT * FROM Developers WHERE devId in 
+        								(SELECT devId FROM Tasks WHERE taskId = ?)");
         $req->execute(array($taskId));
         return $this->fetch($req);
+    }
+    
+    public function getTasksByDeveloper($devId)
+    {
+    	$req = $this->_db->prepare("SELECT Tasks WHERE devId = ?");
+    	$req->execute(array($devId));
+    	return $this->fetchAll($req);
     }
 
     public function setDeveloperToTask($devId, $taskId)
@@ -249,6 +257,78 @@ class Database
 
     public function removeDeveloperFromTask($taskId)
     {
-
+    	$req = $this->_db->prepare("UPDATE Tasks SET devId = null WHERE taskId = ?");
+    	$req->execute(array($taskId));
+    	$req->closeCursor();
+    }
+    
+    
+    // Bindings for tasks and us.
+    
+    public function getTasksByUserstory($usId)
+    {
+    	$req = $this->_db->prepare("SELECT * FROM Tasks WHERE taskId in
+    									(SELECT taskId FROM TasksToUserStories WHERE usId = ?)");
+    	$req->execute(array($usId));
+    	return $this->fetchAll($req);
+    }
+    
+    public function getUserstoriesByTask($taskId)
+    {
+    	$req = $this->_db->prepare("SELECT * FROM UserStories WHERE usId in
+    								(SELECT usId FROM TasksToUserStories WHERE taskId = ?)");
+    	$req->execute(array($taskId));
+    	return $this->fetchAll($req);
+    }
+    
+    public function addTaskToUserstory($taskId, $usId)
+    {
+    	$req = $this->_db->prepare("INSERT INTO TasksToUserStories(taskId, usId)
+    									VALUES(?, ?)");
+    	$req->execute(array($taskId, $usId));
+    	$req->closeCursor();
+  	}
+    
+    public function removeTaskFromUserstory($taskId, $usId)
+    {
+    	$req = $this->_db->prepare("DELETE FROM TasksToUserStories
+    									WHERE taskId = ? AND usId = ?");
+    	$req->execute(array($taskId, $usId));
+    	$req->closeCursor();
+    }
+    
+    
+    // Bindings for sprints and us.
+    
+    public function getSprintsByUserstory($usId)
+    {
+    	$req = $this->_db->prepare("SELECT * FROM Sprints WHERE sprintId in
+    									(SELECT taskId FROM UserStoriesToSprints WHERE usId = ?)");
+    	$req->execute(array($usId));
+    	return $this->fetchAll($req);
+    }
+    
+    public function getUserstoriesBySprint($sprintId)
+    {
+    	$req = $this->_db->prepare("SELECT * FROM UserStories WHERE usId in
+    									(SELECT usId FROM UserStoriesToSprints WHERE sprintId = ?)");
+    	$req->execute(array($sprintId));
+    	return $this->fetchAll($req);
+    }
+    
+    public function addUserstoryToSprint($usId, $sprintId)
+    {
+    	$req = $this->_db->prepare("INSERT INTO UserStoriesToSprints(usId, sprintId)
+    									VALUES(?, ?)");
+    	$req->execute(array($usId, $sprintId));
+    	$req->closeCursor();
+    }
+    
+    public function removeUserstoryToSprint($usId, $sprintId)
+    {
+    	$req = $this->_db->prepare("DELETE FROM UserStoriesToSprints
+    									WHERE usId = ? AND sprintId = ?");
+    	$req->execute(array($usId, $taskId));
+    	$req->closeCursor();
     }
 }

@@ -1,5 +1,8 @@
 <?php
 
+// require "model/TaskDatabase.class.php"
+// $db = new TaskDatabase;
+
 $context->setData($db->getTasks());         
 $context->setPageUrl("tasks/list.php");
 $context->setHeader("Tasks");

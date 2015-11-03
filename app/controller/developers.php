@@ -1,5 +1,8 @@
 <?php
 
+// require "model/DeveloperDatabase.class.php"
+// $db = new DeveloperDatabase;
+
 $context->setData($db->getDevelopers());         
 $context->setPageUrl("developers/list.php");
 $context->setHeader("Developers");

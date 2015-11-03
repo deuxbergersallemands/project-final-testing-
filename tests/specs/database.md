@@ -110,8 +110,9 @@ est suffisant.
 ### Méthodes
 
 * getDeveloppeurByTask(taskId)
-* setTaskDeveloppeur(taskId, devId)
-* removeTaskDeveloppeur(taskId)
+* getTaskByDeveloppeur(devId)
+* setDeveloppeurToTask(devId, taskId)
+* removeTaskFromDeveloppeur(taskId)
 
 ### Remarques
 
@@ -139,8 +140,9 @@ Champs:
 ### Méthodes
 
 * getTasksByUserstory(usId)
+* getUserstoriesByTask(taskId)
 * addTaskToUserstory(usId, taskId)
-* removeTaskToUserstory(usId, taskId)
+* removeTaskFromUserstory(usId, taskId)
 
 
 ## Association Sprints et US
@@ -162,5 +164,6 @@ Champs:
 ### Méthodes
 
 * getUserstoriesBySprint(sprintId)
+* getSprintsByUserstories(usId)
 * addUserstoryToSprint(sprintId, usId)
-* removeUserstoryToSprint(sprintId, usId)
+* removeUserstoryFromSprint(sprintId, usId)
