@@ -229,4 +229,26 @@ class Database
         $req->execute(array($id));
         $req->closeCursor();
     }
+
+
+    // Bindings.
+
+    public function getDeveloperByTask($taskId)
+    {
+        $req = $this->_db->prepare("UPDATE Developers WHERE devId = ?");
+        $req->execute(array($taskId));
+        return $this->fetch($req);
+    }
+
+    public function setDeveloperToTask($devId, $taskId)
+    {
+        $req = $this->_db->prepare("UPDATE Tasks SET devId = ? WHERE taskId = ?");
+        $req->execute(array($devId, $taskId));
+        $req->closeCursor();
+    }
+
+    public function removeDeveloperFromTask($taskId)
+    {
+
+    }
 }
