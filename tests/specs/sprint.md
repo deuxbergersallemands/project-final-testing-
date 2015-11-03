@@ -64,3 +64,8 @@ de l'id du sprint à supprimer (ceci ne nécessite pas de formulaire).
 Via le context, la vue et le contrôleur peuvent communiquer.
 La vue se chargeant du listage, doit recevoir une liste de sprints, celles s'occupant
 de la modification ou l'affichage d'un sprint, doivent en recevoir une seule.
+
+### Kanban
+Le kanban s'affiche sur la vue d'un sprint.  Il s'agit d'une table avec quatres colonnes: "Task", "To Do", "In Progress", et "Completed".  Tous les détails importants des tâches du sprint s'affichent en dessous de la colonne "Task": le titre de la tâche, le développeur auquel la tâche est affectée, etc.  Selon l'état actuel de la tâche, une image (un 'X' rouge dans la colonne "To Do", une clé à molette dans la colonne "In Progress", ou un check vert dans la colonne "Completed") dans la colonne pertinente.  
+
+Chaque rang a un bouton qui dirige l'utilisateur vers la vue de la tâche pertinente.  
