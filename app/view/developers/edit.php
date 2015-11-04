@@ -7,5 +7,5 @@
     <label>First name:</label><input type="text" name="edit_dev_first_name"
                                     value="<?php echo $dev->devFirstName; ?>" required />
     <label>Description:</label><textarea name="edit_dev_description"><?php echo $dev->devDescription; ?></textarea>
-    <input type="submit" value="Edit developer">
+    <button class="btn btn-lg" type="submit">Edit</button>
 </form>
