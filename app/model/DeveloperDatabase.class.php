@@ -34,10 +34,9 @@ class DeveloperDatabase extends AbstractDatabase
 	
 	public function delDeveloper($id)
 	{
-		$req = $this->_db->prepare("UPDATE Tasks SET devId = null WHERE devId = ?");
-		$req->execute(array($id));
-		$req->closeCursor();
-		
+		$taskDb = new \model\TaskDatabase;
+		$taskDb->removeTasksFromDeveloper($id);
+
 		$req = $this->_db->prepare("DELETE FROM Developers WHERE devId = ?");
 		$req->execute(array($id));
 		$req->closeCursor();

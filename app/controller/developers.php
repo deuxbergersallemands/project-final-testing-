@@ -63,12 +63,12 @@ else if (!empty($_POST['edit_dev_id']) && !empty($_POST['edit_dev_name']) && !em
 else if (!empty($_POST['set_developer_id'])) {
 	$taskDb = new \model\TaskDatabase();
 	
-	$taskIds = preg_filter("/^set_developer_task_id_([0-9]+)$/", "\\1", array_keys($_POST));
-	$tasksDev = $taskDb->getTasksByDeveloper($_POST['set_developer_id']);
+	if (!empty($_POST['developer_task_id'])) {
+		$taskDb->removeTasksFromDeveloper($_POST['set_developer_id']);			// Remove all the given tasks.
 	
-	foreach ($tasksDev as $task)						// Remove all the tasks already given.
-		$taskDb->removeDeveloperFromTask($task->taskId);
-	
-	foreach ($taskIds as $taskId)						// And set with the news given.
-		$taskDb->setDeveloperToTask($_POST['set_developer_id'], $taskId);
+		foreach ($_POST['developer_task_id'] as $taskId)						// And set with the news given.
+			$taskDb->setDeveloperToTask($_POST['set_developer_id'], $taskId);
+	}
+	else
+		$taskDb->removeTasksFromDeveloper($_POST['set_developer_id']);
 }

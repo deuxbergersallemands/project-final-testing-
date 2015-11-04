@@ -10,7 +10,7 @@
 	
 	<label>Tasks</label><br />
 	<?php foreach ($tasks as $task) {  ?>
-		<input type="checkbox" name="set_developer_task_id_<?php echo $task->taskId; ?>"
+		<input type="checkbox" value="<?php echo $task->taskId; ?>" name="developer_task_id[]"
 			<?php if (in_array($task->taskId, $tasksDevIds)) echo "checked"; ?> >
 			<a href="?tasks&amp;id=<?php echo $task->taskId; ?>" target="_blank">
 				<?php echo $task->taskIdentifier; ?><br />
