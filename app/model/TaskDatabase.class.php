@@ -60,7 +60,7 @@ class TaskDatabase extends AbstractDatabase
 	
 	public function getTasksByDeveloper($devId)
 	{
-		$req = $this->_db->prepare("SELECT Tasks WHERE devId = ?");
+		$req = $this->_db->prepare("SELECT * FROM Tasks WHERE devId = ?");
 		$req->execute(array($devId));
 		return $this->fetchAll($req);
 	}

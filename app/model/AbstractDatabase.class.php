@@ -3,7 +3,7 @@
 namespace model;
 
 
-class AbstractDatabase
+abstract class AbstractDatabase
 {
 	protected $_host = "localhost";
 	protected $_dbname = "rjorel";
