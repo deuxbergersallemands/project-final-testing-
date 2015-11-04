@@ -11,6 +11,17 @@ $context->setHeader("Backlog");
 if (isset($_GET['add']))
     $context->setPageUrl("userstories/add.php");
 
+else if (!empty($_GET['manage'])) {
+	//$task = new \model\DeveloperDatabase;
+	//$us = new \model\UserstoryDatabase;
+
+	$context->setData(
+			array('us' 			=> $db->getUserStory($_GET['manage']),
+					'sprints' 	=> $db->getSprints(),
+					'tasks' 	=> $db->getTasks()));
+
+	$context->setPageUrl("userstories/manage.php");
+}
 else if (!empty($_GET['edit'])) {
     $context->setData($db->getUserStory($_GET['edit']));
     $context->setPageUrl("userstories/edit.php");
@@ -40,4 +51,13 @@ else if (!empty($_POST['edit_us_id']) && !empty($_POST['edit_us_identifier']) &&
 	
     $db->updateUserStory($_POST['edit_us_id'], $_POST['edit_us_identifier'], $_POST['edit_us_summary'], $priority, $difficulty, $description);
     $context->setData($db->getUserStories());         
+}
+else if (!empty($_POST['set_us_id'])) {
+	$taskIds = array_filter(array_keys($_POST),
+			function($str) {
+		if (preg_match("/^set_us_task_id_([0-9]+)$/", $str, $matches))
+			return $matches[1];
+	});
+	
+	// TODO
 }

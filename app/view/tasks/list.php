@@ -25,10 +25,10 @@
         </td>
         <td class="table-td">
             <?php echo $task->taskExpectedDuration; ?>
-            <a class="icon" name="del" href="?tasks&amp;del=<?php echo $task->taskId; ?>"><img src="<?php echo $context::DEL_BUTTON_IMG; ?>" /></a>
-		    <a class="icon" name="edit" href="?tasks&amp;edit=<?php echo $task->taskId; ?>"><img  src="<?php echo $context::EDIT_BUTTON_IMG; ?>" /></a>
-          	<a class="icon" name="edit" href="?tasks&amp;manage=<?php echo $task->taskId; ?>"><img  src="<?php echo $context::MANAGE_BUTTON_IMG; ?>" /></a>
-            <a class="icon" name="view" href="?tasks&amp;id=<?php echo $task->taskId; ?>"><img src="<?php echo $context::VIEW_BUTTON_IMG; ?>" /></a>
+            <a class="icon" href="?tasks&amp;del=<?php echo $task->taskId; ?>"><img src="<?php echo $context::DEL_BUTTON_IMG; ?>" /></a>
+		    <a class="icon" href="?tasks&amp;edit=<?php echo $task->taskId; ?>"><img  src="<?php echo $context::EDIT_BUTTON_IMG; ?>" /></a>
+          	<a class="icon" href="?tasks&amp;manage=<?php echo $task->taskId; ?>"><img  src="<?php echo $context::MANAGE_BUTTON_IMG; ?>" /></a>
+		    <a class="icon" href="?tasks&amp;id=<?php echo $task->taskId; ?>"><img src="<?php echo $context::VIEW_BUTTON_IMG; ?>" /></a>
 		</td>
        
     </tr>

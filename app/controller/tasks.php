@@ -60,8 +60,10 @@ else if (!empty($_POST['set_task_id'])) {
 		$db->removeDeveloperFromTask($_POST['set_task_id']);
 	
 	$usIds = array_filter(array_keys($_POST), 
-			function($str) { 
-				if (preg_match("/^set_task_us_id_([0-9]+)$/", $str, $matches))
-					return $matches[1]; 
-			});
+		function($str) { 
+			if (preg_match("/^set_task_us_id_([0-9]+)$/", $str, $matches))
+				return $matches[1]; 
+		});
+		
+	// TODO
 }

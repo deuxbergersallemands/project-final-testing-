@@ -18,9 +18,10 @@
         <td class="table-td"><?php echo $dev->devName; ?></td>
         <td class="table-td">
             <?php echo $dev->devFirstName; ?>
-            <a class="icon" name="del" href="?developers&amp;del=<?php echo $dev->devId; ?>"><img src="<?php echo $context::DEL_BUTTON_IMG; ?>" /></a>
-            <a class="icon" name="edit" href="?developers&amp;edit=<?php echo $dev->devId; ?>"><img src="<?php echo $context::EDIT_BUTTON_IMG; ?>" /></a>
-            <a class="icon" name="view" href="?developers&amp;id=<?php echo $dev->devId; ?>"><img src="<?php echo $context::VIEW_BUTTON_IMG; ?>" /></a>
+            <a class="icon" href="?developers&amp;del=<?php echo $dev->devId; ?>"><img src="<?php echo $context::DEL_BUTTON_IMG; ?>" /></a>
+            <a class="icon" href="?developers&amp;edit=<?php echo $dev->devId; ?>"><img src="<?php echo $context::EDIT_BUTTON_IMG; ?>" /></a>
+            <a class="icon" href="?developers&amp;manage=<?php echo $dev->devId; ?>"><img  src="<?php echo $context::MANAGE_BUTTON_IMG; ?>" /></a>
+            <a class="icon" href="?developers&amp;id=<?php echo $dev->devId; ?>"><img src="<?php echo $context::VIEW_BUTTON_IMG; ?>" /></a>
         </td>
     </tr>
 <?php
@@ -28,6 +29,25 @@
 }
 ?>
 </table>
+
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script> 
+<script src="assets/js/jquery-add.js"></script>
+
+<script>
+    $(function() {
+
+        $('#description').dialog({
+            autoOpen: false,
+            width: 640,
+            height: 480
+        });
+
+        $('#help').on('click', function() {
+            $('#description').dialog('open');
+        });
+    });
+</script>
 
 <div id="description" title="Developers / Développeurs">
     <p>
@@ -62,21 +82,3 @@
     </p>
 </div>
 
-<script src="http://code.jquery.com/jquery.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script> 
-<script src="assets/js/jquery-add.js"></script>
-
-<script>
-    $(function() {
-
-        $('#description').dialog({
-            autoOpen: false,
-            width: 640,
-            height: 480
-        });
-
-        $('#help').on('click', function() {
-            $('#description').dialog('open');
-        });
-    });
-</script>
