@@ -19,7 +19,18 @@
     </tr>
     <tr>
         <th >State:</th>
-        <td class="table-td"><?php echo $task->taskState; ?></td>
+        <td class="table-td">
+        	<?php
+        		if ($task->taskState == "todo")
+        			echo "To Do";
+        		
+        		else if ($task->taskState == "ongoing")
+        			echo "On Going";
+        			 
+        		else if ($task->taskState == "done")
+        			echo "Done";
+        	?>
+        </td>
     </tr>
     <tr>
         <th >Description:</th>

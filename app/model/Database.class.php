@@ -4,8 +4,8 @@ class Database
 {
     private $_host = "localhost";
     private $_dbname = "rjorel";
-    private $_username = "rjorel";
-    private $_passwd = "truc";
+    private $_username = "root";
+    private $_passwd = "wfusdfcf";
     private $_db;
 
 

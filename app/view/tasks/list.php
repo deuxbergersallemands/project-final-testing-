@@ -27,6 +27,7 @@
             <?php echo $task->taskExpectedDuration; ?>
             <a class="icon" name="del" href="?tasks&amp;del=<?php echo $task->taskId; ?>"><img src="<?php echo $context::DEL_BUTTON_IMG; ?>" /></a>
 		    <a class="icon" name="edit" href="?tasks&amp;edit=<?php echo $task->taskId; ?>"><img  src="<?php echo $context::EDIT_BUTTON_IMG; ?>" /></a>
+          	<a class="icon" name="edit" href="?tasks&amp;manage=<?php echo $task->taskId; ?>"><img  src="<?php echo $context::MANAGE_BUTTON_IMG; ?>" /></a>
             <a class="icon" name="view" href="?tasks&amp;id=<?php echo $task->taskId; ?>"><img src="<?php echo $context::VIEW_BUTTON_IMG; ?>" /></a>
 		</td>
        
@@ -37,6 +38,25 @@
 ?>
 
 </table>
+
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script> 
+<script src="assets/js/jquery-add.js"></script>
+
+<script>
+    $(function() {
+
+        $('#description').dialog({
+            autoOpen: false,
+            width: 640,
+            height: 480
+        });
+
+        $('#help').on('click', function() {
+            $('#description').dialog('open');
+        });
+    });
+</script>
 
 <div id="description" title="Developers / Développeurs">
     <p>
@@ -63,22 +83,3 @@
         cliquez sur "Add".
     </p>
 </div>
-
-<script src="http://code.jquery.com/jquery.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script> 
-<script src="assets/js/jquery-add.js"></script>
-
-<script>
-    $(function() {
-
-        $('#description').dialog({
-            autoOpen: false,
-            width: 640,
-            height: 480
-        });
-
-        $('#help').on('click', function() {
-            $('#description').dialog('open');
-        });
-    });
-</script>

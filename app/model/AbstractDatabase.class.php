@@ -1,18 +1,21 @@
 <?php
 
+namespace model;
+
+
 class AbstractDatabase
 {
 	protected $_host = "localhost";
 	protected $_dbname = "rjorel";
-	protected $_username = "rjorel";
-	protected $_passwd = "truc";
+	protected $_username = "root";
+	protected $_passwd = "wfusdfcf";
 	protected $_db;
 
 
 	public function __construct()
 	{
 		try {
-			$this->_db = new PDO("mysql:host=$this->_host;dbname=$this->_dbname", $this->_username, $this->_passwd);
+			$this->_db = new \PDO("mysql:host=$this->_host;dbname=$this->_dbname", $this->_username, $this->_passwd);
 		}
 		catch (Exception $e) {
 			echo $e->getMessage();
@@ -26,7 +29,7 @@ class AbstractDatabase
 	{
 		if (!$req) return false;
 	
-		$data = $req->fetch(PDO::FETCH_OBJ);
+		$data = $req->fetch(\PDO::FETCH_OBJ);
 		$req->closeCursor();
 		return $data;
 	}
@@ -35,7 +38,7 @@ class AbstractDatabase
 	{
 		if (!$req) return false;
 	
-		$data = $req->fetchAll(PDO::FETCH_OBJ);
+		$data = $req->fetchAll(\PDO::FETCH_OBJ);
 		$req->closeCursor();
 		return $data;
 	}

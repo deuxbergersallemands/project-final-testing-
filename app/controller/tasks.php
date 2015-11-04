@@ -1,7 +1,6 @@
 <?php
 
-// require "model/TaskDatabase.class.php"
-// $db = new TaskDatabase;
+$db = new \model\TaskDatabase;
 
 $context->setData($db->getTasks());         
 $context->setPageUrl("tasks/list.php");
@@ -11,10 +10,21 @@ $context->setHeader("Tasks");
 if (isset($_GET['add']))
     $context->setPageUrl("tasks/add.php");
 
+else if (!empty($_GET['manage'])) {
+	$dev = new \model\DeveloperDatabase;
+	$us = new \model\UserstoryDatabase;
+	
+	$context->setData(
+			array('task' 	=> $db->getTask($_GET['manage']),
+					'devs' 	=> $dev->getDevelopers(),
+					'us' 	=> $us->getUserStories()));
+	
+	$context->setPageUrl("tasks/manage.php");
+}
 else if (!empty($_GET['edit'])) {
     $context->setData($db->getTask($_GET['edit']));
-    $context->setPageUrl("tasks/edit.php");}
-
+    $context->setPageUrl("tasks/edit.php");
+}
 else if (!empty($_GET['del'])) {
     $db->delTask($_GET['del']);
     $context->setData($db->getTasks());         
@@ -38,4 +48,20 @@ else if (!empty($_POST['edit_task_id']) && !empty($_POST['edit_task_identifier']
 	
     $db->updateTask($_POST['edit_task_id'], $_POST['edit_task_identifier'], $_POST['edit_task_summary'], $duration, $comment);
     $context->setData($db->getTasks());         
+}
+else if (!empty($_POST['set_task_id'])) {
+	if (!empty($_POST['set_task_state']))
+		$db->setTaskState($_POST['set_task_id'], $_POST['set_task_state']);
+	
+	if (!empty($_POST['set_task_developer_id']))
+		$db->setDeveloperToTask($_POST['set_task_developer_id'], $_POST['set_task_id']);
+	
+	else if (isset($_POST['set_task_developer_id']) && empty($_POST['set_task_developer_id']))
+		$db->removeDeveloperFromTask($_POST['set_task_id']);
+	
+	$usIds = array_filter(array_keys($_POST), 
+			function($str) { 
+				if (preg_match("/^set_task_us_id_([0-9]+)$/", $str, $matches))
+					return $matches[1]; 
+			});
 }

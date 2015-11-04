@@ -1,6 +1,6 @@
 <?php
 
-require "model/AbstractDatabase.class.php";
+namespace model;
 
 
 class SprintDabatase extends AbstractDatabase

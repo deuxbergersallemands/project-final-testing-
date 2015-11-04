@@ -1,9 +1,9 @@
 <?php
 
-require "model/AbstractDatabase.class.php";
+namespace model;
 
 
-class UserstoryDabase extends AbstractDatabase
+class UserstoryDatabase extends AbstractDatabase
 {
 	public function getUserStories() {
 		return $this->fetchAll($this->_db->query("SELECT * FROM UserStories"));
