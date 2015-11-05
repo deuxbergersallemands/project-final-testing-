@@ -1,7 +1,8 @@
 <?php
 
 $db = new \model\TaskDatabase;
-
+$dev = new \model\DeveloperDatabase;
+$us = new \model\UserstoryDatabase;
 $context->setData($db->getTasks());         
 $context->setPageUrl("tasks/list.php");
 $context->setHeader("Tasks");
@@ -11,8 +12,7 @@ if (isset($_GET['add']))
     $context->setPageUrl("tasks/add.php");
 
 else if (!empty($_GET['manage'])) {
-	$dev = new \model\DeveloperDatabase;
-	$us = new \model\UserstoryDatabase;
+	
 	
 	$context->setData(
 			array('task' 	=> $db->getTask($_GET['manage']),
@@ -63,7 +63,6 @@ else if (!empty($_POST['set_task_id'])) {
 		
 	if(!empty($_POST['userstories_task']))
 	{
-		$us = new \model\UserstoryDatabase;
 		foreach($_POST['userstories_task'] as $Us_Id){
 			$us ->addTaskToUserstory($_POST['set_task_id'],$Us_Id);
 		}

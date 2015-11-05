@@ -1,7 +1,8 @@
 <?php
 
-// $db = new \model\UserstoryDatabase;
-
+$db = new \model\UserstoryDatabase;
+$sprints = new \model\SprintDatabase;
+$tasks = new \model\UserstoryDatabase;
 $context->setData($db->getUserStories());         
 $context->setPageUrl("userstories/list.php");
 $context->setHeader("Backlog");
@@ -11,11 +12,11 @@ if (isset($_GET['add']))
     $context->setPageUrl("userstories/add.php");
 
 else if (!empty($_GET['manage'])) {
-
+	
 	$context->setData(
 			array('us' 			=> $db->getUserStory($_GET['manage']),
-					'sprints' 	=> $db->getSprints(),
-					'tasks' 	=> $db->getTasks()));
+					'sprints' 	=> $sprints->getSprints(),
+					'tasks' 	=> $tasks->getTasks()));
 
 	$context->setPageUrl("userstories/manage.php");
 }
@@ -31,9 +32,8 @@ else if (!empty($_GET['id'])) {
 	$NbTask=0;
 	$NbTaskDone=0;
 	$NbTaskToDo=0;
-	$task = new \model\TaskDatabase;
-	$tasks = $task -> getTasksByUserstory($_GET['id']);
-	foreach($tasks as $task_Id){
+	$task = $tasks -> getTasksByUserstory($_GET['id']);
+	foreach($task as $task_Id){
 		$NbTask++;
 		if( $task_Id -> taskState=="ongoing")
 		{   $db -> setUserStoryState($_GET['id'],"ongoing");
@@ -72,9 +72,8 @@ else if (!empty($_POST['set_us_id'])) {
 
 	if(!empty($_POST['Sprints_Us']))
 	{
-		$sprint = new \model\SprintDatabase;
 		foreach($_POST['Sprints_Us'] as $Sprint_Id){
-			$sprint ->addUserstoryToSprint($_POST['set_us_id'],$Sprint_Id);
+			$sprints ->addUserstoryToSprint($_POST['set_us_id'],$Sprint_Id);
 		}
 	}
 	
