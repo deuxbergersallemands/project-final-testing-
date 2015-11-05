@@ -84,7 +84,7 @@ Champs:
 ## Développeurs
 ### Tables
 
-Noms: Developers
+Nom: Developers
 Champs:
 * devId -> int,             [obligatoire]
 * devName -> string,        [obligatoire]
@@ -98,3 +98,72 @@ Champs:
 * addDevelopper(name, fname, desc)
 * updateDevelopper(id, name, fname, desc)
 * delDevelopper(id)
+
+
+## Association Tâches et Développeur
+
+### Description
+
+Pas besoin de table en plus, car le champs devId des tâches
+est suffisant.
+
+### Méthodes
+
+* getDeveloppeurByTask(taskId)
+* getTaskByDeveloppeur(devId)
+* setDeveloppeurToTask(devId, taskId)
+* removeTaskFromDeveloppeur(taskId)
+
+### Remarques
+
+La fonction de suppression ne sera pas très utile, car l'affectation d'un
+nouveau développeur entrainera la suppression de l'ancien
+dévellopeur associé.
+
+
+## Association Tâches et US
+
+### Description
+
+Cette table fait la liaison entre tâches et US. Un US peut comporter plusieurs
+tâches, mais il est possible qu'une tâche fasse partie de plusieurs US. Afin de ne
+pas limiter l'utilisateur, nous permettons de cette manière une gestion souple des tâches.
+
+### Table
+
+Nom: TasksToUserStories
+Champs:
+
+* taskId
+* usId
+
+### Méthodes
+
+* getTasksByUserstory(usId)
+* getUserstoriesByTask(taskId)
+* addTaskToUserstory(usId, taskId)
+* removeTaskFromUserstory(usId, taskId)
+
+
+## Association Sprints et US
+
+### Description
+
+Cette table fait la liaison entre sprints et US. Elle permet d'affecter plusieurs
+US à un ou plusieurs sprints. Ceci se révélera surement nécessaire, si un US se déroule
+sur plusieurs sprints. L'idée est de contraindre le moins possible l'utilisateur.
+
+### Table
+
+Nom: UserStoriesToSprints
+Champs:
+
+* sprintId
+* usId
+
+### Méthodes
+
+* getUserstoriesBySprint(sprintId)
+* getSprintsByUserstories(usId)
+* addUserstoryToSprint(sprintId, usId)
+* removeUserstoryFromSprint(sprintId, usId)

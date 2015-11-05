@@ -17,31 +17,16 @@
         <td class="table-td"><?php echo $sprint->sprintIdentifier; ?></td>
         <td class="table-td">
             <?php echo $sprint->sprintDuration; ?>
-            <a class="icon" name="del" href="?sprints&amp;del=<?php echo $sprint->sprintId; ?>"><img src="<?php echo $context::DEL_BUTTON_IMG; ?>" /></a>
-            <a class="icon" name="edit" href="?sprints&amp;edit=<?php echo $sprint->sprintId; ?>"><img src="<?php echo $context::EDIT_BUTTON_IMG; ?>" /></a>
-            <a class="icon" name="view" href="?sprints&amp;id=<?php echo $sprint->sprintId; ?>"><img src="<?php echo $context::VIEW_BUTTON_IMG; ?>" /></a>
+            <a class="icon" href="?sprints&amp;del=<?php echo $sprint->sprintId; ?>"><img src="<?php echo $context::DEL_BUTTON_IMG; ?>" /></a>
+            <a class="icon" href="?sprints&amp;edit=<?php echo $sprint->sprintId; ?>"><img src="<?php echo $context::EDIT_BUTTON_IMG; ?>" /></a>
+            <a class="icon" href="?sprints&amp;manage=<?php echo $sprint->sprintId; ?>"><img  src="<?php echo $context::MANAGE_BUTTON_IMG; ?>" /></a>
+            <a class="icon" href="?sprints&amp;id=<?php echo $sprint->sprintId; ?>"><img src="<?php echo $context::VIEW_BUTTON_IMG; ?>" /></a>
     </tr>
 <?php
     }
 }
 ?>
 </table>
-
-<div id="description" title="Sprints">
-    <p>
-        <i><b>English</b></i><br />
-
-    </p>
-    <p>
-        <i><b>Français</b></i><br />
-        Les sprints sont les sessions pendant lesquels les développeurs accomplissent les
-        tâches.<br />
-        Et au vu du nom, ils ont intérêt à se bouger le cul. Franchement, une autre dénomination
-        aurait été plus adéquate, parce que "sprint", personnellement, cela me fait peur. Je pense
-        directement à "rapidité, codage à l'arrache, etc...". On ne peut pas dire que les inventeurs
-        de la méthode étaient inspirés.
-    </p>
-</div>
 
 <script src="http://code.jquery.com/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script> 
@@ -61,3 +46,19 @@
         });
     });
 </script>
+
+<div id="description" title="Sprints">
+    <p>
+        <i><b>English</b></i><br />
+
+    </p>
+    <p>
+        <i><b>Français</b></i><br />
+        Les sprints sont les sessions pendant lesquels les développeurs accomplissent les
+        tâches.<br />
+        Et au vu du nom, ils ont intérêt à se bouger le cul. Franchement, une autre dénomination
+        aurait été plus adéquate, parce que "sprint", personnellement, cela me fait peur. Je pense
+        directement à "rapidité, codage à l'arrache, etc...". On ne peut pas dire que les inventeurs
+        de la méthode étaient inspirés.
+    </p>
+</div>

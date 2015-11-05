@@ -17,9 +17,10 @@
         <td class="table-td"><?php echo $us->usIdentifier; ?></td>
         <td class="table-td">
             <?php echo $us->usSummary; ?>
-            <a class="icon" neme="del" href="?userstories&amp;del=<?php echo $us->usId; ?>"><img src="<?php echo $context::DEL_BUTTON_IMG; ?>" /></a>
-            <a class="icon" name="edit" href="?userstories&amp;edit=<?php echo $us->usId; ?>"><img src="<?php echo $context::EDIT_BUTTON_IMG; ?>" /></a>
-            <a class="icon" name="view" href="?userstories&amp;id=<?php echo $us->usId; ?>"><img src="<?php echo $context::VIEW_BUTTON_IMG; ?>" /></a>
+            <a class="icon" href="?userstories&amp;del=<?php echo $us->usId; ?>"><img src="<?php echo $context::DEL_BUTTON_IMG; ?>" /></a>
+            <a class="icon" href="?userstories&amp;edit=<?php echo $us->usId; ?>"><img src="<?php echo $context::EDIT_BUTTON_IMG; ?>" /></a>
+          	<a class="icon" href="?userstories&amp;manage=<?php echo $us->usId; ?>"><img  src="<?php echo $context::MANAGE_BUTTON_IMG; ?>" /></a>
+            <a class="icon" href="?userstories&amp;id=<?php echo $us->usId; ?>"><img src="<?php echo $context::VIEW_BUTTON_IMG; ?>" /></a>
         </td>
     </tr>
 <?php
@@ -27,17 +28,6 @@
 }
 ?>
 </table>
-
-<div id="description" title="User stories">
-    <p>
-        <i><b>English</b></i><br />
-
-    </p>
-    <p>
-        <i><b>Français</b></i><br />
-       
-    </p>
-</div>
 
 <script src="http://code.jquery.com/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script> 
@@ -57,3 +47,14 @@
         });
     });
 </script>
+
+<div id="description" title="User stories">
+    <p>
+        <i><b>English</b></i><br />
+
+    </p>
+    <p>
+        <i><b>Français</b></i><br />
+       
+    </p>
+</div>

@@ -77,3 +77,24 @@ de l'id de la user story à supprimer (ceci ne nécessite pas de formulaire).
 Via le context, la vue et le contrôleur peuvent communiquer.
 La vue se chargeant du listage, doit recevoir une liste de user stories, celles s'occupant
 de la modification ou l'affichage d'une user story, doivent en recevoir une seule.
+
+
+### Validation de userstory
+
+Pour qu'une US soit considérée comme validée, il faut que toutes les tâches qui lui sont
+associées soient terminées. Si l'US n'a aucun tâche affectée, alors elle est considérée comme
+non accompli.
+Quand l'une de ses tâches est en cours de traitement, l'US est considérée également en cours
+de traitement.
+Cette partie est donc gérée automatiquement, l'état d'une US peut être visionné dans sa vue détaillée.
+
+### Affectation de tâches.
+
+Dans la vue de modificaiton d'un US, il est possible de lui affecter des tâches. Pour ce faire,
+toutes les tâches doivent être listées, et disponibles sous la forme de cases à cocher.
+Si une tâches est déjà affectée, il est évident que la case sera déjà cochée.
+
+Le début des champs correspondants aux tâches sont de la forme
+
+userstory_task_, suivi de l'id de la tâche. Il sera nécessaire de récupérer dans la variable $_POST
+tous les champs commençant par cette expression, et extraire les ids des tâches assosiés.

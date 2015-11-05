@@ -1,4 +1,8 @@
-<?php $dev = $context->getData(); ?>
+<?php 
+ 	$data = $context->getData();
+	$dev = $data[0];
+	$tasks = $data[1];
+?>
 
 <table class="table-list view">
     <tr>
@@ -14,3 +18,15 @@
         <td class="table-td"><?php echo $dev->devDescription; ?></td>
     </tr>
 </table>
+
+<h3>Tasks</h3>
+<ul>
+	<?php foreach ($tasks as $task) { ?>
+		<li>
+			<a href="?tasks&amp;id=<?php echo $task->taskId; ?>" target="_blank">
+				<?php echo $task->taskIdentifier; ?>
+			</a>
+		</li>
+	<?php } ?>
+</ul>
+
