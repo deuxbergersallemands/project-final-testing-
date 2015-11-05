@@ -1,7 +1,6 @@
 <?php
 
-// require "model/UserstoryDatabase.class.php"
-// $db = new UserstoryDatabase;
+// $db = new \model\UserstoryDatabase;
 
 $context->setData($db->getUserStories());         
 $context->setPageUrl("userstories/list.php");
@@ -12,8 +11,6 @@ if (isset($_GET['add']))
     $context->setPageUrl("userstories/add.php");
 
 else if (!empty($_GET['manage'])) {
-	//$task = new \model\DeveloperDatabase;
-	//$us = new \model\UserstoryDatabase;
 
 	$context->setData(
 			array('us' 			=> $db->getUserStory($_GET['manage']),
@@ -30,7 +27,26 @@ else if (!empty($_GET['del'])) {
     $db->delUserStory($_GET['del']);
     $context->setData($db->getUserStories());         
 }
-else if (!empty($_GET['id'])) {                       
+else if (!empty($_GET['id'])) { 
+	$NbTask=0;
+	$NbTaskDone=0;
+	$NbTaskToDo=0;
+	$task = new \model\TaskDatabase;
+	$tasks = $task -> getTasksByUserstory($_GET['id']);
+	foreach($tasks as $task_Id){
+		$NbTask++;
+		if( $task_Id -> taskState=="ongoing")
+		{   $db -> setUserStoryState($_GET['id'],"ongoing");
+			break;
+			}
+		if( $task_Id -> taskState=="todo")
+		{   $NbTaskToDo++; }
+			
+		if( $task_Id -> taskState=="done")
+		{   $NbTaskDone++; }
+	}
+	if ($NbTask==$NbTaskDone) {$db -> setUserStoryState($_GET['id'],"done");}
+	if ($NbTask==$NbTaskToDo) {$db -> setUserStoryState($_GET['id'],"todo");}
     $context->setData($db->getUserStory($_GET['id']));
     $context->setPageUrl("userstories/view.php");
 } 
@@ -53,11 +69,19 @@ else if (!empty($_POST['edit_us_id']) && !empty($_POST['edit_us_identifier']) &&
     $context->setData($db->getUserStories());         
 }
 else if (!empty($_POST['set_us_id'])) {
-	$taskIds = array_filter(array_keys($_POST),
-			function($str) {
-		if (preg_match("/^set_us_task_id_([0-9]+)$/", $str, $matches))
-			return $matches[1];
-	});
+
+	if(!empty($_POST['Sprints_Us']))
+	{
+		$sprint = new \model\SprintDatabase;
+		foreach($_POST['Sprints_Us'] as $Sprint_Id){
+			$sprint ->addUserstoryToSprint($_POST['set_us_id'],$Sprint_Id);
+		}
+	}
 	
-	// TODO
+	if(!empty($_POST['Tasks_Us']))
+	{
+		foreach($_POST['Tasks_Us'] as $Task_Id){
+			$db ->addTaskToUserstory($_POST['set_us_id'],$Task_Id);
+		}
+	}
 }
