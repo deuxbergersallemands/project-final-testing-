@@ -83,7 +83,23 @@ class UserstoryDatabase extends AbstractDatabase
         $req->closeCursor();
     }
     
-    
+     public function removeTasksFromUserstory($usId)
+    {
+        $req = $this->_db->prepare("DELETE FROM TasksToUserStories
+                                        WHERE usId = ?");
+        $req->execute(array($usId));
+        $req->closeCursor();
+    }
+	
+	   public function removeUserstoryFromTasks($taskId)
+    {
+        $req = $this->_db->prepare("DELETE FROM TasksToUserStories
+                                        WHERE taskId = ?");
+        $req->execute(array($taskId));
+        $req->closeCursor();
+    }
+	
+	
     // Bindings with sprints.
     
     public function getUserstoriesBySprint($sprintId)

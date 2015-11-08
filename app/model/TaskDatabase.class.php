@@ -84,7 +84,13 @@ class TaskDatabase extends AbstractDatabase
         $req->execute(array($devId));
         $req->closeCursor();
     }
-    
+	
+     public function removeDeveloperFromTasks($taskId)
+    {
+        $req = $this->_db->prepare("UPDATE Tasks SET devId = null WHERE taskId = ?");
+        $req->execute(array($taskId));
+        $req->closeCursor();
+    }
     
     // Bindings with us.
     
