@@ -33,7 +33,7 @@
 	<label>Userstories</label><br />
 	<?php foreach ($data['us'] as $us) {  ?>
 		<input type="checkbox" value="<?php echo $us->usId; ?>" name="userstories_task[]"
-		<?php if (in_array($us, $data['usByTask'])) ) echo "checked"; ?>>
+		<?php if (in_array($us, $data['usByTask']))  echo "checked"; ?>>
 		<a href="?userstories&amp;id=<?php echo $us->usId; ?>" target="_blank">
 			<?php echo $us->usIdentifier; ?><br />
 		</a>
