@@ -2,7 +2,7 @@
 
 $db = new \model\UserstoryDatabase;
 $sprints = new \model\SprintDatabase;
-$tasks = new \model\UserstoryDatabase;
+$tasks = new \model\TaskDatabase;
 $context->setData($db->getUserStories());         
 $context->setPageUrl("userstories/list.php");
 $context->setHeader("Backlog");
@@ -10,13 +10,13 @@ $context->setHeader("Backlog");
 
 if (isset($_GET['add']))
     $context->setPageUrl("userstories/add.php");
-
 else if (!empty($_GET['manage'])) {
-	
 	$context->setData(
 			array('us' 			=> $db->getUserStory($_GET['manage']),
 					'sprints' 	=> $sprints->getSprints(),
-					'tasks' 	=> $tasks->getTasks()));
+					'tasks' 	=> $tasks->getTasks(),
+					'sprintByUs'=> $sprints->getSprintsByUserstory($_GET['manage']),
+					'taskByUs' 	=> $tasks->getTasksByUserstory($_GET['manage'])));
 
 	$context->setPageUrl("userstories/manage.php");
 }
@@ -70,6 +70,9 @@ else if (!empty($_POST['edit_us_id']) && !empty($_POST['edit_us_identifier']) &&
 }
 else if (!empty($_POST['set_us_id'])) {
 
+	$db ->removeTasksFromUserstory($_POST['set_us_id']);
+	$sprints ->removeUserstoriesToSprint($_POST['set_us_id']);
+
 	if(!empty($_POST['Sprints_Us']))
 	{
 		foreach($_POST['Sprints_Us'] as $Sprint_Id){
@@ -80,7 +83,7 @@ else if (!empty($_POST['set_us_id'])) {
 	if(!empty($_POST['Tasks_Us']))
 	{
 		foreach($_POST['Tasks_Us'] as $Task_Id){
-			$db ->addTaskToUserstory($_POST['set_us_id'],$Task_Id);
+			$db ->addTaskToUserstory($Task_Id,$_POST['set_us_id']);
 		}
 	}
 }
