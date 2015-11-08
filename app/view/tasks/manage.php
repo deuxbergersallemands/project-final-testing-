@@ -19,7 +19,7 @@
 	
 	<br />
 	<label>Developer</label><br />
-	<input type="radio" name="set_task_developer_id" value=""><br />
+	<!-- <input type="radio" name="set_task_developer_id" value=""><br /> -->
 	<?php foreach ($data['devs'] as $dev) {  ?>
 		<input type="radio" name="set_task_developer_id" value="<?php echo $dev->devId; ?>" 
 			<?php if ($data['task']->devId == $dev->devId) echo "checked"; ?> >
@@ -32,10 +32,11 @@
 	<br />
 	<label>Userstories</label><br />
 	<?php foreach ($data['us'] as $us) {  ?>
-		<input type="checkbox" value="<?php echo $us->usId; ?>" name="userstories_task[]">
-			<a href="?userstories&amp;id=<?php echo $us->usId; ?>" target="_blank">
-				<?php echo $us->usIdentifier; ?><br />
-			</a>
+		<input type="checkbox" value="<?php echo $us->usId; ?>" name="userstories_task[]"
+		<?php if (in_array($us, $data['usByTask'])) ) echo "checked"; ?>>
+		<a href="?userstories&amp;id=<?php echo $us->usId; ?>" target="_blank">
+			<?php echo $us->usIdentifier; ?><br />
+		</a>
 	<?php } ?>
 	<br /><br />
     <button  class="btn" type="submit">Edit</button>
