@@ -3,7 +3,7 @@
 namespace model;
 
 
-class SprintDabatase extends AbstractDatabase
+class SprintDatabase extends AbstractDatabase
 {
 	public function getSprints() {
 		return $this->fetchAll($this->_db->query("SELECT * FROM Sprints"));
@@ -54,7 +54,7 @@ class SprintDabatase extends AbstractDatabase
 	public function getSprintsByUserstory($usId)
 	{
 		$req = $this->_db->prepare("SELECT * FROM Sprints WHERE sprintId in
-										(SELECT taskId FROM UserStoriesToSprints WHERE usId = ?)");
+										(SELECT sprintId FROM UserStoriesToSprints WHERE usId = ?)");
 		$req->execute(array($usId));
 		return $this->fetchAll($req);
 	}
@@ -71,7 +71,16 @@ class SprintDabatase extends AbstractDatabase
 	{
 		$req = $this->_db->prepare("DELETE FROM UserStoriesToSprints
 										WHERE usId = ? AND sprintId = ?");
-		$req->execute(array($usId, $taskId));
+		$req->execute(array($usId, $sprintId));
 		$req->closeCursor();
 	}
+	
+	public function removeUserstoriesToSprint($usId)
+	{
+		$req = $this->_db->prepare("DELETE FROM UserStoriesToSprints
+										WHERE usId = ? ");
+		$req->execute(array($usId));
+		$req->closeCursor();
+	}
+	
 }

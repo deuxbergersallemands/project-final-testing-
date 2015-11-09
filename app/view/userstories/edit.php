@@ -11,7 +11,7 @@
 	
 	<label>Difficulty:</label><input type="number" name="edit_us_difficulty"
                                     value="<?php echo $us->usDifficulty; ?>"  /><br />	
-    <label>Description:</label><br /><textarea name="edit_dev_description">
+    <label>Description:</label><br /><textarea name="edit_us_description">
                                         <?php echo $us->usDescription; ?>
                                      </textarea><br />
     <button  class="btn btn-lg" type="submit">Edit</button>

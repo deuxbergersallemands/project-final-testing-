@@ -1,8 +1,8 @@
 <?php
 
-// require "model/UserstoryDatabase.class.php"
-// $db = new UserstoryDatabase;
-
+$db = new \model\UserstoryDatabase;
+$sprints = new \model\SprintDatabase;
+$tasks = new \model\TaskDatabase;
 $context->setData($db->getUserStories());         
 $context->setPageUrl("userstories/list.php");
 $context->setHeader("Backlog");
@@ -10,15 +10,13 @@ $context->setHeader("Backlog");
 
 if (isset($_GET['add']))
     $context->setPageUrl("userstories/add.php");
-
 else if (!empty($_GET['manage'])) {
-	//$task = new \model\DeveloperDatabase;
-	//$us = new \model\UserstoryDatabase;
-
 	$context->setData(
 			array('us' 			=> $db->getUserStory($_GET['manage']),
-					'sprints' 	=> $db->getSprints(),
-					'tasks' 	=> $db->getTasks()));
+					'sprints' 	=> $sprints->getSprints(),
+					'tasks' 	=> $tasks->getTasks(),
+					'sprintByUs'=> $sprints->getSprintsByUserstory($_GET['manage']),
+					'taskByUs' 	=> $tasks->getTasksByUserstory($_GET['manage'])));
 
 	$context->setPageUrl("userstories/manage.php");
 }
@@ -30,7 +28,25 @@ else if (!empty($_GET['del'])) {
     $db->delUserStory($_GET['del']);
     $context->setData($db->getUserStories());         
 }
-else if (!empty($_GET['id'])) {                       
+else if (!empty($_GET['id'])) { 
+	$NbTask=0;
+	$NbTaskDone=0;
+	$NbTaskToDo=0;
+	$task = $tasks -> getTasksByUserstory($_GET['id']);
+	foreach($task as $task_Id){
+		$NbTask++;
+		if( $task_Id -> taskState=="ongoing")
+		{   $db -> setUserStoryState($_GET['id'],"ongoing");
+			break;
+			}
+		if( $task_Id -> taskState=="todo")
+		{   $NbTaskToDo++; }
+			
+		if( $task_Id -> taskState=="done")
+		{   $NbTaskDone++; }
+	}
+	if ($NbTask==$NbTaskDone) {$db -> setUserStoryState($_GET['id'],"done");}
+	if ($NbTask==$NbTaskToDo) {$db -> setUserStoryState($_GET['id'],"todo");}
     $context->setData($db->getUserStory($_GET['id']));
     $context->setPageUrl("userstories/view.php");
 } 
@@ -53,11 +69,21 @@ else if (!empty($_POST['edit_us_id']) && !empty($_POST['edit_us_identifier']) &&
     $context->setData($db->getUserStories());         
 }
 else if (!empty($_POST['set_us_id'])) {
-	$taskIds = array_filter(array_keys($_POST),
-			function($str) {
-		if (preg_match("/^set_us_task_id_([0-9]+)$/", $str, $matches))
-			return $matches[1];
-	});
+
+	$db ->removeTasksFromUserstory($_POST['set_us_id']);
+	$sprints ->removeUserstoriesToSprint($_POST['set_us_id']);
+
+	if(!empty($_POST['Sprints_Us']))
+	{
+		foreach($_POST['Sprints_Us'] as $Sprint_Id){
+			$sprints ->addUserstoryToSprint($_POST['set_us_id'],$Sprint_Id);
+		}
+	}
 	
-	// TODO
+	if(!empty($_POST['Tasks_Us']))
+	{
+		foreach($_POST['Tasks_Us'] as $Task_Id){
+			$db ->addTaskToUserstory($Task_Id,$_POST['set_us_id']);
+		}
+	}
 }

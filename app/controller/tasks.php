@@ -1,7 +1,8 @@
 <?php
 
 $db = new \model\TaskDatabase;
-
+$dev = new \model\DeveloperDatabase;
+$us = new \model\UserstoryDatabase;
 $context->setData($db->getTasks());         
 $context->setPageUrl("tasks/list.php");
 $context->setHeader("Tasks");
@@ -11,12 +12,12 @@ if (isset($_GET['add']))
     $context->setPageUrl("tasks/add.php");
 
 else if (!empty($_GET['manage'])) {
-	$dev = new \model\DeveloperDatabase;
-	$us = new \model\UserstoryDatabase;
+	
 	
 	$context->setData(
 			array('task' 	=> $db->getTask($_GET['manage']),
 					'devs' 	=> $dev->getDevelopers(),
+					'usByTask' 	=> $us->getUserstoriesByTask($_GET['manage']),
 					'us' 	=> $us->getUserStories()));
 	
 	$context->setPageUrl("tasks/manage.php");
@@ -50,20 +51,25 @@ else if (!empty($_POST['edit_task_id']) && !empty($_POST['edit_task_identifier']
     $context->setData($db->getTasks());         
 }
 else if (!empty($_POST['set_task_id'])) {
+	
 	if (!empty($_POST['set_task_state']))
 		$db->setTaskState($_POST['set_task_id'], $_POST['set_task_state']);
 	
-	if (!empty($_POST['set_task_developer_id']))
-		$db->setDeveloperToTask($_POST['set_task_developer_id'], $_POST['set_task_id']);
+	if (!empty($_POST['set_task_developer_id'])){
+		$db ->removeDeveloperFromTasks($_POST['set_task_id']);
+		$db->setDeveloperToTask($_POST['set_task_developer_id'], $_POST['set_task_id']);}
 	
 	else if (isset($_POST['set_task_developer_id']) && empty($_POST['set_task_developer_id']))
 		$db->removeDeveloperFromTask($_POST['set_task_id']);
 	
-	$usIds = array_filter(array_keys($_POST), 
-		function($str) { 
-			if (preg_match("/^set_task_us_id_([0-9]+)$/", $str, $matches))
-				return $matches[1]; 
-		});
 		
-	// TODO
+	if(!empty($_POST['userstories_task']))
+	{
+		$us ->removeTasksFromUserstory($_POST['set_task_id']);
+		foreach($_POST['userstories_task'] as $Us_Id){
+			$us ->addTaskToUserstory($_POST['set_task_id'],$Us_Id);
+		}
+	}
+		
+	
 }
