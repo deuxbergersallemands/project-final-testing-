@@ -13,7 +13,6 @@ if (isset($_GET['add']))
 
 else if (!empty($_GET['manage'])) {
 	
-	
 	$context->setData(
 			array('task' 	=> $db->getTask($_GET['manage']),
 					'devs' 	=> $dev->getDevelopers(),

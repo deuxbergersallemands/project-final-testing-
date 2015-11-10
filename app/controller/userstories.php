@@ -50,14 +50,13 @@ else if (!empty($_GET['id'])) {
 	if ($NbTask==$NbTaskToDo) {$db -> setUserStoryState($_GET['id'],"todo");}
 	
     $context->setData(array(
-                       $db->getUserStory($_GET['id']),
-                       $sprints->getSprintsByUserstory($_GET['id']),
-                       $tasks->getTasksByUserstory($_GET['id'])));
+                       'us' => $db->getUserStory($_GET['id']),
+                       'sprints' => $sprints->getSprintsByUserstory($_GET['id']),
+                       'tasks' => $tasks->getTasksByUserstory($_GET['id'])));
     
     $context->setPageUrl("userstories/view.php");
 } 
 else if (!empty($_POST['new_us_identifier']) && !empty($_POST['new_us_summary']) ) {
-
 	$priority = (!empty($_POST['new_us_priority'])) ? $_POST['new_us_priority'] : 0; 
     $difficulty = (!empty($_POST['new_us_difficulty'])) ? $_POST['new_us_difficulty'] : 0;
     $description = (!empty($_POST['new_us_description'])) ? $_POST['new_us_description'] : "";
@@ -66,7 +65,6 @@ else if (!empty($_POST['new_us_identifier']) && !empty($_POST['new_us_summary'])
     $context->setData($db->getUserStories());         
 }
 else if (!empty($_POST['edit_us_id']) && !empty($_POST['edit_us_identifier']) && !empty($_POST['edit_us_summary']) ) {
-
 	$priority = (!empty($_POST['edit_us_priority'])) ? $_POST['edit_us_priority'] : 0; 
     $difficulty = (!empty($_POST['edit_us_difficulty'])) ? $_POST['edit_us_difficulty'] : 0;
     $description = (!empty($_POST['edit_us_description'])) ? $_POST['edit_us_description'] : "";

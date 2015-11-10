@@ -19,14 +19,10 @@ else if (!empty($_GET['manage'])) {		// the view needs developer and tasks list.
 				global $dev;					// Otherwise, it's not possible to use $dev.
 				return ($task->devId == null || $task->devId == $dev->devId);
 			});
-	
-	$tasksDevIds = array_map(				// The manage view needs only IDs of already given tasks.
-			function($task) { return $task->taskId; },
-			$taskDb->getTasksByDeveloper($dev->devId));
 
-	$context->setData(array($dev,
-							$tasks,
-    						$tasksDevIds));
+	$context->setData(array('dev' => $dev,
+							'tasks' => $tasks,
+    						'tasksDev' => $taskDb->getTasksByDeveloper($dev->devId)));
 
 	$context->setPageUrl("developers/manage.php");
 }
@@ -41,8 +37,8 @@ else if (!empty($_GET['del'])) {
 else if (!empty($_GET['id'])) {		// the view needs developer and associated tasks list.
 	$taskDb = new \model\TaskDatabase;
 	
-    $context->setData(array($db->getDeveloper($_GET['id']),
-    							$taskDb->getTasksByDeveloper($_GET['id'])));
+    $context->setData(array('dev' => $db->getDeveloper($_GET['id']),
+    					    'tasksDev' => $taskDb->getTasksByDeveloper($_GET['id'])));
     
     $context->setPageUrl("developers/view.php");
 } 
@@ -54,7 +50,6 @@ else if (!empty($_POST['new_dev_name']) && !empty($_POST['new_dev_first_name']) 
     $context->setData($db->getDevelopers());         
 }
 else if (!empty($_POST['edit_dev_id']) && !empty($_POST['edit_dev_name']) && !empty($_POST['edit_dev_first_name']) ) {
-
     $comment = (!empty($_POST['edit_dev_description'])) ? $_POST['edit_dev_description'] : "";
 	
     $db->updateDeveloper($_POST['edit_dev_id'], $_POST['edit_dev_name'], $_POST['edit_dev_first_name'], $comment);
