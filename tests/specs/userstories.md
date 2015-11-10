@@ -52,7 +52,7 @@ Les champs pour la modification d'une user story sont :
 Ces variables sont passées par formulaire, en POST.
 
 
-### Champs HTML pour la visualisation d'une user story
+### Visualisation d'une user story
 
 Pour visualiser une user story, 'view' doit être définie dans l'URL et doit valoir
 l'id de la user story souhaitée. 
@@ -62,9 +62,12 @@ les champs pour la visualisation sont :
 * view_us_summary -> description de la user story (requis),
 * view_us_priority -> priorité de la user story ,
 * view_us_difficulty -> difficulté de la user story ,
-* view_us_State -> l'etat de la user story ,
+* view_us_state -> l'etat de la user story ,
 * view_us_duration -> le temps de réalisation de la user story (s'affichera si la user story est validée)  ,
-* view_us_description -> commentaire 
+* view_us_description -> commentaire
+
+La description d'une US doit également faire apparaître les sprints et les tâches auxquelles elle
+est rattachée.
 
 ### Suppression
 
