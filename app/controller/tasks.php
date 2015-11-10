@@ -30,7 +30,11 @@ else if (!empty($_GET['del'])) {
     $context->setData($db->getTasks());         
 }	
 else if (!empty($_GET['id'])) {                       
-    $context->setData($db->getTask($_GET['id']));
+    $context->setData(
+                    array('task' => $db->getTask($_GET['id']),
+                           'devTask' => $dev->getDeveloperByTask($_GET['id']),
+                           'ussTask' => $us->getUserstoriesByTask($_GET['id'])));
+        
     $context->setPageUrl("tasks/view.php");
 } 
 else if (!empty($_POST['new_task_identifier']) && !empty($_POST['new_task_summary']) ) {
@@ -62,13 +66,11 @@ else if (!empty($_POST['set_task_id'])) {
 		$db->removeDeveloperFromTask($_POST['set_task_id']);
 	
 		
-	if(!empty($_POST['userstories_task']))
+	if (!empty($_POST['userstories_task']))
 	{
 		$us ->removeTasksFromUserstory($_POST['set_task_id']);
 		foreach($_POST['userstories_task'] as $Us_Id){
 			$us ->addTaskToUserstory($_POST['set_task_id'],$Us_Id);
 		}
 	}
-		
-	
 }
