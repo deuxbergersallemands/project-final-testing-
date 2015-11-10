@@ -1,11 +1,9 @@
 <?php
 
-include_once("model/Context.class.php");
-include_once("model/Database.class.php");
+require "model/Context.class.php";
+
 
 $context = new Context();
-$db = new Database();
-
 
 if (isset($_GET['tasks']))
     include("controller/tasks.php");

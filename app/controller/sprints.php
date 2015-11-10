@@ -20,8 +20,7 @@ else if (!empty($_GET['del'])) {
     $context->setData($db->getSprints());         
 }
 else if (!empty($_GET['id'])) {    
-
-	$usSprint = $us->getUserstoriesBySprint($sprint->sprintId);
+	$usSprint = $us->getUserstoriesBySprint($_GET['id']);
 	$tasks = array();
 	
 	foreach ($usSprint as $us)

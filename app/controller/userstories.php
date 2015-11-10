@@ -3,6 +3,7 @@
 $db = new \model\UserstoryDatabase;
 $sprints = new \model\SprintDatabase;
 $tasks = new \model\TaskDatabase;
+
 $context->setData($db->getUserStories());         
 $context->setPageUrl("userstories/list.php");
 $context->setHeader("Backlog");
@@ -47,7 +48,12 @@ else if (!empty($_GET['id'])) {
 	}
 	if ($NbTask==$NbTaskDone) {$db -> setUserStoryState($_GET['id'],"done");}
 	if ($NbTask==$NbTaskToDo) {$db -> setUserStoryState($_GET['id'],"todo");}
-    $context->setData($db->getUserStory($_GET['id']));
+	
+    $context->setData(array(
+                       $db->getUserStory($_GET['id']),
+                       $sprints->getSprintsByUserstory($_GET['id']),
+                       $tasks->getTasksByUserstory($_GET['id'])));
+    
     $context->setPageUrl("userstories/view.php");
 } 
 else if (!empty($_POST['new_us_identifier']) && !empty($_POST['new_us_summary']) ) {
@@ -75,7 +81,7 @@ else if (!empty($_POST['set_us_id'])) {
 
 	if(!empty($_POST['Sprints_Us']))
 	{
-		foreach($_POST['Sprints_Us'] as $Sprint_Id){
+		foreach($_POST['Sprints_Us'] as $Sprint_Id) {
 			$sprints ->addUserstoryToSprint($_POST['set_us_id'],$Sprint_Id);
 		}
 	}
