@@ -1,0 +1,90 @@
+
+.header {
+    position: fixed;
+	top: 0;
+	left: 0;
+	height: 75px;
+	width: 100%;
+	background: white;
+    color: #7A7A7A;
+    box-shadow:  1px 1px 12px #A9A9A9; 
+    font-family: open sans light, Arial, Verdana, sans-serif;
+}
+
+.title {
+    margin-left: 7%;
+}
+
+.body {
+    margin-top: 5%;
+    margin-left: 1%
+}
+
+.menu {
+    display: table-cell;
+}
+
+.menu ul {
+    list-style-type: none;
+}
+
+.menu li {
+    border-top: 1px #AFAFAF solid;
+}
+
+.content {
+    padding-left: 40px;
+    width: 100%;
+    display: table-cell;
+}
+
+.add-block {
+    
+	margin-right: 5%;
+	float : right;
+}
+.add label {
+	width:200px;
+}
+.add input {
+	width:200px;
+}
+.add textarea {
+	width:200px;
+}
+.add button {
+	width:100px;
+}
+
+.table-list {
+    border-collapse: collapse;
+    background: #F6F6F6;
+    width: 70%;
+}
+
+.table-th {
+    text-align: center;
+    border: 2px solid white;
+    font-family: open sans semibold, Arial, Verdana, sans-serif;
+    background: #E8E8E8;
+}
+
+.view {
+    width: 50%;
+}
+
+.view th {
+	background-color: silver;
+	width: 30%;
+	padding: 5px;
+    border-top: 1px #000000 solid;
+}
+
+.icon{
+	float: right; 
+	padding: 5px;
+}
+
+.table-td {
+    padding-left: 10px;
+}

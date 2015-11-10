@@ -3,18 +3,32 @@
 
 class Context
 {
+    // Class constantes, to common button images.
+    const VIEW_BUTTON_IMG      = "assets/images/loupe.png";
+    const ADD_BUTTON_IMG       = "assets/images/add.png";
+    const EDIT_BUTTON_IMG      = "assets/images/pencil.png";
+    const DEL_BUTTON_IMG       = "assets/images/delete.png";
+    const BACK_BUTTON_IMG      = "assets/images/back.png";
+    const HELP_BUTTON_IMG      = "assets/images/help.png";
+    const MANAGE_BUTTON_IMG    = "assets/images/manage.png";
+
+    // Class variables.
     private $_pageUrl;
-    private $_prefixPageUrl
+    private $_prefixPageUrl;
     private $_pageTitle;
     private $_pageId;
+    private $_header;
+
+    private $_data;
 
 
-    public __construct()
+    public function __construct()
     {
-        $_pageUrl = "welcome.php";
-        $_prefixPageUrl = "/view/content/";
-        $_pageTitle = "Welcome"
-        $_pageId = "welcome";
+        $this->_pageUrl = "welcome.php";
+        $this->_prefixPageUrl = "view";
+        $this->_pageTitle = "Welcome";
+        $this->_pageId = "welcome";
+        $this->_header = "Welcome";
     }
 
 
@@ -22,11 +36,11 @@ class Context
         return $this->_prefixPageUrl . "/" . $this->_pageUrl;
     }
 
-    public setPageUrl($url) {
+    public function setPageUrl($url) {
         $this->_pageUrl = $url;
     }
 
-    public setPrefixPageUrl($prefix) {
+    public function setPrefixPageUrl($prefix) {
         $this->_prefixPageUrl = $prefix;
     }
 
@@ -35,7 +49,7 @@ class Context
         return $this->_pageTitle;
     }
 
-    public setPageUrl($title) {
+    public function setPageTitle($title) {
         $this->_pageTitle = $title;
     }
 
@@ -44,7 +58,23 @@ class Context
         return $this->_pageId;
     }
 
-    public setPageUrl($id) {
+    public function setPageId($id) {
         $this->_pageId = $id;
+    }
+
+    public function getHeader() {
+        return $this->_header;
+    }
+
+    public function setHeader($header) {
+        $this->_header = $header;
+    }
+
+    public function getData() {
+        return $this->_data;
+    }
+
+    public function setData($data) {
+        $this->_data = $data;
     }
 }
