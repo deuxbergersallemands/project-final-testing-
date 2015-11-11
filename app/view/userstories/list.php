@@ -1,6 +1,8 @@
 <div class="add-block">
     <a href="?userstories&amp;add"><img src="<?php echo $context::ADD_BUTTON_IMG; ?>" /><button type="button" class="btn btn-link">Add user story</button></a>
-    <button id="help" class="btn btn-link"><img src="<?php echo $context::HELP_BUTTON_IMG; ?>" /></button>
+    <button id="help" class="btn btn-link"><img src="<?php echo $context::HELP_BUTTON_IMG; ?>" /></button><br>
+    <a href="?userstories&amp;BDC"><img src="<?php echo $context::VIEW_BUTTON_IMG; ?>" /><button type="button" class="btn btn-link">View Burndown Chart</button></a>
+   
 </div>
 
 <?php if (!empty($context->getData())) { ?>
