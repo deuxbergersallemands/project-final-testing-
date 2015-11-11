@@ -4,6 +4,7 @@
 class Context
 {
     // Class constantes, to common button images.
+	const BDC_IMG     		   = "assets/images/BDC.png";
     const VIEW_BUTTON_IMG      = "assets/images/loupe.png";
     const ADD_BUTTON_IMG       = "assets/images/add.png";
     const EDIT_BUTTON_IMG      = "assets/images/pencil.png";
