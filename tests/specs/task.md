@@ -28,15 +28,13 @@ Les champs pour l'ajout d'une tâche sont :
 * new_task_expected_duration -> temps attendu (en hj) pour la tâche,
 * new_task_description -> description et commentaire.
 
-
 Les champs pour la modification d'une tâche sont :
 
 * edit_task_id -> id de la tâche (requis),
 * edit_task_identifier -> identifiant de la tâche (requis),
 * edit_task_summary -> description courte de la tâche (requis),
 * edit_task_expected_duration -> temps attendu (en hj) pour la tâche,
-* edit_task_description
-* set_task_state -> l'état de la tâche (requis)
+* edit_task_description.
 
 Ces variables sont passées par formulaire, en POST.
 
@@ -44,6 +42,18 @@ Ces variables sont passées par formulaire, en POST.
 ### Visualisation d'une tâche
 
 La vue doit rajouter dans l'URL 'id=' et l'id de la tâche à utiliser.
+Les champs pour la visualition sont :
+
+* view_task_identifier -> identifiant de la tâche,
+* view_task_summary -> description courte de la tâche,
+* view_task_expected_duration -> temps attendu (en hj) pour la tâche,
+* view_task_duration -> temps réel (en hj) pour la réalisation de la tâche,
+* view_task_state -> l'état de la tâche,
+* view_task_description.
+
+La description doit aussi comprendre les US associées ainsi que le développeur
+(si l'un d'eux est affecté) en charge de la tâche.
+L'état de la tâche est modifié manuellement par l'utilisateur.
 
 
 ### Suppression

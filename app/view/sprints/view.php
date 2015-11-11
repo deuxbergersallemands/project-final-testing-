@@ -26,22 +26,21 @@
 		<th>On Going</th>
 		<th>Done</th>
 	</tr>
-	<?php foreach ($data['tasks'] as $task) { ?>
+	<?php foreach ($data['tasks'] as $task) {  ?>
 	
 	<tr>
 		<td>
-			<a href="?tasks&amp;id=<?php echo $task->$taskId; ?>" target="_blank">
+			<a href="?tasks&amp;id=<?php echo $task->taskId; ?>" target="_blank">
 				<?php echo $task->taskIdentifier; ?>
 			</a>
 		</td>
-		<td>
-			<?php if ($task->taskState == "todo") echo "TRUC"; ?>
+		<td 
+		    <?php if (empty($task->taskState)
+			               || $task->taskState == "todo") echo "bgcolor='red'"; ?>>
 		</td>
-		<td>
-			<?php if ($task->taskState == "ongoing") echo "TRUC"; ?>
+		<td <?php if ($task->taskState == "ongoing") echo "bgcolor='orange'"; ?> >
 		</td>
-		<td>
-			<?php if ($task->taskState == "done") echo "TRUC"; ?>
+		<td <?php if ($task->taskState == "done") echo "bgcolor='green'"; ?> >
 		</td>
 	</tr>
 	

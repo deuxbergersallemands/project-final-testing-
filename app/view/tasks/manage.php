@@ -7,7 +7,8 @@
 	
 	<div>
 		<input type="radio" name="set_task_state" value="todo" 
-		<?php if ($data['task']->taskState == "todo") echo "checked"; ?>> 
+		<?php if (empty($data['task']->taskState) 
+		                || $data['task']->taskState == "todo") echo "checked"; ?>> 
 			To Do<br />
 		<input type="radio" name="set_task_state" value="ongoing"
 		<?php if ($data['task']->taskState == "ongoing") echo "checked"; ?>>
@@ -31,9 +32,9 @@
 	
 	<br />
 	<label>Userstories</label><br />
-	<?php foreach ($data['us'] as $us) {  ?>
+	<?php foreach ($data['us'] as $us) { ?>
 		<input type="checkbox" value="<?php echo $us->usId; ?>" name="userstories_task[]"
-		<?php if (in_array($us, $data['usByTask']))  echo "checked"; ?>>
+		<?php if (in_array($us, $data['usByTask'])) echo "checked"; ?>>
 		<a href="?userstories&amp;id=<?php echo $us->usId; ?>" target="_blank">
 			<?php echo $us->usIdentifier; ?><br />
 		</a>

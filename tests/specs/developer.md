@@ -48,7 +48,7 @@ Les champs pour l'ajout/modification d'un développeur sont :
 Ces variables sont passées par formulaire, en POST.
 
 
-### Visualisation d
+### Visualisation
 
 La vue doit rajouter dans l'URL 'id=' et l'id du dév.
 

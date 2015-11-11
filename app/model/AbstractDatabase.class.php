@@ -7,8 +7,8 @@ abstract class AbstractDatabase
 {
     protected $_host = "localhost";
     protected $_dbname = "rjorel";
-    protected $_username = "root";
-    protected $_passwd = "wfusdfcf";
+    protected $_username = "rjorel";
+    protected $_passwd = "truc";
     protected $_db;
 
 

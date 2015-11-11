@@ -3,6 +3,7 @@
 $db = new \model\SprintDatabase;
 $task = new \model\TaskDatabase;
 $us = new \model\UserstoryDatabase;
+
 $context->setData($db->getSprints());         
 $context->setPageUrl("sprints/list.php");
 $context->setHeader("Sprints");
@@ -20,13 +21,12 @@ else if (!empty($_GET['del'])) {
     $context->setData($db->getSprints());         
 }
 else if (!empty($_GET['id'])) {    
-
-	$usSprint = $us->getUserstoriesBySprint($sprint->sprintId);
+	$usSprint = $us->getUserstoriesBySprint($_GET['id']);
 	$tasks = array();
 	
 	foreach ($usSprint as $us)
-		array_merge($tasks, $task->getTasksByUserstory($us->usId));
-	                   
+		$tasks = array_merge($tasks, $task->getTasksByUserstory($us->usId));
+
     $context->setData(array(
     					'sprint' => $db->getSprint($_GET['id']),
     					'tasks' => $tasks));
