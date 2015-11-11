@@ -91,3 +91,30 @@ else if (!empty($_POST['set_us_id'])) {
 		}
 	}
 }
+else if (isset($_GET['BDC'])) {
+include("assets/php/function.php");
+$TotalDif = 0; $SommeDif = 0; $nbsp = 0;
+$array = array(); $arrayDi = array(); $arrayPer = array();
+ 
+foreach ($db->getUserStories() as $usD) {
+	$TotalDif=$usD-> usDifficulty + $TotalDif;
+}
+$arrayDi[]=$TotalDif; $arrayPer[]=$TotalDif; $array[]="";
+
+foreach ($sprints->getSprints() as $sprint) {
+	$nbsp++;
+	$array[] = $sprint->sprintIdentifier; 
+	foreach ($db->getUserstoriesBySprint($sprint -> sprintId)as $Us) {
+		$SommeDif= $Us-> usDifficulty + $SommeDif;
+	}
+	$arrayDi[]=$TotalDif-$SommeDif;
+}
+$nb=$TotalDif/$nbsp;
+for($i=0; $i< $nbsp; $i++) {
+	$TotalDif = $TotalDif-$nb;
+	$arrayPer[]=$TotalDif;
+}
+graph($arrayPer, $arrayDi, $array, $context );
+$context->setPageUrl("userstories/BDC.php");
+
+}
