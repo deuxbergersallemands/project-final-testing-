@@ -109,12 +109,14 @@ foreach ($sprints->getSprints() as $sprint) {
 	}
 	$arrayDi[]=$TotalDif-$SommeDif;
 }
+if($nbsp!=0){
 $nb=$TotalDif/$nbsp;
 for($i=0; $i< $nbsp; $i++) {
 	$TotalDif = $TotalDif-$nb;
 	$arrayPer[]=$TotalDif;
 }
 graph($arrayPer, $arrayDi, $array, $context );
-$context->setPageUrl("userstories/BDC.php");
+$context->setPageUrl("userstories/BDC.php");}
+else $context->setPageUrl("userstories/list.php");
 
 }
