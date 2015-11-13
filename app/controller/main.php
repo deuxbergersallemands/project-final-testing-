@@ -16,5 +16,9 @@ else if (isset($_GET['developers']))
 	
 else if (isset($_GET['sprints']))
     include("controller/sprints.php");
+
+else if (isset($_GET['help'])) {
+	include("controller/help.php");
+}
 	
 include("view/frame.php");
