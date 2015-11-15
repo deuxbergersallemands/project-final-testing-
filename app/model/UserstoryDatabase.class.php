@@ -104,8 +104,8 @@ class UserstoryDatabase extends AbstractDatabase
     
     public function getUserstoriesBySprint($sprintId)
     {
-        $sql = "SELECT * FROM UserStories WHERE usId IN 
-                    (SELECT usId FROM UserStoriesToSprints WHERE sprintId = ?)";
+        $sql = "SELECT * FROM `userstories` WHERE usId 
+						in (SELECT usId FROM userstoriestosprints WHERE sprintId= ?)";
         $req = $this->_db->prepare($sql);
         $req->execute(array($sprintId));
         return $this->fetchAll($req);
