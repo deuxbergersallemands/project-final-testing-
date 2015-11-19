@@ -11,13 +11,24 @@ $context->setHeader("Backlog");
 
 if (isset($_GET['add']))
     $context->setPageUrl("userstories/add.php");
+
 else if (!empty($_GET['manage'])) {
+    $ussDependent = $db->getDependentUserStories($_GET['manage']);
+    
+    // A user story can depend only on other user stories, and on not already dependent userstories.
+    $uss = array_filter($db->getUserStories(), function($us) {
+        global $ussDependent;
+        return !in_array($us, $ussDependent) && $us->usId != $_GET['manage'];
+    });
+    
 	$context->setData(
-			array('us' 			=> $db->getUserStory($_GET['manage']),
-					'sprints' 	=> $sprints->getSprints(),
-					'tasks' 	=> $tasks->getTasks(),
-					'sprintByUs'=> $sprints->getSprintsByUserstory($_GET['manage']),
-					'taskByUs' 	=> $tasks->getTasksByUserstory($_GET['manage'])));
+			array('us' 			  => $db->getUserStory($_GET['manage']),
+			        'uss'         => $uss,
+			        'ussDependOn' => $db->getDependOnUserstories($_GET['manage']),
+					'sprints' 	  => $sprints->getSprints(),
+					'tasks' 	  => $tasks->getTasks(),
+					'sprintByUs'  => $sprints->getSprintsByUserstory($_GET['manage']),
+					'taskByUs' 	  => $tasks->getTasksByUserstory($_GET['manage'])));
 
 	$context->setPageUrl("userstories/manage.php");
 }
@@ -74,8 +85,9 @@ else if (!empty($_POST['edit_us_id']) && !empty($_POST['edit_us_identifier']) &&
 }
 else if (!empty($_POST['set_us_id'])) {
 
+    $db->removeDependOnUserstories($_POST['set_us_id']);
 	$db ->removeTasksFromUserstory($_POST['set_us_id']);
-	$sprints ->removeUserstoriesToSprint($_POST['set_us_id']);
+	$sprints->removeUserstoriesToSprint($_POST['set_us_id']);
 
 	if(!empty($_POST['Sprints_Us']))
 	{
@@ -90,33 +102,38 @@ else if (!empty($_POST['set_us_id'])) {
 			$db ->addTaskToUserstory($Task_Id,$_POST['set_us_id']);
 		}
 	}
+	
+	if (!empty($_POST['ussDependOn_usIds']))
+	    foreach ($_POST['ussDependOn_usIds'] as $usId)
+	        $db->addDependentUserstory($_POST['set_us_id'], $usId);
+	
 }
 else if (isset($_GET['BDC'])) {
-include("assets/php/function.php");
-$TotalDif = 0; $SommeDif = 0; $nbsp = 0;
-$array = array(); $arrayDi = array(); $arrayPer = array();
- 
-foreach ($db->getUserStories() as $usD) {
-	$TotalDif=$usD-> usDifficulty + $TotalDif;
-}
-$arrayDi[]=$TotalDif; $arrayPer[]=$TotalDif; $array[]="";
+    include("assets/php/function.php");
+    $TotalDif = 0; $SommeDif = 0; $nbsp = 0;
+    $array = array(); $arrayDi = array(); $arrayPer = array();
+     
+    foreach ($db->getUserStories() as $usD) {
+        $TotalDif=$usD-> usDifficulty + $TotalDif;
+    }
+    $arrayDi[]=$TotalDif; $arrayPer[]=$TotalDif; $array[]="";
 
-foreach ($sprints->getSprints() as $sprint) {
-	$nbsp++;
-	$array[] = $sprint->sprintIdentifier; 
-	foreach ($db->getUserstoriesBySprint($sprint -> sprintId)as $Us) {
-		$SommeDif= $Us-> usDifficulty + $SommeDif;
-	}
-	$arrayDi[]=$TotalDif-$SommeDif;
-}
-if($nbsp!=0){
-$nb=$TotalDif/$nbsp;
-for($i=0; $i< $nbsp; $i++) {
-	$TotalDif = $TotalDif-$nb;
-	$arrayPer[]=$TotalDif;
-}
-graph($arrayPer, $arrayDi, $array, $context );
-$context->setPageUrl("userstories/BDC.php");}
-else $context->setPageUrl("userstories/list.php");
-
+    foreach ($sprints->getSprints() as $sprint) {
+        $nbsp++;
+        $array[] = $sprint->sprintIdentifier;
+        foreach ($db->getUserstoriesBySprint($sprint -> sprintId)as $Us) {
+            $SommeDif= $Us-> usDifficulty + $SommeDif;
+        }
+        $arrayDi[]=$TotalDif-$SommeDif;
+    }
+    if($nbsp!=0){
+        $nb=$TotalDif/$nbsp;
+        for($i=0; $i< $nbsp; $i++) {
+            $TotalDif = $TotalDif-$nb;
+            $arrayPer[]=$TotalDif;
+        }
+        graph($arrayPer, $arrayDi, $array, $context );
+        $context->setPageUrl("userstories/BDC.php");
+    }
+    else $context->setPageUrl("userstories/list.php");
 }
