@@ -7,4 +7,3 @@
         return $this->fetchAll($this->_db->query("SELECT * FROM Help"));
     }
   }
-?>
