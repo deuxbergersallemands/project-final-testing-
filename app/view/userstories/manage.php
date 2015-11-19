@@ -23,6 +23,19 @@
 			<?php echo $sprint->sprintIdentifier; ?><br />
 		</a>
 	<?php } ?>
+	
+	<br />
+	<label>User stories dependencies</label><br />
+	<?php foreach ($data['uss'] as $us) { ?>
+	
+		<input type="checkbox" name="ussDependOn_usIds[]" value="<?php echo $us->usId; ?>" 
+		    <?php if (in_array($us, $data['ussDependOn'])) echo "checked"; ?> >
+		<a href="?userstories&amp;id=<?php echo $us->usId; ?>" target="_blank">
+			<?php echo $us->usIdentifier; ?><br />
+		</a>
+		
+	<?php } ?>
+	
 	<br /><br />
     <button  class="btn" type="submit">Edit</button>
 </form>

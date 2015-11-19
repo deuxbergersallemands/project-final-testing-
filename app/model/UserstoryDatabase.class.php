@@ -104,10 +104,71 @@ class UserstoryDatabase extends AbstractDatabase
     
     public function getUserstoriesBySprint($sprintId)
     {
-        $sql = "SELECT * FROM `userstories` WHERE usId 
-						in (SELECT usId FROM userstoriestosprints WHERE sprintId= ?)";
+        $sql = "SELECT * FROM UserStories WHERE usId 
+						in (SELECT usId FROM UserStoriesToSprints WHERE sprintId= ?)";
         $req = $this->_db->prepare($sql);
         $req->execute(array($sprintId));
         return $this->fetchAll($req);
+    }
+    
+    
+    // Dependencies handling
+    
+    public function getDependentUserstories($usId)
+    {
+        $sql = "SELECT * FROM UserStories WHERE usId 
+						in (SELECT usDependentId FROM UserStoriesToUserStories WHERE usId = ?)";
+        
+        $req = $this->_db->prepare($sql);
+        $req->execute(array($usId));
+        return $this->fetchAll($req);
+    }
+    
+    public function getDependOnUserstories($usId)
+    {
+        $sql = "SELECT * FROM UserStories WHERE usId
+                    in (SELECT usId FROM UserStoriesToUserStories WHERE usDependentId = ?)";
+        
+        $req = $this->_db->prepare($sql);
+        $req->execute(array($usId));
+        return $this->fetchAll($req);
+    }
+    
+    public function addDependentUserstory($usDependentId, $usId)
+    {
+        $sql = "INSERT INTO UserStoriesToUserStories(usId, usDependentId)
+                  VALUES(?, ?)";
+        
+        $req = $this->_db->prepare($sql);
+        $req->execute(array($usId, $usDependentId));
+        $req->closeCursor();
+    }
+    
+    public function removeDependentUserstory($usDependentId, $usId)
+    {
+        $sql = "DELETE FROM UserStoriesToUserStories
+                WHERE usId = ? AND usDependentId = ?";
+        
+        $req = $this->_db->prepare($sql);
+        $req->execute(array($usId, $usDependentId));
+        $req->closeCursor();
+    }
+    
+    public function removeDependentUserStories($usId)
+    {
+        $sql = "DELETE FROM UserStoriesToUserStories WHERE usId = ?";
+        
+        $req = $this->_db->prepare($sql);
+        $req->execute(array($usId));
+        $req->closeCursor();
+    }
+    
+    public function removeDependOnUserstories($usId)
+    {
+        $sql = "DELETE FROM UserStoriesToUserStories WHERE usDependentId = ?";
+        
+        $req = $this->_db->prepare($sql);
+        $req->execute(array($usId));
+        $req->closeCursor();
     }
 }

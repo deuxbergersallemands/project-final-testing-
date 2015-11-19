@@ -106,6 +106,12 @@ Le début des champs correspondants aux tâches sont de la forme
 userstory_task_, suivi de l'id de la tâche. Il sera nécessaire de récupérer dans la variable $_POST
 tous les champs commençant par cette expression, et extraire les ids des tâches assosiés.
 
-###Burndown Chart
+### Burndown Chart
 Pour visualiser le Burndown Chart, 'BDC' doit être définie dans l'URL
 on retrouvera l'image qui corresponds au Burndown Chart
+
+
+### Dépendance de US
+Afin de lier les US, un tableau de boutons à cocher sera proposé. Evidemment, une US ne pouvant dépendre
+d'une autre lui étant déjà dépendante, les US proposées seront sélectionnées pour que cela ne soit pas possible.
+Sinon, n'importe quelle US peut dépendre d'une autre.
