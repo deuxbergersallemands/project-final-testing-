@@ -27,6 +27,16 @@
     </tr>
 </table>
 
+<h3> Commits related to this Task </h3>
+<?php 
+    echo "<table><tr><th>Commit</th><th>User</th><th>Sha</th></tr>";
+    foreach ($commits as $commit) { 
+        if (strstr($commit->getCommit()->getMessage(),$data['task']->taskIdentifier, true) > 1)
+          echo "<tr><td>".$commit->getCommit()->getMessage()."</td><td>".$commit->getAuthor()->getLogin()."</td><td>".$commit->getSha()."</td></tr>";
+    }
+    echo "</table>";
+ ?>
+
 <h3>Userstories</h3>
 <ul>
 	<?php foreach ($data['ussTask'] as $us) { ?>
