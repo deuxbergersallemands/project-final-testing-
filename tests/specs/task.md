@@ -82,3 +82,8 @@ pouvoir rajouter une description, ceci se fera grâce à un formulaire et un cha
 Via le context, la vue et le contrôleur peuvent communiquer.
 La vue se chargeant du listage, doit recevoir une liste de tâches, celles s'occupant
 de la modification ou l'affichage d'une tâche, doivent en recevoir une seule.
+
+### Dépendance des tâches
+Afin de lier les tâches d'un sprint, un tableau de boutons à cocher sera proposé. Evidemment, une tâche ne pouvant dépendre
+d'une autre lui étant déjà dépendante, les tâches proposées seront sélectionnées pour que cela ne soit pas possible.
+Sinon, n'importe quelle tâche peut dépendre d'une autre.

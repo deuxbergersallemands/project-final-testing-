@@ -194,3 +194,30 @@ d'une US d'un coup peut être intéressant, ainsi que l'inverse.
 
 * removeDependentUserStories(usId) -> supprime toutes les dépendances d'autre US d'une US,
 * removeDependOnUserstories(usId)  -> supprime toutes les dépendances d'une US.
+
+
+## Dépendance de tâche
+
+Pour gérer la dépendance entre tâche, il faut une nouvelle table de liaison.
+
+### Table
+Nom: TasksToTasks
+Champs:
+
+* tsDependentId -> ID de la tâche dépendante,
+* taskId -> ID de la tâche dont la précédente dépend.
+
+### Méthodes
+
+Afin de gérer facilement, quelques méthodes supplémentaires serait souhaitables.
+
+* getDependentTasks(taskId)                  -> récupération de toutes les tâches dépendantes d'une tâche,
+* getDependOnTasks(taskId)                   -> récupération de toutes les tâches dont dépend une tâche,
+* addDependentTask(tsDependentId, taskId)     -> ajout une nouvelle tâche dépendante à une autre tâche,
+* removeDependentTask(tsDependentId, taskId)  -> exactement l'inverse.
+
+Pour des raisons de vitesse, ajouter la possibilité de supprimer toutes les tâches dépendantes
+d'une tâche d'un coup peut être intéressant, ainsi que l'inverse.
+
+* removeDependentTasks(taskId) -> supprime toutes les dépendances d'autre tâche d'une tâche,
+* removeDependOnTasks(taskId)  -> supprime toutes les dépendances d'une tâche.
