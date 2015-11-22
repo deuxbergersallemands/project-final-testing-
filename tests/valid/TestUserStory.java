@@ -9,7 +9,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class TestTasks {
+public class TestUserStory {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -23,11 +23,11 @@ public class TestTasks {
   }
 
   @Test
-  public void testTasks() throws Exception {
+  public void testUserStory() throws Exception {
     driver.get(baseUrl + "");
-    driver.findElement(By.linkText("Tasks")).click();
+    driver.findElement(By.linkText("Backlog")).click();
     try {
-      assertTrue(driver.getCurrentUrl().matches("^http://localhost/app/app/[\\s\\S]tasks$"));
+      assertTrue(driver.getCurrentUrl().matches("^http://localhost/app/app/[\\s\\S]userstories$"));
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
@@ -38,21 +38,23 @@ public class TestTasks {
     }
     driver.findElement(By.cssSelector("button.btn.btn-link")).click();
     try {
-      assertTrue(driver.getCurrentUrl().matches("^http://localhost/app/app/[\\s\\S]tasks&add$"));
+      assertTrue(driver.getCurrentUrl().matches("^http://localhost/app/app/[\\s\\S]userstories&add$"));
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
-    driver.findElement(By.name("new_task_identifier")).clear();
-    driver.findElement(By.name("new_task_identifier")).sendKeys("task1");
-    driver.findElement(By.name("new_task_summary")).clear();
-    driver.findElement(By.name("new_task_summary")).sendKeys("coder la bdd");
-    driver.findElement(By.name("new_task_expected_duration")).clear();
-    driver.findElement(By.name("new_task_expected_duration")).sendKeys("2");
-    driver.findElement(By.name("new_task_description")).clear();
-    driver.findElement(By.name("new_task_description")).sendKeys("descr");
+    driver.findElement(By.name("new_us_identifier")).clear();
+    driver.findElement(By.name("new_us_identifier")).sendKeys("us1");
+    driver.findElement(By.name("new_us_summary")).clear();
+    driver.findElement(By.name("new_us_summary")).sendKeys("je veux....");
+    driver.findElement(By.name("new_us_priority")).clear();
+    driver.findElement(By.name("new_us_priority")).sendKeys("1");
+    driver.findElement(By.name("new_us_difficulty")).clear();
+    driver.findElement(By.name("new_us_difficulty")).sendKeys("2");
+    driver.findElement(By.name("new_us_description")).clear();
+    driver.findElement(By.name("new_us_description")).sendKeys("descr");
     driver.findElement(By.cssSelector("button.btn.btn-lg")).click();
     try {
-      assertTrue(driver.getCurrentUrl().matches("^http://localhost/app/app/[\\s\\S]tasks$"));
+      assertTrue(driver.getCurrentUrl().matches("^http://localhost/app/app/[\\s\\S]userstories$"));
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
@@ -62,89 +64,101 @@ public class TestTasks {
       verificationErrors.append(e.toString());
     }
     try {
-      assertEquals("task1", driver.findElement(By.cssSelector("td.table-td")).getText());
+      assertEquals("us1", driver.findElement(By.cssSelector("td.table-td")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
     driver.findElement(By.name("VIEW")).click();
     try {
-      assertEquals("task1", driver.findElement(By.id("view_task_identifier")).getText());
+      assertEquals("us1", driver.findElement(By.id("view_us_identifier")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
     try {
-      assertEquals("coder la bdd", driver.findElement(By.id("view_task_summary")).getText());
+      assertEquals("je veux....", driver.findElement(By.id("view_us_summary")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
     try {
-      assertEquals("", driver.findElement(By.id("view_task_duration")).getText());
+      assertEquals("1", driver.findElement(By.id("view_us_priority")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
     try {
-      assertEquals("2", driver.findElement(By.id("view_task_expected_duration")).getText());
+      assertEquals("2", driver.findElement(By.id("view_us_difficulty")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
     try {
-      assertEquals("todo", driver.findElement(By.id("view_task_state")).getText());
+      assertEquals("todo", driver.findElement(By.id("view_us_state")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
     try {
-      assertEquals("descr", driver.findElement(By.id("view_task_description")).getText());
+      assertEquals("descr", driver.findElement(By.id("view_us_description")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
-    driver.get("http://localhost/app/app/?tasks");
+    try {
+      assertEquals("", driver.findElement(By.id("view_us_duration")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    driver.get("http://localhost/app/app/?userstories");
     driver.findElement(By.cssSelector("a[name=\"EDIT\"] > img")).click();
-    driver.findElement(By.name("edit_task_identifier")).clear();
-    driver.findElement(By.name("edit_task_identifier")).sendKeys("task2");
-    driver.findElement(By.name("edit_task_summary")).clear();
-    driver.findElement(By.name("edit_task_summary")).sendKeys("coder l'archi");
-    driver.findElement(By.name("edit_task_expected_duration")).clear();
-    driver.findElement(By.name("edit_task_expected_duration")).sendKeys("1");
-    driver.findElement(By.name("edit_task_description")).clear();
-    driver.findElement(By.name("edit_task_description")).sendKeys("descr2");
+    driver.findElement(By.name("edit_us_identifier")).clear();
+    driver.findElement(By.name("edit_us_identifier")).sendKeys("us2");
+    driver.findElement(By.name("edit_us_summary")).clear();
+    driver.findElement(By.name("edit_us_summary")).sendKeys("je souhaite...");
+    driver.findElement(By.name("edit_us_priority")).clear();
+    driver.findElement(By.name("edit_us_priority")).sendKeys("2");
+    driver.findElement(By.name("edit_us_difficulty")).clear();
+    driver.findElement(By.name("edit_us_difficulty")).sendKeys("1");
+    driver.findElement(By.name("edit_us_description")).clear();
+    driver.findElement(By.name("edit_us_description")).sendKeys("descr2");
     driver.findElement(By.cssSelector("button.btn.btn-lg")).click();
     try {
-      assertTrue(driver.getCurrentUrl().matches("^http://localhost/app/app/[\\s\\S]tasks$"));
+      assertTrue(driver.getCurrentUrl().matches("^http://localhost/app/app/[\\s\\S]userstories$"));
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
     driver.findElement(By.name("VIEW")).click();
     try {
-      assertEquals("task2", driver.findElement(By.id("view_task_identifier")).getText());
+      assertEquals("us2", driver.findElement(By.id("view_us_identifier")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
     try {
-      assertEquals("coder l'archi", driver.findElement(By.id("view_task_summary")).getText());
+      assertEquals("je souhaite...", driver.findElement(By.id("view_us_summary")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
     try {
-      assertEquals("", driver.findElement(By.id("view_task_duration")).getText());
+      assertEquals("2", driver.findElement(By.id("view_us_priority")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
     try {
-      assertEquals("1", driver.findElement(By.id("view_task_expected_duration")).getText());
+      assertEquals("1", driver.findElement(By.id("view_us_difficulty")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
     try {
-      assertEquals("todo", driver.findElement(By.id("view_task_state")).getText());
+      assertEquals("todo", driver.findElement(By.id("view_us_state")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
     try {
-      assertEquals("descr2", driver.findElement(By.id("view_task_description")).getText());
+      assertEquals("descr2", driver.findElement(By.id("view_us_description")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
-    driver.get("http://localhost/app/app/?tasks");
+    try {
+      assertEquals("", driver.findElement(By.id("view_us_duration")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    driver.get("http://localhost/app/app/?userstories");
     driver.findElement(By.name("DEL")).click();
   }
 

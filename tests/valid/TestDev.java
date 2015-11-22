@@ -9,7 +9,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class Tst {
+public class TestDev {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -23,46 +23,34 @@ public class Tst {
   }
 
   @Test
-  public void testTst() throws Exception {
-    driver.get(baseUrl + "/app/app/");
-    driver.findElement(By.linkText("Backlog")).click();
+  public void testDev() throws Exception {
+    driver.get(baseUrl + "");
+    driver.findElement(By.linkText("Developers")).click();
     try {
-      assertFalse(isElementPresent(By.cssSelector("table.table-list")));
+      assertTrue(driver.getCurrentUrl().matches("^http://localhost/app/app/[\\s\\S]developers$"));
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
     try {
-      assertTrue(driver.getCurrentUrl().matches("^http://localhost/app/app/[\\s\\S]userstories$"));
+      assertFalse(isElementPresent(By.cssSelector("table.table-list")));
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
     driver.findElement(By.cssSelector("button.btn.btn-link")).click();
     try {
-      assertTrue(driver.getCurrentUrl().matches("^http://localhost/app/app/[\\s\\S]userstories&add$"));
+      assertTrue(driver.getCurrentUrl().matches("^http://localhost/app/app/[\\s\\S]developers&add$"));
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
-    try {
-      assertFalse(isElementPresent(By.cssSelector("button.btn.btn-link")));
-    } catch (Error e) {
-      verificationErrors.append(e.toString());
-    }
-    driver.findElement(By.name("new_us_identifier")).clear();
-    driver.findElement(By.name("new_us_identifier")).sendKeys("us1");
-    driver.findElement(By.name("new_us_summary")).clear();
-    driver.findElement(By.name("new_us_summary")).sendKeys("en tant que user je veux pouvoir voir la liste des us");
-    driver.findElement(By.name("new_us_description")).clear();
-    driver.findElement(By.name("new_us_description")).sendKeys("le tableau des US comprendera l'identifiant et le summary");
-    driver.findElement(By.name("new_us_priority")).clear();
-    driver.findElement(By.name("new_us_priority")).sendKeys("1");
+    driver.findElement(By.name("new_dev_name")).clear();
+    driver.findElement(By.name("new_dev_name")).sendKeys("Touati");
+    driver.findElement(By.name("new_dev_first_name")).clear();
+    driver.findElement(By.name("new_dev_first_name")).sendKeys("Amira");
+    driver.findElement(By.name("new_dev_description")).clear();
+    driver.findElement(By.name("new_dev_description")).sendKeys("descr");
     driver.findElement(By.cssSelector("button.btn.btn-lg")).click();
     try {
-      assertTrue(driver.getCurrentUrl().matches("^http://localhost/app/app/[\\s\\S]userstories$"));
-    } catch (Error e) {
-      verificationErrors.append(e.toString());
-    }
-    try {
-      assertTrue(isElementPresent(By.cssSelector("div.content")));
+      assertTrue(driver.getCurrentUrl().matches("^http://localhost/app/app/[\\s\\S]developers$"));
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
@@ -71,48 +59,54 @@ public class Tst {
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    driver.findElement(By.name("VIEW")).click();
     try {
-      assertEquals("us1", driver.findElement(By.cssSelector("td.table-td")).getText());
-    } catch (Error e) {
-      verificationErrors.append(e.toString());
-    }
-    driver.findElement(By.name("view")).click();
-    try {
-      assertEquals("us1", driver.findElement(By.cssSelector("td.table-td")).getText());
+      assertEquals("Touati", driver.findElement(By.cssSelector("td[name=\"view_dev_name\"]")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
     try {
-      assertTrue(isElementPresent(By.cssSelector("table.table-list")));
+      assertEquals("Amira", driver.findElement(By.cssSelector("td[name=\"view_dev_first_name\"]")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
-    driver.findElement(By.linkText("Backlog")).click();
     try {
-      assertTrue(driver.getCurrentUrl().matches("^http://localhost/app/app/[\\s\\S]userstories$"));
+      assertEquals("descr", driver.findElement(By.cssSelector("td[name=\"view_dev_description\"]")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
-    driver.findElement(By.name("edit")).click();
-    driver.findElement(By.name("edit_us_identifier")).clear();
-    driver.findElement(By.name("edit_us_identifier")).sendKeys("us2");
+    driver.get("http://localhost/app/app/?developers");
+    driver.findElement(By.cssSelector("a[name=\"EDIT\"] > img")).click();
+    driver.findElement(By.name("edit_dev_name")).clear();
+    driver.findElement(By.name("edit_dev_name")).sendKeys("Ruffino");
+    driver.findElement(By.name("edit_dev_first_name")).clear();
+    driver.findElement(By.name("edit_dev_first_name")).sendKeys("Andrea");
+    driver.findElement(By.name("edit_dev_description")).clear();
+    driver.findElement(By.name("edit_dev_description")).sendKeys("descr2");
     driver.findElement(By.cssSelector("button.btn.btn-lg")).click();
     try {
-      assertTrue(driver.getCurrentUrl().matches("^http://localhost/app/app/[\\s\\S]userstories$"));
+      assertTrue(driver.getCurrentUrl().matches("^http://localhost/app/app/[\\s\\S]developers$"));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    driver.findElement(By.name("VIEW")).click();
+    try {
+      assertEquals("Ruffino", driver.findElement(By.cssSelector("td[name=\"view_dev_name\"]")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
     try {
-      assertEquals("us2", driver.findElement(By.cssSelector("td.table-td")).getText());
+      assertEquals("Andrea", driver.findElement(By.cssSelector("td[name=\"view_dev_first_name\"]")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
-    driver.findElement(By.name("del")).click();
     try {
-      assertFalse(isElementPresent(By.cssSelector("table.table-list")));
+      assertEquals("descr2", driver.findElement(By.cssSelector("td[name=\"view_dev_description\"]")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    driver.get("http://localhost/app/app/?developers");
+    driver.findElement(By.name("DEL")).click();
   }
 
   @After

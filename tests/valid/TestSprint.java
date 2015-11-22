@@ -9,7 +9,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class TestSprints {
+public class TestSprint {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -23,16 +23,16 @@ public class TestSprints {
   }
 
   @Test
-  public void testSprints() throws Exception {
-    driver.get(baseUrl + "/app/app/");
+  public void testSprint() throws Exception {
+    driver.get(baseUrl + "");
     driver.findElement(By.linkText("Sprints")).click();
     try {
-      assertFalse(isElementPresent(By.cssSelector("table.table-list")));
+      assertTrue(driver.getCurrentUrl().matches("^http://localhost/app/app/[\\s\\S]sprints$"));
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
     try {
-      assertTrue(driver.getCurrentUrl().matches("^http://localhost/app/app/[\\s\\S]sprints$"));
+      assertFalse(isElementPresent(By.cssSelector("table.table-list")));
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
@@ -42,17 +42,12 @@ public class TestSprints {
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
-    try {
-      assertFalse(isElementPresent(By.cssSelector("button.btn.btn-link")));
-    } catch (Error e) {
-      verificationErrors.append(e.toString());
-    }
     driver.findElement(By.name("new_sprint_identifier")).clear();
-    driver.findElement(By.name("new_sprint_identifier")).sendKeys("sprint1");
+    driver.findElement(By.name("new_sprint_identifier")).sendKeys("sprint 1");
     driver.findElement(By.name("new_sprint_duration")).clear();
-    driver.findElement(By.name("new_sprint_duration")).sendKeys("2");
+    driver.findElement(By.name("new_sprint_duration")).sendKeys("1");
     driver.findElement(By.name("new_sprint_description")).clear();
-    driver.findElement(By.name("new_sprint_description")).sendKeys("un sprint de 2 semaines");
+    driver.findElement(By.name("new_sprint_description")).sendKeys("descr");
     driver.findElement(By.cssSelector("button.btn.btn-lg")).click();
     try {
       assertTrue(driver.getCurrentUrl().matches("^http://localhost/app/app/[\\s\\S]sprints$"));
@@ -60,57 +55,63 @@ public class TestSprints {
       verificationErrors.append(e.toString());
     }
     try {
-      assertTrue(isElementPresent(By.cssSelector("div.content")));
-    } catch (Error e) {
-      verificationErrors.append(e.toString());
-    }
-    try {
       assertTrue(isElementPresent(By.cssSelector("table.table-list")));
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
     try {
-      assertEquals("sprint1", driver.findElement(By.cssSelector("td.table-td")).getText());
+      assertEquals("sprint 1", driver.findElement(By.cssSelector("td.table-td")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
-    driver.findElement(By.name("view")).click();
+    driver.findElement(By.name("VIEW")).click();
     try {
-      assertEquals("sprint1", driver.findElement(By.cssSelector("td.table-td")).getText());
+      assertEquals("sprint 1", driver.findElement(By.id("view_sprint_identifier")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
     try {
-      assertTrue(isElementPresent(By.cssSelector("table.table-list")));
+      assertEquals("1", driver.findElement(By.id("view_sprint_duration")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
-    driver.findElement(By.linkText("Sprints")).click();
     try {
-      assertTrue(driver.getCurrentUrl().matches("^http://localhost/app/app/[\\s\\S]sprints$"));
+      assertEquals("descr", driver.findElement(By.id("view_sprint_description")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
-    driver.findElement(By.name("edit")).click();
+    driver.get("http://localhost/app/app/?sprints");
+    driver.findElement(By.cssSelector("a[name=\"EDIT\"] > img")).click();
     driver.findElement(By.name("edit_sprint_identifier")).clear();
-    driver.findElement(By.name("edit_sprint_identifier")).sendKeys("sprint2");
+    driver.findElement(By.name("edit_sprint_identifier")).sendKeys("sprint 2");
+    driver.findElement(By.name("edit_sprint_duration")).clear();
+    driver.findElement(By.name("edit_sprint_duration")).sendKeys("2");
+    driver.findElement(By.name("edit_sprint_description")).clear();
+    driver.findElement(By.name("edit_sprint_description")).sendKeys("descr2");
     driver.findElement(By.cssSelector("button.btn.btn-lg")).click();
     try {
       assertTrue(driver.getCurrentUrl().matches("^http://localhost/app/app/[\\s\\S]sprints$"));
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    driver.findElement(By.name("VIEW")).click();
     try {
-      assertEquals("sprint2", driver.findElement(By.cssSelector("td.table-td")).getText());
+      assertEquals("sprint 2", driver.findElement(By.id("view_sprint_identifier")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
-    driver.findElement(By.name("del")).click();
     try {
-      assertFalse(isElementPresent(By.cssSelector("table.table-list")));
+      assertEquals("2", driver.findElement(By.id("view_sprint_duration")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    try {
+      assertEquals("descr2", driver.findElement(By.id("view_sprint_description")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    driver.get("http://localhost/app/app/?sprints");
+    driver.findElement(By.name("DEL")).click();
   }
 
   @After
