@@ -17,10 +17,10 @@
         <td class="table-td"><?php echo $sprint->sprintIdentifier; ?></td>
         <td class="table-td">
             <?php echo $sprint->sprintDuration; ?>
-            <a class="icon" href="?sprints&amp;del=<?php echo $sprint->sprintId; ?>"><img src="<?php echo $context::DEL_BUTTON_IMG; ?>" /></a>
-            <a class="icon" href="?sprints&amp;edit=<?php echo $sprint->sprintId; ?>"><img src="<?php echo $context::EDIT_BUTTON_IMG; ?>" /></a>
-            <a class="icon" href="?sprints&amp;manage=<?php echo $sprint->sprintId; ?>"><img  src="<?php echo $context::MANAGE_BUTTON_IMG; ?>" /></a>
-            <a class="icon" href="?sprints&amp;id=<?php echo $sprint->sprintId; ?>"><img src="<?php echo $context::VIEW_BUTTON_IMG; ?>" /></a>
+            <a class="icon" name="DEL" href="?sprints&amp;del=<?php echo $sprint->sprintId; ?>"><img src="<?php echo $context::DEL_BUTTON_IMG; ?>" /></a>
+            <a class="icon" name="EDIT" href="?sprints&amp;edit=<?php echo $sprint->sprintId; ?>"><img src="<?php echo $context::EDIT_BUTTON_IMG; ?>" /></a>
+            <a class="icon" name="MANAGE" href="?sprints&amp;manage=<?php echo $sprint->sprintId; ?>"><img  src="<?php echo $context::MANAGE_BUTTON_IMG; ?>" /></a>
+            <a class="icon" name="VIEW" href="?sprints&amp;id=<?php echo $sprint->sprintId; ?>"><img src="<?php echo $context::VIEW_BUTTON_IMG; ?>" /></a>
     </tr>
 <?php
     }

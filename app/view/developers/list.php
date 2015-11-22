@@ -18,10 +18,10 @@
         <td class="table-td"><?php echo $dev->devName; ?></td>
         <td class="table-td">
             <?php echo $dev->devFirstName; ?>
-            <a class="icon" href="?developers&amp;del=<?php echo $dev->devId; ?>"><img src="<?php echo $context::DEL_BUTTON_IMG; ?>" /></a>
-            <a class="icon" href="?developers&amp;edit=<?php echo $dev->devId; ?>"><img src="<?php echo $context::EDIT_BUTTON_IMG; ?>" /></a>
-            <a class="icon" href="?developers&amp;manage=<?php echo $dev->devId; ?>"><img  src="<?php echo $context::MANAGE_BUTTON_IMG; ?>" /></a>
-            <a class="icon" href="?developers&amp;id=<?php echo $dev->devId; ?>"><img src="<?php echo $context::VIEW_BUTTON_IMG; ?>" /></a>
+            <a class="icon" name="DEL" href="?developers&amp;del=<?php echo $dev->devId; ?>"><img src="<?php echo $context::DEL_BUTTON_IMG; ?>" /></a>
+            <a class="icon" name="EDIT"href="?developers&amp;edit=<?php echo $dev->devId; ?>"><img src="<?php echo $context::EDIT_BUTTON_IMG; ?>" /></a>
+            <a class="icon" name="MANAGE"href="?developers&amp;manage=<?php echo $dev->devId; ?>"><img  src="<?php echo $context::MANAGE_BUTTON_IMG; ?>" /></a>
+            <a class="icon" name="VIEW"href="?developers&amp;id=<?php echo $dev->devId; ?>"><img src="<?php echo $context::VIEW_BUTTON_IMG; ?>" /></a>
         </td>
     </tr>
 <?php
