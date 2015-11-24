@@ -16,6 +16,8 @@
     </tr>
 </table>
 
+<a href="?sprints&amp;pert=<?php echo $data['sprint']->sprintId; ?>">View PERT diagram</a>
+
 <br />
 <h2>Kanban</h2>
 
