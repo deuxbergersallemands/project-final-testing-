@@ -75,3 +75,7 @@ Chaque rang a un bouton qui dirige l'utilisateur vers la vue de la tâche pertin
 Le diagramme de PERT sera généré automatiquement quand l'utilisateur appuie sur le bouton "Generate PERT Diagram" sur la page d'un sprint.  En appuyant sur le bouton on est renvoyé vers une nouvelle page en passant l'indentifiant du sprint comme paramètre.  Ou utilise l'identifiant du sprint pour générer le digramme sur la nouvelle page.  
 
 Une class de noeuds représent une tâche dans le diagramme de PERT.  Chaque noued est composé des champs suivants: "identifier", "max_duration", "min_duration", et "duration_task" aussi bien que les deux listes "prerequisite_tasks" et "following_tasks".  
+
+Pour l'affichage, une bibliothèque externe pourrait être utiliser, telle Graphviz et son binding PHP avec PEAR.
+Cette bibliothèque permet de créer des images, donc il faudra un fichier particulier dans lequel afficher l'image et
+l'inclure dans le site web.
