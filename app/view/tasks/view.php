@@ -1,31 +1,32 @@
 <?php $data = $context->getData(); ?>
 
-<table class="table-list view" >
+<table class="table table-striped table-list ">
     <tr>
         <th >Identifier:</th>
-        <td  class="table-td" id="view_task_identifier"><?php echo $data['task']->taskIdentifier; ?></td>
+        <td  class="table-td2" id="view_task_identifier"><?php echo $data['task']->taskIdentifier; ?></td>
     </tr>
     <tr>
         <th >Summary:</th>
-        <td  class="table-td" id="view_task_summary"><?php echo $data['task']->taskSummary; ?></td>
+        <td  class="table-td2" id="view_task_summary"><?php echo $data['task']->taskSummary; ?></td>
     </tr>
     <tr>
         <th >Expected duration:</th>
-        <td  class="table-td" id="view_task_expected_duration"><?php echo $data['task']->taskExpectedDuration; ?></td>
+        <td  class="table-td2" id="view_task_expected_duration"><?php echo $data['task']->taskExpectedDuration; ?></td>
     </tr>
     <tr>
         <th >Real duration:</th>
-        <td  class="table-td" id="view_task_duration"><?php echo $data['task']->taskDuration; ?></td>
+        <td  class="table-td2" id="view_task_duration"><?php echo $data['task']->taskDuration; ?></td>
     </tr>
     <tr>
         <th >State:</th>
-        <td class="table-td" id="view_task_state"><?php echo $data['task']->taskState; ?></td>
+        <td class="table-td2" id="view_task_state"><?php echo $data['task']->taskState; ?></td>
     </tr>
     <tr>
         <th >Description:</th>
-        <td  class="table-td" id="view_task_description"><?php echo $data['task']->taskDescription; ?></td>
+        <td  class="table-td2" id="view_task_description"><?php echo $data['task']->taskDescription; ?></td>
     </tr>
 </table>
+<div class="mleft">
 
 <h3> Commits related to this Task </h3>
 <?php 
@@ -36,8 +37,8 @@
     }
     echo "</table>";
  ?>
-
-<h3>Userstories</h3>
+ 
+ <h3>Userstories</h3>
 <ul>
 	<?php foreach ($data['ussTask'] as $us) { ?>
 		<li>
@@ -54,3 +55,4 @@
         <?php echo $data['devTask']->devFirstName[0]; ?>. <?php echo $data['devTask']->devName; ?>
 	</a>
 <?php } ?>
+</div>

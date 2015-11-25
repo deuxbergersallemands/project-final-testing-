@@ -31,10 +31,6 @@ margin-left: 20%;
     list-style-type: none;
 }
 
-.menu li {
-    border-top: 1px #AFAFAF solid;
-}
-
 .content {
     padding-left: 40px;
     width: 100%;
@@ -62,7 +58,8 @@ margin-left: 20%;
 .table-list {
     border-collapse: collapse;
     background: #F6F6F6;
-    width: 70%;
+	margin-left:15%;
+    width: 60%;
 }
 
 .table-th {
@@ -90,4 +87,26 @@ margin-left: 20%;
 
 .table-td {
     padding-left: 10px;
+}
+
+.mleft{
+margin-left:15%;
+}
+
+.liste{
+ margin-top:2%;  width:16.9%;
+}
+
+.menuLi{
+margin-left:-5%;
+}
+
+.menuP{
+font-size:16px; margin-left:30%;
+}
+
+.table-td2 {
+    padding-left: 10px;
+	text-align: left;
+	width:80%;
 }

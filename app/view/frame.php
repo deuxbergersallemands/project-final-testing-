@@ -18,16 +18,25 @@
         <h3 class="title"><?php echo $context->getHeader(); ?></h3> 
     </div>
 
-    <div class="body">
-    <div class="menu">
-        <ul>
-            <li><a href="?userstories">Backlog</a></li>	
-            <li><a href="?tasks">Tasks</a></li>	
-            <li><a href="?sprints">Sprints</a></li>	
-            <li><a href="?developers">Developers</a></li>
-            <li><a href="?help">FAQ</a><li>
-        </ul>
-    </div>
+    <div class="body ">
+	      <div class="menu">
+
+ <div class="container-fluid">
+      <div class="row">
+       <div  class=" sidebar liste">
+            <ul class="nav ">
+            <li class="menuP"> <a> Menu</a> </li>
+            <li class="menuLi"><a href="?userstories">Backlog </a></li>
+            <li class="menuLi"><a href="?tasks">Tasks </a></li>
+            <li class="menuLi"><a href="?sprints">Sprints</a></li>
+            <li class="menuLi"><a href="?developers">Developers</a></li>
+           
+          </ul>
+          
+        </div>
+        </div>
+        </div>
+        </div>
 
     <div class="content">
 <?php
@@ -37,5 +46,7 @@
     
     </div>
     </div>
+    
+
 </body>
 </html>

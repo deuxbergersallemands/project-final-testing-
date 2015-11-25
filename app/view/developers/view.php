@@ -1,20 +1,20 @@
 <?php $data = $context->getData(); ?>
 
-<table class="table-list view">
+<table class="table table-striped table-list ">
     <tr>
         <th>Name:</th>
-        <td class="table-td" name="view_dev_name"><?php echo $data['dev']->devName; ?></td>
+        <td class="table-td2" name="view_dev_name"><?php echo $data['dev']->devName; ?></td>
     </tr>
     <tr>
         <th>First name:</th>
-        <td class="table-td" name="view_dev_first_name"><?php echo $data['dev']->devFirstName; ?></td>
+        <td class="table-td2" name="view_dev_first_name"><?php echo $data['dev']->devFirstName; ?></td>
     </tr>
     <tr>
         <th>Description:</th>
-        <td class="table-td" name="view_dev_description"><?php echo $data['dev']->devDescription; ?></td>
+        <td class="table-td2" name="view_dev_description"><?php echo $data['dev']->devDescription; ?></td>
     </tr>
 </table>
-
+<div class="mleft">
 <h3>Tasks</h3>
 <ul>
 	<?php foreach ($data['tasksDev'] as $task) { ?>
@@ -25,4 +25,4 @@
 		</li>
 	<?php } ?>
 </ul>
-
+</div>
