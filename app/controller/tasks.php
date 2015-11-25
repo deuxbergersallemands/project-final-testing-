@@ -1,5 +1,16 @@
 <?php
 
+require_once('assets/git/github-php-client-master/client/GitHubClient.php');
+
+$owner = 'deuxbergersallemands';
+$repo = 'project-final-testing-';
+
+$client = new GitHubClient();
+$client->setPage();
+$commits = $client->repos->commits->listCommitsOnRepository($owner, $repo);
+
+
+
 $db = new \model\TaskDatabase;
 $dev = new \model\DeveloperDatabase;
 $us = new \model\UserstoryDatabase;

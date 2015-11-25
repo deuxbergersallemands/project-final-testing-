@@ -69,3 +69,13 @@ de la modification ou l'affichage d'un sprint, doivent en recevoir une seule.
 Le kanban s'affiche sur la vue d'un sprint.  Il s'agit d'une table avec quatres colonnes: "Task", "To Do", "In Progress", et "Completed".  Tous les détails importants des tâches du sprint s'affichent en dessous de la colonne "Task": le titre de la tâche, le développeur auquel la tâche est affectée, etc.  Selon l'état actuel de la tâche, une image (un 'X' rouge dans la colonne "To Do", une clé à molette dans la colonne "In Progress", ou un check vert dans la colonne "Completed") dans la colonne pertinente.  
 
 Chaque rang a un bouton qui dirige l'utilisateur vers la vue de la tâche pertinente.  
+
+### PERT
+
+Le diagramme de PERT sera généré automatiquement quand l'utilisateur appuie sur le bouton "Generate PERT Diagram" sur la page d'un sprint.  En appuyant sur le bouton on est renvoyé vers une nouvelle page en passant l'indentifiant du sprint comme paramètre.  Ou utilise l'identifiant du sprint pour générer le digramme sur la nouvelle page.  
+
+Une class de noeuds représent une tâche dans le diagramme de PERT.  Chaque noued est composé des champs suivants: "identifier", "max_duration", "min_duration", et "duration_task" aussi bien que les deux listes "prerequisite_tasks" et "following_tasks".  
+
+Pour l'affichage, une bibliothèque externe pourrait être utiliser, telle Graphviz et son binding PHP avec PEAR.
+Cette bibliothèque permet de créer des images, donc il faudra un fichier particulier dans lequel afficher l'image et
+l'inclure dans le site web.
