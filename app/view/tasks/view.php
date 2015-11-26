@@ -37,13 +37,9 @@
     }
     echo "</table>";
  ?>
-<<<<<<< HEAD
  
- <h3>Userstories</h3>
-=======
 
 <h3>Userstories</h3>
->>>>>>> refs/remotes/origin/master
 <ul>
 	<?php foreach ($data['ussTask'] as $us) { ?>
 		<li>

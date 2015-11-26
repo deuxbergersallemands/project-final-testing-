@@ -70,7 +70,7 @@ Le kanban s'affiche sur la vue d'un sprint.  Il s'agit d'une table avec quatres 
 
 Chaque rang a un bouton qui dirige l'utilisateur vers la vue de la tâche pertinente.  
 
-<<<<<<< HEAD
+
 ###GANTT
 Pour aller sur la vue du diagramme de Gantt, il faudra appuyer  sur le bouton "Generate GANTT Diagram" sur la page d'un sprint.
 'gantt' doit être défini dans l'URL et doit valoir l'id du sprint.
@@ -83,7 +83,7 @@ array (
     array('tristan Campbell', 'sp', 'vc', 'vc', 'vd', 'vd'),
     array('raphael jorel', 'sp', 'bdd', 'cd', 'cd', 'td')
 )
-=======
+
 ### PERT
 
 Le diagramme de PERT sera généré automatiquement quand l'utilisateur appuie sur le bouton "Generate PERT Diagram" sur la page d'un sprint.  En appuyant sur le bouton on est renvoyé vers une nouvelle page en passant l'indentifiant du sprint comme paramètre.  Ou utilise l'identifiant du sprint pour générer le digramme sur la nouvelle page.  
@@ -93,4 +93,3 @@ Une class de noeuds représent une tâche dans le diagramme de PERT.  Chaque nou
 Pour l'affichage, une bibliothèque externe pourrait être utiliser, telle Graphviz et son binding PHP avec PEAR.
 Cette bibliothèque permet de créer des images, donc il faudra un fichier particulier dans lequel afficher l'image et
 l'inclure dans le site web.
->>>>>>> refs/remotes/origin/master
