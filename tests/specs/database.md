@@ -12,15 +12,6 @@ sera donc étoffée au fur et à mesure de l'avancement du projet.
 
 Nom: UserStories
 Champs:
-<<<<<<< HEAD
-* usId -> int (identifiant unique en base de données)
-* usIdentifier -> string (identifiant pour le backlog),
-* usDescription -> string (courte description de l'US),
-* usPriority -> int (priorité de l'US),
-* usDifficulty -> int (diffulté de l'US),
-* usState -> int (état d'avancement de l'US),
-* usComment -> text (description et commentaire de l'US).
-=======
 * usId -> int (identifiant unique en base de données)   [obligatoire]
 * usIdentifier -> string (identifiant pour le backlog), [obligatoire]
 * usSummary -> string (courte summription de l'US), [obligatoire]
@@ -29,28 +20,17 @@ Champs:
 * usState -> string (état d'avancement de l'US),
 * usDuration -> int (temps effectif en hj pour achever la tâches)
 * usDescription -> text (summription et commentaire de l'US).
->>>>>>> 9bdde0c43bca4bbeef3da6557490abee327507b0
 
 ### Méthodes
 
 * getUserStories()
 * getUserStory(id)
-<<<<<<< HEAD
-* addUserStory(identifier, desc)
-* updateUserStory(id, identifier, desc)
-* delUserStory(id)
-
-* setUserStoryComment(id, desc)
-* setUserStoryPriority(id, prio)
-* setUserStoryDifficulty(id, diff)
-=======
 * addUserStory(identifier, summ, prio, diff, desc)
 * updateUserStory(id, identifier, summ, prio, diff, desc)
 * delUserStory(id)
 
 * setUserStoryState(id, state)
 * setUserStoryDuration(id, dur)
->>>>>>> 9bdde0c43bca4bbeef3da6557490abee327507b0
 
 
 ## Tâches
@@ -58,13 +38,6 @@ Champs:
 
 Nom: Tasks
 Champs:
-<<<<<<< HEAD
-* taskId -> int,
-* taskIdentifier -> string
-* taskDescription -> string,
-* taskState -> int,
-* taskComment -> text.
-=======
 * taskId -> int,                [obligatoire]
 * taskIdentifier -> string,     [obligatoire]
 * taskSummary -> string,    [obligatoire]
@@ -73,26 +46,17 @@ Champs:
 * taskState -> state,
 * taskDescription -> text,
 * devId -> int (id du developpeur chargé de la tâche).
->>>>>>> 9bdde0c43bca4bbeef3da6557490abee327507b0
 
 ### Méthodes
 
 * getTasks()
 * getTask(id)
-<<<<<<< HEAD
-* addTask(identifier, desc)
-* updateTask(id, identifier, desc)
-* delTask(id)
-
-* setTaskComment(id, desc)
-=======
 * addTask(identifier, summ, expDur, desc)
 * updateTask(id, identifier, summ, expDur, desc)
 * delTask(id)
 
 * setTaskState(id, state)
 * setTaskDuration(id, dur)
->>>>>>> 9bdde0c43bca4bbeef3da6557490abee327507b0
 
 
 ## Sprints
@@ -100,37 +64,21 @@ Champs:
 
 Nom: Sprints
 Champs:
-<<<<<<< HEAD
-* sprintId -> int,
-* sprintName -> string,
-* sprintDuration -> int (nom de jours pour un sprint),
-* sprintState -> int,
-* sprintComment.
-=======
 * sprintId -> int,              [obligatoire]
 * sprintIdentifier -> string    [obligatoire],
 * sprintDuration -> int (nombre de jours pour un sprint) [obligatoire],
 * sprintState -> state,
 * sprintDescription.
->>>>>>> 9bdde0c43bca4bbeef3da6557490abee327507b0
 
 ### Méthodes
 
 * getSprints()
 * getSprint(id)
-<<<<<<< HEAD
-* addSprint(identifier, desc)
-* updateSprint(id, identifier, desc)
-* delSprint(id)
-
-* setSprintComment(id, desc)
-=======
 * addSprint(identifier, dur, desc)
 * updateSprint(id, identifier, dur, desc)
 * delSprint(id)
 
 * setSprintState(id, state)
->>>>>>> 9bdde0c43bca4bbeef3da6557490abee327507b0
 
 
 ## Développeurs
@@ -138,29 +86,15 @@ Champs:
 
 Nom: Developers
 Champs:
-<<<<<<< HEAD
-* devId -> int,
-* devName -> string,
-* devFirstName -> string,
-* devComment -> text.
-=======
 * devId -> int,             [obligatoire]
 * devName -> string,        [obligatoire]
 * devFirstName -> string,   [obligatoire]
 * devDescription -> text.
->>>>>>> 9bdde0c43bca4bbeef3da6557490abee327507b0
 
 ### Méthodes
 
 * getDeveloppers()
 * getDevelopper(id)
-<<<<<<< HEAD
-* addDevelopper(name, fname)
-* updateDevelopper(id, name, fname)
-* delDevelopper(id)
-
-* setDevelopperComment(id, desc)
-=======
 * addDevelopper(name, fname, desc)
 * updateDevelopper(id, name, fname, desc)
 * delDevelopper(id)
@@ -233,4 +167,57 @@ Champs:
 * getSprintsByUserstories(usId)
 * addUserstoryToSprint(sprintId, usId)
 * removeUserstoryFromSprint(sprintId, usId)
->>>>>>> 9bdde0c43bca4bbeef3da6557490abee327507b0
+
+
+## Dépendance de US
+
+Pour gérer la dépendance entre US, il faut une nouvelle table de liaison.
+
+### Table
+Nom: UserStoriesToUserStories
+Champs:
+
+* usDependentId -> ID de la tâche dépendante,
+* usId -> ID de la tâche dont la précédente dépend.
+
+### Méthodes
+
+Afin de gérer facilement, quelques méthodes supplémentaires serait souhaitables.
+
+* getDependentUserstories(usId)                  -> récupération de toutes les US dépendantes d'une US,
+* getDependOnUserstories(usId)                   -> récupération de toutes les US dont dépend une US,
+* addDependentUserstory(usDependentId, usId)     -> ajout une nouvelle US dépendante à une autre US,
+* removeDependentUserstory(usDependentId, usId)  -> exactement l'inverse.
+
+Pour des raisons de vitesse, ajouter la possibilité de supprimer toutes les US dépendantes
+d'une US d'un coup peut être intéressant, ainsi que l'inverse.
+
+* removeDependentUserStories(usId) -> supprime toutes les dépendances d'autre US d'une US,
+* removeDependOnUserstories(usId)  -> supprime toutes les dépendances d'une US.
+
+
+## Dépendance de tâche
+
+Pour gérer la dépendance entre tâche, il faut une nouvelle table de liaison.
+
+### Table
+Nom: TasksToTasks
+Champs:
+
+* tsDependentId -> ID de la tâche dépendante,
+* taskId -> ID de la tâche dont la précédente dépend.
+
+### Méthodes
+
+Afin de gérer facilement, quelques méthodes supplémentaires serait souhaitables.
+
+* getDependentTasks(taskId)                  -> récupération de toutes les tâches dépendantes d'une tâche,
+* getDependOnTasks(taskId)                   -> récupération de toutes les tâches dont dépend une tâche,
+* addDependentTask(tsDependentId, taskId)     -> ajout une nouvelle tâche dépendante à une autre tâche,
+* removeDependentTask(tsDependentId, taskId)  -> exactement l'inverse.
+
+Pour des raisons de vitesse, ajouter la possibilité de supprimer toutes les tâches dépendantes
+d'une tâche d'un coup peut être intéressant, ainsi que l'inverse.
+
+* removeDependentTasks(taskId) -> supprime toutes les dépendances d'autre tâche d'une tâche,
+* removeDependOnTasks(taskId)  -> supprime toutes les dépendances d'une tâche.
