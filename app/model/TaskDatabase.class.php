@@ -100,20 +100,9 @@ class TaskDatabase extends AbstractDatabase
                                         (SELECT taskId FROM TasksToUserStories WHERE usId = ?)");
         $req->execute(array($usId));
         return $this->fetchAll($req);
-<<<<<<< HEAD
     }
 
-    public function getTasksBySprint($sprintId)
-    {
-        $req = $this->_db->prepare("SELECT * FROM Tasks WHERE taskId in
-										(SELECT taskId FROM TasksToUserStories WHERE usId in
-										(SELECT usId FROM UserStoriesToSprints WHERE sprintId = ?))");
-        $req->execute(array($sprintId));
-        return $this->fetchAll($req);
-    }
-=======
-    }
-	   // Bindings with task.
+    // Bindings with sprints.
 	 public function getTasksBySprint($sprintId)
     {
         $req = $this->_db->prepare("SELECT * FROM Tasks WHERE taskId in
@@ -123,9 +112,9 @@ class TaskDatabase extends AbstractDatabase
         $req->execute(array($sprintId));
         return $this->fetchAll($req);
     }
-	
+
+
 	 // Dependencies handling
-    
     public function getDependentTasks($taskId)
     {
         $sql = "SELECT * FROM Tasks WHERE taskId 
@@ -183,6 +172,4 @@ class TaskDatabase extends AbstractDatabase
         $req->execute(array($taskId));
         $req->closeCursor();
     }
-	
->>>>>>> master
 }

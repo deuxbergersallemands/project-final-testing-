@@ -6,7 +6,7 @@
                                 value="<?php echo $task->taskIdentifier; ?>" required />
     <label>Description:</label><input type="text" name="edit_task_summary"
                                     value="<?php echo $task->taskSummary; ?>" required />
-    <label>Expected duration:</label><input type="number" name="edit_task_expected_duration"
+    <label>Expected duration:</label><input type="number" name="edit_task_expected_duration" min="1"
                                         value="<?php echo $task->taskExpectedDuration; ?>" />
     <label>Description:</label><textarea name="edit_task_description"><?php echo $task->taskDescription; ?></textarea>
     <button  class="btn btn-lg" type="submit">Edit</button>
