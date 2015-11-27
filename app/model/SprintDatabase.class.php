@@ -47,7 +47,7 @@ class SprintDatabase extends AbstractDatabase
 		$req->execute(array($state, $id));
 		$req->closeCursor();
 	}
-	
+
 	
 	// Bindings with us.
 	
@@ -82,5 +82,4 @@ class SprintDatabase extends AbstractDatabase
 		$req->execute(array($usId));
 		$req->closeCursor();
 	}
-	
 }

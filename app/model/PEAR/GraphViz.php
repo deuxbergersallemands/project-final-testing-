@@ -1,5 +1,9 @@
 <?php
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> bb8b47ee7ffd41c6cd54636dfa910c20d5ba9a2c
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 
 /**
@@ -7,7 +11,11 @@
  *
  * PHP version 4 and 5
  *
+<<<<<<< HEAD
  * Copyright (c) 2001-2007, Dr. Volker Göbbels <vmg@arachnion.de> and
+=======
+ * Copyright (c) 2001-2007, Dr. Volker Gï¿½bbels <vmg@arachnion.de> and
+>>>>>>> bb8b47ee7ffd41c6cd54636dfa910c20d5ba9a2c
  * Sebastian Bergmann <sb@sebastian-bergmann.de>. All rights reserved.
  *
  * LICENSE: This source file is subject to version 3.0 of the PHP license
@@ -18,12 +26,20 @@
  *
  * @category  Image
  * @package   Image_GraphViz
+<<<<<<< HEAD
  * @author    Dr. Volker Göbbels <vmg@arachnion.de>
+=======
+ * @author    Dr. Volker Gï¿½bbels <vmg@arachnion.de>
+>>>>>>> bb8b47ee7ffd41c6cd54636dfa910c20d5ba9a2c
  * @author    Sebastian Bergmann <sb@sebastian-bergmann.de>
  * @author    Karsten Dambekalns <k.dambekalns@fishfarm.de>
  * @author    Michael Lively Jr. <mlively@ft11.net>
  * @author    Philippe Jausions <Philippe.Jausions@11abacus.com>
+<<<<<<< HEAD
  * @copyright 2001-2007 Dr. Volker Göbbels <vmg@arachnion.de> and Sebastian Bergmann <sb@sebastian-bergmann.de>
+=======
+ * @copyright 2001-2007 Dr. Volker Gï¿½bbels <vmg@arachnion.de> and Sebastian Bergmann <sb@sebastian-bergmann.de>
+>>>>>>> bb8b47ee7ffd41c6cd54636dfa910c20d5ba9a2c
  * @license   http://www.php.net/license/3_0.txt  PHP License 3.0
  * @version   CVS: $Id: GraphViz.php 304688 2010-10-24 05:21:17Z clockwerx $
  * @link      http://pear.php.net/package/Image_GraphViz
@@ -98,11 +114,19 @@ require_once 'System.php';
  * @category  Image
  * @package   Image_GraphViz
  * @author    Sebastian Bergmann <sb@sebastian-bergmann.de>
+<<<<<<< HEAD
  * @author    Dr. Volker Göbbels <vmg@arachnion.de>
  * @author    Karsten Dambekalns <k.dambekalns@fishfarm.de>
  * @author    Michael Lively Jr. <mlively@ft11.net>
  * @author    Philippe Jausions <Philippe.Jausions@11abacus.com>
  * @copyright 2001-2007 Dr. Volker Göbbels <vmg@arachnion.de> and Sebastian Bergmann <sb@sebastian-bergmann.de>
+=======
+ * @author    Dr. Volker Gï¿½bbels <vmg@arachnion.de>
+ * @author    Karsten Dambekalns <k.dambekalns@fishfarm.de>
+ * @author    Michael Lively Jr. <mlively@ft11.net>
+ * @author    Philippe Jausions <Philippe.Jausions@11abacus.com>
+ * @copyright 2001-2007 Dr. Volker Gï¿½bbels <vmg@arachnion.de> and Sebastian Bergmann <sb@sebastian-bergmann.de>
+>>>>>>> bb8b47ee7ffd41c6cd54636dfa910c20d5ba9a2c
  * @license   http://www.php.net/license/3_0.txt The PHP License, Version 3.0
  * @version   Release: @package_version@
  * @link      http://pear.php.net/package/Image_GraphViz

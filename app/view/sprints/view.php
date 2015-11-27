@@ -49,3 +49,8 @@
 	<?php } ?>
 
 </table>
+
+<br />
+<a href="?sprints&amp;pert=<?php echo $data['sprint']->sprintId; ?>">
+	<button  class="btn" type="submit">View PERT diagram</button>
+</a>

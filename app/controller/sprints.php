@@ -1,5 +1,6 @@
 <?php
 
+
 $db = new \model\SprintDatabase;
 $task = new \model\TaskDatabase;
 $us = new \model\UserstoryDatabase;
@@ -21,15 +22,9 @@ else if (!empty($_GET['del'])) {
     $context->setData($db->getSprints());         
 }
 else if (!empty($_GET['id'])) {    
-	$usSprint = $us->getUserstoriesBySprint($_GET['id']);
-	$tasks = array();
-	
-	foreach ($usSprint as $us)
-		$tasks = array_merge($tasks, $task->getTasksByUserstory($us->usId));
-
     $context->setData(array(
     					'sprint' => $db->getSprint($_GET['id']),
-    					'tasks' => $tasks));
+    					'tasks' => $task->getTasksBySprint($_GET['id'])));
     
     $context->setPageUrl("sprints/view.php");
 } 
@@ -48,6 +43,7 @@ else if (!empty($_POST['edit_sprint_id']) && !empty($_POST['edit_sprint_identifi
     $context->setData($db->getSprints());         
 }
 else if (!empty($_GET['pert'])) {
+<<<<<<< HEAD
 
     $graph = new \model\Graph();
 
@@ -58,5 +54,19 @@ else if (!empty($_GET['pert'])) {
     $graph->render("out.def");
 
     $context->setData("out.def");
+=======
+    $xml = new \SimpleXMLElement("<root></root>");
+    $tasks = $task->getTasksBySprint($_GET['pert']);
+
+    foreach ($tasks as $t) {
+        $node = $xml->addChild("node");
+        $node->addAttribute("id", $t->taskId);
+        $node->addAttribute("label", $t->taskIdentifier);
+    }
+
+    $xml->saveXML("assets/out.xml");
+
+    $context->setData("view/sprints/graph.php");
+>>>>>>> bb8b47ee7ffd41c6cd54636dfa910c20d5ba9a2c
     $context->setPageUrl("sprints/pert.php");
 }

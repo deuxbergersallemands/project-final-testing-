@@ -1209,7 +1209,11 @@ class PEAR_Downloader extends PEAR_Common
     function sortPackagesForInstall(&$packages)
     {
         require_once 'Structures/Graph.php';
+<<<<<<< HEAD
         require_once 'Structures/Graph/Node.php';
+=======
+        require_once 'Structures/Graph/Node.class.php';
+>>>>>>> bb8b47ee7ffd41c6cd54636dfa910c20d5ba9a2c
         require_once 'Structures/Graph/Manipulator/TopologicalSorter.php';
         $depgraph = new Structures_Graph(true);
         $nodes = array();

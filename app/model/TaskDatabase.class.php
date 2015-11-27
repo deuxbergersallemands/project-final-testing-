@@ -101,4 +101,13 @@ class TaskDatabase extends AbstractDatabase
         $req->execute(array($usId));
         return $this->fetchAll($req);
     }
+
+    public function getTasksBySprint($sprintId)
+    {
+        $req = $this->_db->prepare("SELECT * FROM Tasks WHERE taskId in
+										(SELECT taskId FROM TasksToUserStories WHERE usId in
+										(SELECT usId FROM UserStoriesToSprints WHERE sprintId = ?))");
+        $req->execute(array($sprintId));
+        return $this->fetchAll($req);
+    }
 }
