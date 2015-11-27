@@ -47,3 +47,16 @@ else if (!empty($_POST['edit_sprint_id']) && !empty($_POST['edit_sprint_identifi
     $db->updateSprint($_POST['edit_sprint_id'], $_POST['edit_sprint_identifier'], $_POST['edit_sprint_duration'], $comment);
     $context->setData($db->getSprints());         
 }
+else if (!empty($_GET['pert'])) {
+
+    $graph = new \model\Graph();
+
+    $graph->addNode(new Node(1, "truc"));
+    $graph->addNode(new Node(2, "bidule"));
+    $graph->addEdge(new Edge(1, 2, "T1"));
+
+    $graph->render("out.def");
+
+    $context->setData("out.def");
+    $context->setPageUrl("sprints/pert.php");
+}
