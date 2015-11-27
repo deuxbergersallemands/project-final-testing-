@@ -100,6 +100,7 @@ class TaskDatabase extends AbstractDatabase
                                         (SELECT taskId FROM TasksToUserStories WHERE usId = ?)");
         $req->execute(array($usId));
         return $this->fetchAll($req);
+<<<<<<< HEAD
     }
 
     public function getTasksBySprint($sprintId)
@@ -110,4 +111,78 @@ class TaskDatabase extends AbstractDatabase
         $req->execute(array($sprintId));
         return $this->fetchAll($req);
     }
+=======
+    }
+	   // Bindings with task.
+	 public function getTasksBySprint($sprintId)
+    {
+        $req = $this->_db->prepare("SELECT * FROM Tasks WHERE taskId in
+                                        (SELECT taskId FROM TasksToUserStories WHERE usId in
+										(SELECT usId FROM UserStoriesToSprints WHERE sprintId= ?)
+										 )");
+        $req->execute(array($sprintId));
+        return $this->fetchAll($req);
+    }
+	
+	 // Dependencies handling
+    
+    public function getDependentTasks($taskId)
+    {
+        $sql = "SELECT * FROM Tasks WHERE taskId 
+						in (SELECT tsDependentId FROM TasksToTasks WHERE taskId = ?)";
+        
+        $req = $this->_db->prepare($sql);
+        $req->execute(array($taskId));
+        return $this->fetchAll($req);
+    }
+    
+    public function getDependOnTasks($taskId)
+    {
+        $sql = "SELECT * FROM Tasks WHERE taskId
+                    in (SELECT taskId FROM TasksToTasks WHERE tsDependentId = ?)";
+        
+        $req = $this->_db->prepare($sql);
+        $req->execute(array($taskId));
+        return $this->fetchAll($req);
+    }
+    
+    public function addDependentTask($tsDependentId, $taskId)
+    {
+        $sql = "INSERT INTO TasksToTasks(taskId, tsDependentId)
+                  VALUES(?, ?)";
+        
+        $req = $this->_db->prepare($sql);
+        $req->execute(array($taskId, $tsDependentId));
+        $req->closeCursor();
+    }
+    
+    public function removeDependentTask($tsDependentId, $taskId)
+    {
+        $sql = "DELETE FROM TasksToTasks
+                WHERE taskId = ? AND tsDependentId = ?";
+        
+        $req = $this->_db->prepare($sql);
+        $req->execute(array($taskId, $tsDependentId));
+        $req->closeCursor();
+    }
+    
+    public function removeDependentTasks($taskId)
+    {
+        $sql = "DELETE FROM TasksToTasks WHERE taskId = ?";
+        
+        $req = $this->_db->prepare($sql);
+        $req->execute(array($taskId));
+        $req->closeCursor();
+    }
+    
+    public function removeDependOnTasks($taskId)
+    {
+        $sql = "DELETE FROM TasksToTasks WHERE tsDependentId = ?";
+        
+        $req = $this->_db->prepare($sql);
+        $req->execute(array($taskId));
+        $req->closeCursor();
+    }
+	
+>>>>>>> master
 }

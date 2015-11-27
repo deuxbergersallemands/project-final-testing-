@@ -70,6 +70,20 @@ Le kanban s'affiche sur la vue d'un sprint.  Il s'agit d'une table avec quatres 
 
 Chaque rang a un bouton qui dirige l'utilisateur vers la vue de la tâche pertinente.  
 
+
+###GANTT
+Pour aller sur la vue du diagramme de Gantt, il faudra appuyer  sur le bouton "Generate GANTT Diagram" sur la page d'un sprint.
+'gantt' doit être défini dans l'URL et doit valoir l'id du sprint.
+le diagramme sera représenter par un tableau. 
+le controleur devra envoyé un tableau 'duration' qui contiendra les heures travaillés sur le sprint par exemple array(1,2,3,4,5,6,7)
+ainsi que un tableau 'developers' qui contiendra des tableaux, chaque tableau contiendra le nom + prénom développeur et les identifier des tâches qu'il lui sont affectées
+par exemple
+array (
+    array('Amira Touati', 'spa', 'cc', 'cc', 'tc', 'tc'),
+    array('tristan Campbell', 'sp', 'vc', 'vc', 'vd', 'vd'),
+    array('raphael jorel', 'sp', 'bdd', 'cd', 'cd', 'td')
+)
+
 ### PERT
 
 Le diagramme de PERT sera généré automatiquement quand l'utilisateur appuie sur le bouton "Generate PERT Diagram" sur la page d'un sprint.  En appuyant sur le bouton on est renvoyé vers une nouvelle page en passant l'indentifiant du sprint comme paramètre.  Ou utilise l'identifiant du sprint pour générer le digramme sur la nouvelle page.  

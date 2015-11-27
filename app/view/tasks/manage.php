@@ -39,6 +39,21 @@
 			<?php echo $us->usIdentifier; ?><br />
 		</a>
 	<?php } ?>
+	
+	
+	
+	<br />
+	<label>Tasks dependencies</label><br />
+	<?php foreach ($data['tss'] as $task) { ?>
+	
+		<input type="checkbox" name="tasksDependOn_tsIds[]" value="<?php echo $task->taskId; ?>" 
+		    <?php if (in_array($task, $data['tasksDependOn'])) echo "checked"; ?> >
+		<a href="?tasks&amp;id=<?php echo $task->taskId; ?>" target="_blank">
+			<?php echo $task->taskIdentifier; ?><br />
+		</a>
+		
+	<?php } ?>
+	
 	<br /><br />
     <button  class="btn" type="submit">Edit</button>
 </form>

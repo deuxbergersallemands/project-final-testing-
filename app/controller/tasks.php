@@ -14,6 +14,8 @@ $commits = $client->repos->commits->listCommitsOnRepository($owner, $repo);
 $db = new \model\TaskDatabase;
 $dev = new \model\DeveloperDatabase;
 $us = new \model\UserstoryDatabase;
+$sprints = new \model\SprintDatabase;
+
 $context->setData($db->getTasks());         
 $context->setPageUrl("tasks/list.php");
 $context->setHeader("Tasks");
@@ -23,9 +25,18 @@ if (isset($_GET['add']))
     $context->setPageUrl("tasks/add.php");
 
 else if (!empty($_GET['manage'])) {
+
+	$tasksDependent = $db->getDependentTasks($_GET['manage']);
+    $tss = array_filter($db->getTasks(),
+	function($tasks) {
+        global $tasksDependent;
+        return !in_array($tasks, $tasksDependent) && $tasks->taskId != $_GET['manage'];
+    });
 	
 	$context->setData(
 			array('task' 	=> $db->getTask($_GET['manage']),
+				    'tss'         => $tss,
+			        'tasksDependOn' => $db->getDependOnTasks($_GET['manage']),
 					'devs' 	=> $dev->getDevelopers(),
 					'usByTask' 	=> $us->getUserstoriesByTask($_GET['manage']),
 					'us' 	=> $us->getUserStories()));
@@ -65,6 +76,8 @@ else if (!empty($_POST['edit_task_id']) && !empty($_POST['edit_task_identifier']
     $context->setData($db->getTasks());         
 }
 else if (!empty($_POST['set_task_id'])) {
+
+	$db ->removeDependOnTasks($_POST['set_task_id']);
 	
 	if (!empty($_POST['set_task_state']))
 		$db->setTaskState($_POST['set_task_id'], $_POST['set_task_state']);
@@ -76,7 +89,11 @@ else if (!empty($_POST['set_task_id'])) {
 	else if (isset($_POST['set_task_developer_id']) && empty($_POST['set_task_developer_id']))
 		$db->removeDeveloperFromTask($_POST['set_task_id']);
 	
-		
+	if (!empty($_POST['tasksDependOn_tsIds']))
+	    foreach ($_POST['tasksDependOn_tsIds'] as $taskId)
+	        $db->addDependentTask($_POST['set_task_id'], $taskId);
+			
+			
 	if (!empty($_POST['userstories_task']))
 	{
 		$us ->removeTasksFromUserstory($_POST['set_task_id']);

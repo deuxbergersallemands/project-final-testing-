@@ -1,26 +1,28 @@
 <?php $data = $context->getData(); ?>
 
-<table class="table-list view">
+<table class="table table-striped table-list ">
     <tr>
         <th>Identifier:</th>
-        <td class="table-td"><?php echo $data['sprint']->sprintIdentifier; ?></td>
+        <td class="table-td2" id="view_sprint_identifier"><?php echo $data['sprint']->sprintIdentifier; ?></td>
     </tr>
     <tr>
         <th>Duration:</th>
-        <td class="table-td"><?php echo $data['sprint']->sprintDuration; ?></td>
+        <td class="table-td2" id="view_sprint_duration"><?php echo $data['sprint']->sprintDuration; ?></td>
     </tr>
   
 	<tr>
         <th>Description:</th>
-        <td class="table-td"><?php echo $data['sprint']->sprintDescription; ?></td>
+        <td class="table-td2" id="view_sprint_description"><?php echo $data['sprint']->sprintDescription; ?></td>
     </tr>
 </table>
 
 <a href="?sprints&amp;pert=<?php echo $data['sprint']->sprintId; ?>">View PERT diagram</a>
 
 <br />
-<h2>Kanban</h2>
+<div class="mleft">
 
+<h2>Kanban</h2>
+</div>
 <table class="table-list view">
 	<tr>
 		<th>Identifier</th>

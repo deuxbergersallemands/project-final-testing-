@@ -19,10 +19,10 @@
         <td class="table-td"><?php echo $us->usIdentifier; ?></td>
         <td class="table-td">
             <?php echo $us->usSummary; ?>
-            <a class="icon" href="?userstories&amp;del=<?php echo $us->usId; ?>"><img src="<?php echo $context::DEL_BUTTON_IMG; ?>" /></a>
-            <a class="icon" href="?userstories&amp;edit=<?php echo $us->usId; ?>"><img src="<?php echo $context::EDIT_BUTTON_IMG; ?>" /></a>
-          	<a class="icon" href="?userstories&amp;manage=<?php echo $us->usId; ?>"><img  src="<?php echo $context::MANAGE_BUTTON_IMG; ?>" /></a>
-            <a class="icon" href="?userstories&amp;id=<?php echo $us->usId; ?>"><img src="<?php echo $context::VIEW_BUTTON_IMG; ?>" /></a>
+            <a class="icon" name="DEL" href="?userstories&amp;del=<?php echo $us->usId; ?>"><img src="<?php echo $context::DEL_BUTTON_IMG; ?>" /></a>
+            <a class="icon" name="EDIT" href="?userstories&amp;edit=<?php echo $us->usId; ?>"><img src="<?php echo $context::EDIT_BUTTON_IMG; ?>" /></a>
+          	<a class="icon" name="MANAGE" href="?userstories&amp;manage=<?php echo $us->usId; ?>"><img  src="<?php echo $context::MANAGE_BUTTON_IMG; ?>" /></a>
+            <a class="icon" name="VIEW" href="?userstories&amp;id=<?php echo $us->usId; ?>"><img src="<?php echo $context::VIEW_BUTTON_IMG; ?>" /></a>
         </td>
     </tr>
 <?php
