@@ -1,9 +1,10 @@
+
+
 <div class="add-block">
     <a href="?tasks&amp;add"><img src="<?php echo $context::ADD_BUTTON_IMG; ?>" /><button type="button" class="btn btn-link">Add task</button></a>
     <button id="help" class="btn btn-link">
 	<img src="<?php echo $context::HELP_BUTTON_IMG; ?>" /></button>
 </div>
-
 
 <?php if (!empty($context->getData())) { ?>
 <table class="table-list">

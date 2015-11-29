@@ -133,6 +133,14 @@ class TaskDatabase extends AbstractDatabase
         $req->execute(array($taskId));
         return $this->fetchAll($req);
     }
+
+    public function getAllTaskDependencies() 
+    {
+        $sql = "SELECT * from TasksToTasks";
+        $req = $this->_db->prepare($sql);
+        $req->execute(array($taskId));
+        return $this->fetchAll($req);
+    }
     
     public function addDependentTask($tsDependentId, $taskId)
     {

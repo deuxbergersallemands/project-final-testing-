@@ -15,6 +15,8 @@ $db = new \model\TaskDatabase;
 $dev = new \model\DeveloperDatabase;
 $us = new \model\UserstoryDatabase;
 $sprints = new \model\SprintDatabase;
+$pert = new \model\Pert;
+$pert->buildNodes($db->getTasks(), $db->getAllTaskDependencies());
 
 $context->setData($db->getTasks());         
 $context->setPageUrl("tasks/list.php");

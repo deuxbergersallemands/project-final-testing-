@@ -30,12 +30,17 @@
 
 <h3> Commits related to this Task </h3>
 <?php 
-    echo "<table><tr><th>Commit</th><th>User</th><th>Sha</th></tr>";
-    foreach ($commits as $commit) { 
+    if ($commits != null) {
+      echo "<table><tr><th class='table-th'>Commit</th><th class='table-th'>User</th><th class='table-th'>Sha</th></tr>";
+      foreach ($commits as $commit) { 
         if (strlen(strstr($commit->getCommit()->getMessage(),$data['task']->taskIdentifier, true)) > 1)
-          echo "<tr><td>".$commit->getCommit()->getMessage()."</td><td>".$commit->getAuthor()->getLogin()."</td><td>".$commit->getSha()."</td></tr>";
+          echo "<tr><td class='table-td'>".$commit->getCommit()->getMessage()."</td><td class='table-td'>".$commit->getAuthor()->getLogin()."</td><td class='table-td'>".$commit->getSha()."</td></tr>";
+      }
+      echo "</table>";
     }
-    echo "</table>";
+    else {
+        echo "<p> No commits have been found for this task on GitHub </p>";
+    } 
  ?>
  
 
