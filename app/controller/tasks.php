@@ -10,6 +10,15 @@ $context->setPageUrl("tasks/list.php");
 $context->setHeader("Tasks");
 
 
+require_once('assets/git/github-php-client-master/client/GitHubClient.php');
+$client = new GitHubClient();
+$client->setPage();
+
+$author = $context->getGithubAuthor();
+$repo = $context->getGithubRepo();
+
+$commits = $client->repos->commits->listCommitsOnRepository($author, $repo);
+
 if (isset($_GET['add']))
     $context->setPageUrl("tasks/add.php");
 
@@ -40,15 +49,6 @@ else if (!empty($_GET['del'])) {
     $context->setData($taskdb->getTasks());
 }
 else if (!empty($_GET['id'])) {
-    $client = new GitHubClient;
-    $client->setPage();
-    $commits = array();
-
-    if (!empty($_SESSION['author']) && !empty($_SESSION['repository'])) {
-        $commits = $client->repos->commits->listCommitsOnRepository(
-            $_SESSION['author'],
-            $_SESSION['repository']);
-    }
 
     $context->setData(
         array('task' => $taskdb->getTask($_GET['id']),

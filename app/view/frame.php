@@ -25,12 +25,11 @@
             <div class="row">
                 <div  class=" sidebar liste">
                     <ul class="nav ">
-                        <li class="menu-p">Dashboard</li>
+                        <li class="menu-li"><a href="?">Dashboard</a></li>
                         <li class="menu-li"><a href="?userstories">Backlog </a></li>
                         <li class="menu-li"><a href="?tasks">Tasks </a></li>
                         <li class="menu-li"><a href="?sprints">Sprints</a></li>
                         <li class="menu-li"><a href="?developers">Developers</a></li>
-                        <li class="menu-li"><a href="?github">GitHub informations</a></li>
                     </ul>
                 </div>
             </div>
