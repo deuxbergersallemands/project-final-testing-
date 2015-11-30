@@ -1,8 +1,5 @@
 <?php
 
-require "assets/git/github-php-client-master/client/GitHubClient.php";
-
-
 $taskdb = new \model\TaskDatabase;
 $devdb = new \model\DeveloperDatabase;
 $usdb = new \model\UserstoryDatabase;
@@ -44,6 +41,7 @@ else if (!empty($_GET['del'])) {
 }
 else if (!empty($_GET['id'])) {
     $client = new GitHubClient;
+    $client->setPage();
     $commits = array();
 
     if (!empty($_SESSION['author']) && !empty($_SESSION['repository'])) {

@@ -196,11 +196,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="sprints.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sprints.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/sprints.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6353322">
-              <caret line="61" column="36" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="36" />
+            <state vertical-scroll-proportion="-16.958334">
+              <caret line="62" column="17" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/main.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.375">
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tasks.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controller/tasks.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.528363">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -274,9 +294,7 @@
         <option value="$PROJECT_DIR$/view/frame.php" />
         <option value="$PROJECT_DIR$/view/github.php" />
         <option value="$PROJECT_DIR$/model/TaskNode.class.php" />
-        <option value="$PROJECT_DIR$/controller/main.php" />
         <option value="$PROJECT_DIR$/model/GithubDatabase.class.php" />
-        <option value="$PROJECT_DIR$/controller/tasks.php" />
         <option value="$PROJECT_DIR$/view/sprints/gantt.php" />
         <option value="$PROJECT_DIR$/view/sprints/view.php" />
         <option value="$PROJECT_DIR$/view/developers/view.php" />
@@ -284,7 +302,9 @@
         <option value="$PROJECT_DIR$/view/userstories/view.php" />
         <option value="$PROJECT_DIR$/view/sprints/graph.php" />
         <option value="$PROJECT_DIR$/model/Pert.class.php" />
+        <option value="$PROJECT_DIR$/controller/main.php" />
         <option value="$PROJECT_DIR$/controller/sprints.php" />
+        <option value="$PROJECT_DIR$/controller/tasks.php" />
       </list>
     </option>
   </component>
@@ -511,6 +531,24 @@
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sql" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -623,13 +661,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/model/PEAR/GraphViz.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/PEAR/System.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -734,46 +765,46 @@
           <caret line="158" column="0" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
           <folding>
             <element signature="e#6#3400#0#PHP" expanded="true" />
-            <marker date="1448899584871" expanded="true" signature="157:176" placeholder="SELECT * FRO..Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="267:303" placeholder="SELECT * FRO..Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="513:697" placeholder="INSERT INTO Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="950:1146" placeholder="UPDATE Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="1346:1380" placeholder="DELETE FROM ..." />
-            <marker date="1448899584871" expanded="true" signature="1547:1594" placeholder="UPDATE Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="1775:1825" placeholder="UPDATE Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="2043:2078" placeholder="SELECT * FRO..Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="2267:2310" placeholder="UPDATE Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="2496:2542" placeholder="UPDATE Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="2720:2765" placeholder="UPDATE Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="2941:2987" placeholder="UPDATE Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="3189:3319" placeholder="SELECT * FRO..Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="3266:3318" placeholder="SELECT taskI..TasksToUserStories..." />
-            <marker date="1448899584871" expanded="true" signature="3550:3569" placeholder="SELECT * FRO..Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="3660:3696" placeholder="SELECT * FRO..Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="3906:4090" placeholder="INSERT INTO Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="4343:4539" placeholder="UPDATE Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="4739:4773" placeholder="DELETE FROM ..." />
-            <marker date="1448899584871" expanded="true" signature="4940:4987" placeholder="UPDATE Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="5168:5218" placeholder="UPDATE Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="5428:5463" placeholder="SELECT * FRO..Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="5652:5695" placeholder="UPDATE Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="5881:5927" placeholder="UPDATE Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="6105:6150" placeholder="UPDATE Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="6326:6372" placeholder="UPDATE Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="6566:6696" placeholder="SELECT * FRO..Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="6643:6695" placeholder="SELECT taskI..TasksToUserStories..." />
-            <marker date="1448899584871" expanded="true" signature="6901:7110" placeholder="SELECT * FRO..Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="6978:7097" placeholder="SELECT taskI..TasksToUserStories..." />
-            <marker date="1448899584871" expanded="true" signature="7041:7096" placeholder="SELECT usId ..UserStoriesToSprints..." />
-            <marker date="1448899584871" expanded="true" signature="7295:7321" placeholder="SELECT * fro..TasksToTasks..." />
-            <marker date="1448899584871" expanded="true" signature="7512:7612" placeholder="SELECT * FRO..Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="7556:7611" placeholder="SELECT tsDep..TasksToTasks..." />
-            <marker date="1448899584871" expanded="true" signature="7822:7935" placeholder="SELECT * FRO..Tasks..." />
-            <marker date="1448899584871" expanded="true" signature="7879:7934" placeholder="SELECT taskI..TasksToTasks..." />
-            <marker date="1448899584871" expanded="true" signature="8161:8239" placeholder="INSERT INTO TasksToTasks..." />
-            <marker date="1448899584871" expanded="true" signature="8475:8554" placeholder="DELETE FROM ..." />
-            <marker date="1448899584871" expanded="true" signature="8775:8816" placeholder="DELETE FROM ..." />
-            <marker date="1448899584871" expanded="true" signature="9020:9068" placeholder="DELETE FROM ..." />
+            <marker date="1448905990495" expanded="true" signature="157:176" placeholder="SELECT * FRO..Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="267:303" placeholder="SELECT * FRO..Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="513:697" placeholder="INSERT INTO Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="950:1146" placeholder="UPDATE Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="1346:1380" placeholder="DELETE FROM ..." />
+            <marker date="1448905990495" expanded="true" signature="1547:1594" placeholder="UPDATE Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="1775:1825" placeholder="UPDATE Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="2043:2078" placeholder="SELECT * FRO..Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="2267:2310" placeholder="UPDATE Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="2496:2542" placeholder="UPDATE Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="2720:2765" placeholder="UPDATE Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="2941:2987" placeholder="UPDATE Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="3189:3319" placeholder="SELECT * FRO..Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="3266:3318" placeholder="SELECT taskI..TasksToUserStories..." />
+            <marker date="1448905990495" expanded="true" signature="3550:3569" placeholder="SELECT * FRO..Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="3660:3696" placeholder="SELECT * FRO..Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="3906:4090" placeholder="INSERT INTO Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="4343:4539" placeholder="UPDATE Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="4739:4773" placeholder="DELETE FROM ..." />
+            <marker date="1448905990495" expanded="true" signature="4940:4987" placeholder="UPDATE Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="5168:5218" placeholder="UPDATE Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="5428:5463" placeholder="SELECT * FRO..Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="5652:5695" placeholder="UPDATE Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="5881:5927" placeholder="UPDATE Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="6105:6150" placeholder="UPDATE Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="6326:6372" placeholder="UPDATE Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="6566:6696" placeholder="SELECT * FRO..Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="6643:6695" placeholder="SELECT taskI..TasksToUserStories..." />
+            <marker date="1448905990495" expanded="true" signature="6901:7110" placeholder="SELECT * FRO..Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="6978:7097" placeholder="SELECT taskI..TasksToUserStories..." />
+            <marker date="1448905990495" expanded="true" signature="7041:7096" placeholder="SELECT usId ..UserStoriesToSprints..." />
+            <marker date="1448905990495" expanded="true" signature="7295:7321" placeholder="SELECT * fro..TasksToTasks..." />
+            <marker date="1448905990495" expanded="true" signature="7512:7612" placeholder="SELECT * FRO..Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="7556:7611" placeholder="SELECT tsDep..TasksToTasks..." />
+            <marker date="1448905990495" expanded="true" signature="7822:7935" placeholder="SELECT * FRO..Tasks..." />
+            <marker date="1448905990495" expanded="true" signature="7879:7934" placeholder="SELECT taskI..TasksToTasks..." />
+            <marker date="1448905990495" expanded="true" signature="8161:8239" placeholder="INSERT INTO TasksToTasks..." />
+            <marker date="1448905990495" expanded="true" signature="8475:8554" placeholder="DELETE FROM ..." />
+            <marker date="1448905990495" expanded="true" signature="8775:8816" placeholder="DELETE FROM ..." />
+            <marker date="1448905990495" expanded="true" signature="9020:9068" placeholder="DELETE FROM ..." />
           </folding>
         </state>
       </provider>
@@ -957,22 +988,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60777956">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/tasks.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8541329">
-          <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/sprints/list.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1458671">
@@ -1071,10 +1086,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sql/github.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.375">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controller/sprints.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6353322">
-          <caret line="61" column="36" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="36" />
+        <state vertical-scroll-proportion="-16.958334">
+          <caret line="62" column="17" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/tasks.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.528363">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>

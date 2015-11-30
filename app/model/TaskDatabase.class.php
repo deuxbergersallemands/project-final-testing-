@@ -282,4 +282,10 @@ class TaskDatabase extends AbstractDatabase
         $req->execute(array($taskId));
         $req->closeCursor();
     }
+<<<<<<< HEAD
 }
+=======
+	
+}
+?>
+>>>>>>> 971199937edc1656743b8d1c0378ff794e70c86f
