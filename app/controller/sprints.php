@@ -1,13 +1,5 @@
 <?php
 
-<<<<<<< HEAD
-$db = new \model\SprintDatabase;
-$task = new \model\TaskDatabase;
-$us = new \model\UserstoryDatabase;
-$pert = new \model\Pert;
-=======
->>>>>>> origin/rjorel
-
 $sprintdb = new \model\SprintDatabase;
 $taskdb = new \model\TaskDatabase;
 $usdb = new \model\UserstoryDatabase;
@@ -32,17 +24,6 @@ else if (!empty($_GET['del'])) {
     $context->setData($sprintdb->getSprints());
 }
 else if (!empty($_GET['id'])) {    
-<<<<<<< HEAD
-	$usSprint = $us->getUserstoriesBySprint($_GET['id']);
-	$tasks = array();
-	
-	foreach ($usSprint as $us)
-		$tasks = array_merge($tasks, $task->getTasksByUserstory($us->usId));
-    
-
-    
-=======
->>>>>>> origin/rjorel
     $context->setData(array(
     					'sprint' => $sprintdb->getSprint($_GET['id']),
     					'tasks' => $taskdb->getTasksBySprint($_GET['id'])));

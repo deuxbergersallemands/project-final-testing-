@@ -13,10 +13,8 @@ if (isset($_GET['github'])){
 }
 
 $data = $githubDB->getGithubData();
-//foreach ($githubDB->getGithubData() as $data) {
-  $context->setGithubAuthor($data->author);
-  $context->setGithubRepo($data->repository);
-//}
+$context->setGithubAuthor($data->author);
+$context->setGithubRepo($data->repository);
 
 if (isset($_GET['tasks']))
     include("controller/tasks.php");

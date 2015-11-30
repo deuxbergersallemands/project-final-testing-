@@ -1,13 +1,9 @@
 <?php
 
-/*require_once('assets/git/github-php-client-master/client/GitHubClient.php');
+require_once('assets/git/github-php-client-master/client/GitHubClient.php');
 
 $client = new GitHubClient();
 $client->setPage();
-<<<<<<< HEAD
-=======
-$commits = $client->repos->commits->listCommitsOnRepository($owner, $repo); */
->>>>>>> origin/rjorel
 
 $author = $context->getGithubAuthor();
 $repo = $context->getGithubRepo();
