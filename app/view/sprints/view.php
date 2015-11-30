@@ -1,7 +1,10 @@
 <?php $data = $context->getData(); ?>
 
 <table class="table table-striped table-list ">
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3c983f9466bfed44b71b02a3ec58877b7166017c
     <tr>
         <th>Identifier:</th>
         <td class="table-td2" id="view_sprint_identifier"><?php echo $data['sprint']->sprintIdentifier; ?></td>

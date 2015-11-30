@@ -25,7 +25,11 @@
       <div class="row">
        <div  class=" sidebar liste">
             <ul class="nav ">
+<<<<<<< HEAD
             <li class="menuP"> <a href="?"> Menu</a> </li>
+=======
+            <li class="menuP"> <a> Menu</a> </li>
+>>>>>>> 3c983f9466bfed44b71b02a3ec58877b7166017c
             <li class="menuLi"><a href="?userstories">Backlog </a></li>
             <li class="menuLi"><a href="?tasks">Tasks </a></li>
             <li class="menuLi"><a href="?sprints">Sprints</a></li>
