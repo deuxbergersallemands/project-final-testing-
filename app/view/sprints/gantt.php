@@ -1,22 +1,30 @@
-<?php $data = $context->getData(); ?>
+<?php
+$data = $context->getData();
+$devs = $data['devs'];
+$maxWorkLoad = $data['maxWorkLoad'];
+?>
 
-<table class="table-list view">
-    <tr>
-        <th>Developers / Duration:</th>
-		<?php foreach($data['duration'] as $duration){ ?>
-        <td class="table-td" ><?php echo $duration; ?></td>
-		<?php } ?>
-    </tr>
-	
-	<?php foreach($data['developers'] as $developer){ ?>
-    <tr>
-	<?php foreach($developer as $dev_task){ ?>
-        <td class="table-td" ><?php echo $dev_task; ?></td>
-	<?php } ?>
-    </tr>
-	<?php } ?>
-
-
-</table>
+<div class="mleft">
+    <table class="table">
+        <tr>
+            <td>Developer</td>
+        <?php for ($i = 0 ; $i < $maxWorkLoad ; $i++) { ?>
+            <td><?php echo $i + 1; ?></td>
+        <?php } ?>
+        </tr>
+        <?php foreach ($devs as $dev) { ?>
+            <tr>
+                <th>
+                    <?php echo $dev['dev']->devName; ?>
+                </th>
+                <?php foreach ($dev['tasks'] as $task) { ?>
+                    <td colspan="<?php echo $task['duration']; ?>" bgcolor="CCCCCC">
+                        <?php echo $task['task']->taskIdentifier; ?>
+                    </td>
+                <?php } ?>
+            </tr>
+        <?php } ?>
+    </table>
+</div>
 
 

@@ -55,7 +55,6 @@ class Graph
 
     public function render()
     {
-
         $graph = new Image_GraphViz(true, array(), "PERT diagram");
 
         foreach ($this->_nodes as $node)
@@ -66,6 +65,20 @@ class Graph
                             array('label' => $edge->label));
 
         $graph->image();
+    }
+
+    public function save($file = "out.def")
+    {
+        $graph = new Image_GraphViz(true, array(), "PERT diagram");
+
+        foreach ($this->_nodes as $node)
+            $graph->addNode($node->id, array('label' => $node->label));
+
+        foreach ($this->_edges as $edge)
+            $graph->addEdge(array($edge->nodeId1 => $edge->nodeId2),
+                            array('label' => $edge->label));
+
+        $graph->save();
     }
 }
 

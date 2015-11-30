@@ -53,3 +53,15 @@
 	<?php } ?>
 
 </table>
+
+<br />
+
+<div class="mleft">
+<a href="?sprints&amp;pert=<?php echo $data['sprint']->sprintId; ?>">
+	<button  class="btn" type="submit">View PERT diagram</button>
+</a>
+
+<a href="?sprints&amp;gantt=<?php echo $data['sprint']->sprintId; ?>">
+	<button  class="btn" type="submit">View Gantt table</button>
+</a>
+</div>
