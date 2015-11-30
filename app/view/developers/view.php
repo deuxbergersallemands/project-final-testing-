@@ -2,18 +2,20 @@
 
 <table class="table table-striped table-list ">
     <tr>
-        <th>Name:</th>
+        <th>Name</th>
         <td class="table-td2" name="view_dev_name"><?php echo $data['dev']->devName; ?></td>
     </tr>
     <tr>
-        <th>First name:</th>
+        <th>First name</th>
         <td class="table-td2" name="view_dev_first_name"><?php echo $data['dev']->devFirstName; ?></td>
     </tr>
     <tr>
-        <th>Description:</th>
+        <th>Description</th>
         <td class="table-td2" name="view_dev_description"><?php echo $data['dev']->devDescription; ?></td>
     </tr>
 </table>
+
+<!--
 <div class="mleft">
 <h3>Tasks</h3>
 <ul>
@@ -24,5 +26,5 @@
 			</a>
 		</li>
 	<?php } ?>
-</ul>
+</ul> -->
 </div>

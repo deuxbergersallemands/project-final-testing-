@@ -1,13 +1,5 @@
 <?php
 
-<<<<<<< HEAD
-$db = new \model\SprintDatabase;
-$task = new \model\TaskDatabase;
-$us = new \model\UserstoryDatabase;
-$pert = new \model\Pert;
-=======
->>>>>>> rjorel
-
 $sprintdb = new \model\SprintDatabase;
 $taskdb = new \model\TaskDatabase;
 $usdb = new \model\UserstoryDatabase;
@@ -32,17 +24,6 @@ else if (!empty($_GET['del'])) {
     $context->setData($sprintdb->getSprints());
 }
 else if (!empty($_GET['id'])) {    
-<<<<<<< HEAD
-	$usSprint = $us->getUserstoriesBySprint($_GET['id']);
-	$tasks = array();
-	
-	foreach ($usSprint as $us)
-		$tasks = array_merge($tasks, $task->getTasksByUserstory($us->usId));
-    
-
-    
-=======
->>>>>>> rjorel
     $context->setData(array(
     					'sprint' => $sprintdb->getSprint($_GET['id']),
     					'tasks' => $taskdb->getTasksBySprint($_GET['id'])));
@@ -64,6 +45,30 @@ else if (!empty($_POST['edit_sprint_id']) && !empty($_POST['edit_sprint_identifi
     $context->setData($sprintdb->getSprints());
 }
 else if (!empty($_GET['pert'])) {
+    $xml = new \DOMDocument;
+    $root = $xml->createElement("root");
+
+    $pert = new \model\Pert;
+    $pert->buildNodes($taskdb->getTasksBySprint($_GET['pert']), $taskdb->getAllTaskDependencies());
+
+    foreach ($pert->nodes as $node) {
+        $elt = $xml->createElement("node");
+        $elt->setAttribute('id', $node->id);
+        $elt->setAttribute('label', $node->durationMax . " | " . $node->durationMin);
+        $root->appendChild($elt);
+
+        foreach ($node->followingTasks as $task) {
+            $elt = $xml->createElement("edge");
+            $elt->setAttribute('nid1', $node->id);
+            $elt->setAttribute('nid2', $task->id);
+            $elt->setAttribute('label', $task->identifier);
+            $root->appendChild($elt);
+        }
+    }
+
+    $xml->appendChild($root);
+    $xml->save("assets/graph.xml");
+
     $context->setData("view/sprints/graph.php");
     $context->setPageUrl("sprints/pert.php");
 }

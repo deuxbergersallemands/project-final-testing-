@@ -15,11 +15,15 @@ $maxWorkLoad = $data['maxWorkLoad'];
         <?php foreach ($devs as $dev) { ?>
             <tr>
                 <th>
-                    <?php echo $dev['dev']->devName; ?>
+                    <a href="?developers&amp;id=<?php echo $dev['dev']->devId; ?>" target="_blank">
+                        <?php echo $dev['dev']->devName; ?>
+                    </a>
                 </th>
                 <?php foreach ($dev['tasks'] as $task) { ?>
                     <td colspan="<?php echo $task['duration']; ?>" bgcolor="CCCCCC">
-                        <?php echo $task['task']->taskIdentifier; ?>
+                        <a href="?tasks&amp;id=<?php echo $task['task']->taskId; ?>" target="_blank">
+                            <?php echo $task['task']->taskIdentifier; ?>
+                        </a>
                     </td>
                 <?php } ?>
             </tr>

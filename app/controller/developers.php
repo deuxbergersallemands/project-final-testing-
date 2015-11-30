@@ -10,7 +10,7 @@ $context->setHeader("Developers");
 if (isset($_GET['add']))
     $context->setPageUrl("developers/add.php");
 
-/* else if (!empty($_GET['manage'])) {		// the view needs developer and tasks list.
+else if (!empty($_GET['manage'])) {		// the view needs developer and tasks list.
 	$taskDb = new \model\TaskDatabase;
 	$dev = $db->getDeveloper($_GET['manage']);
 	
@@ -25,7 +25,7 @@ if (isset($_GET['add']))
     						'tasksDev' => $taskDb->getTasksByDeveloper($dev->devId)));
 
 	$context->setPageUrl("developers/manage.php");
-} */
+}
 else if (!empty($_GET['edit'])) {		
     $context->setData($db->getDeveloper($_GET['edit']));
     $context->setPageUrl("developers/edit.php");}

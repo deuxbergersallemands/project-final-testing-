@@ -5,7 +5,7 @@ require_once "../../model/PEAR/GraphViz.php";
 
 $graph = new Image_GraphViz(true, array(), "PERT diagram");
 $xml = new DOMDocument();
-$xml->load("../../assets/out.xml");
+$xml->load("../../assets/graph.xml");
 
 $nodes = $xml->getElementsByTagName("node");
 $edges = $xml->getElementsByTagName("edge");

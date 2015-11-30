@@ -1,8 +1,8 @@
-<?php 
+<?php
 
-  namespace model;
+namespace model;
 
-  class TaskNode {
+class TaskNode {
     public $id;
     public $identifier;
     public $durationMax;
@@ -12,13 +12,13 @@
     public $followingTasks;
 
     public function __construct() {
-      $this->id = 0;
-      $this->identifier = "";
-      $this->durationMax = 0; // Inconnu à l'instantiation...
-      $this->durationMin = 0;
-      $this->durationTask = 0;
-      $this->prerequisiteTasks =  array();
-      $this->followingTasks = array();
+        $this->id = 0;
+        $this->identifier = "";
+        $this->durationMax = 0; // Inconnu à l'instantiation...
+        $this->durationMin = 0;
+        $this->durationTask = 0;
+        $this->prerequisiteTasks =  array();
+        $this->followingTasks = array();
     }
 
     function setId($id) {
@@ -28,13 +28,12 @@
     function setDurationMin($durMin) {
         $this->durationMin = $durMin;
     }
-
     function setIdentifier($id) {
         $this->identifier = $id;
     }
 
     function setDurationMax($durMax) {
-    	$this->durationMax = $durMax;
+        $this->durationMax = $durMax;
     }
 
     function setDurationTask($durTask) {
@@ -50,38 +49,34 @@
     function addFollowingTask($task) {
         $post = $this->followingTasks;
         array_push($post, $task);
-        $this->followingTasks = $post;    
-   }
+        $this->followingTasks = $post;
+    }
 
     function getId() {
         return $this->id;
     }
- 
+
     function getIndentifier() {
         return $this->identifier;
     }
 
     function getPrerequisiteTasks() {
-    	return $this->prerequisiteTasks;
+        return $this->prerequisiteTasks;
     }
 
     function getFollowingTasks() {
-    	return $this->followingTasks;
+        return $this->followingTasks;
     }
 
     function getMaxDuration() {
-    	return $this->durationMax;
+        return $this->durationMax;
     }
 
     function getMinDuration() {
-    	return $this->durationMin;
+        return $this->durationMin;
     }
 
     function getTaskDuration() {
-    	return $this->durationTask;
+        return $this->durationTask;
     }
-  }
-  
-
-
-?>
+}

@@ -1,6 +1,7 @@
 <?php
 
   namespace model;
+
   class GithubDatabase extends AbstractDatabase {
 
     public function setGithubData($author, $repository) {
@@ -17,4 +18,3 @@
 
     }
   }
-?>

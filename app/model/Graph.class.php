@@ -81,12 +81,3 @@ class Graph
         $graph->save();
     }
 }
-
-
-/*$graph = new Graph();
-$graph->addNode(new Node(1, "truc"));
-$graph->addNode(new Node(2, "bidule"));
-
-$graph->addEdge(new Edge(1, 2, "T1"));
-
-$graph->render();*/

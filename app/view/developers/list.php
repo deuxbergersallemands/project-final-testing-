@@ -52,8 +52,10 @@
 <div id="description" title="Developers / Développeurs">
     <p>
         <i><b>English</b></i><br />
-
-        My tailor is rich !
+        Developers are the most important resource in a project. Although developing is not so
+        easy, this person do their task, and if not, they are fired. Without them, no project
+        can be made, but it's also the less paid job in a company. As always, the most difficult
+        work are also the less recognized one.
     </p>
     <p>
         <i><b>Français</b></i><br />
@@ -71,13 +73,13 @@
         En cas de mutineries importantes chez les développeurs, il ne faut pas hésiter
         à utiliser les grands moyens, car ils ne faut pas qu'ils oublient qui les payent !
         En menaçant de baisser les doses de café, ainsi que de downgrader leurs ordinateurs
-        (déjà qu'ils rament, la plupart du temps), il sera simple de les mater.<br />
+        (déjà qu'ils rament la plupart du temps), il sera simple de les mater.<br />
         Pour rajouter un développeur à un projet, jetez une Dev Ball en cliquant sur "Add developer",
         puis entrez le nom et prénom de votre développeur, ainsi qu'une petite description si
-        besoin (son niveau, par exemple). Si votre Dev Ball est assez puissante, votre développeur
+        besoin (son niveau par exemple). Si votre Dev Ball est assez puissante, votre développeur
         sera ajouté en cliquant sur "Add". Voilà, vous avez capturé un nouveau développeur,
         faites-en bon usage ! <br />
-        <i>Note : les développeur sauvages (i.e. indépendants) sont plus facile
+        <i>Note : les développeurs sauvages (i.e. indépendants) sont plus faciles
         à capturer que ceux d'une autre team (i.e. la concurrence).</i>
     </p>
 </div>

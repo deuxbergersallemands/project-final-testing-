@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 <?php
-
+/*
 namespace model;
 
 
@@ -95,16 +94,12 @@ class TaskDatabase extends AbstractDatabase
     
     // Bindings with us.
     
-<<<<<<< HEAD
     public function getTasksByUserstory($usId)
     {
         $req = $this->_db->prepare("SELECT * FROM Tasks WHERE taskId in
                                         (SELECT taskId FROM TasksToUserStories WHERE usId = ?)");
         $req->execute(array($usId));
-        return $this->fetchAll($req);
-=======
-=======
-<?php
+        return $this->fetchAll($req); */
 
 namespace model;
 
@@ -160,9 +155,9 @@ class TaskDatabase extends AbstractDatabase
         $req->execute(array($duration, $id));
         $req->closeCursor();
     }
-    
+
+
     // Bindings with developers.
-    
     public function getTasksByDeveloper($devId)
     {
         $req = $this->_db->prepare("SELECT * FROM Tasks WHERE devId = ?");
@@ -197,107 +192,17 @@ class TaskDatabase extends AbstractDatabase
         $req->execute(array($taskId));
         $req->closeCursor();
     }
-    
+
+
     // Bindings with us.
-    
->>>>>>> rjorel
     public function getTasksByUserstory($usId)
     {
         $req = $this->_db->prepare("SELECT * FROM Tasks WHERE taskId in
                                         (SELECT taskId FROM TasksToUserStories WHERE usId = ?)");
         $req->execute(array($usId));
         return $this->fetchAll($req);
-<<<<<<< HEAD
->>>>>>> 3c983f9466bfed44b71b02a3ec58877b7166017c
     }
-	   // Bindings with task.
-	 public function getTasksBySprint($sprintId)
-    {
-        $req = $this->_db->prepare("SELECT * FROM Tasks WHERE taskId in
-                                        (SELECT taskId FROM TasksToUserStories WHERE usId in
-										(SELECT usId FROM UserStoriesToSprints WHERE sprintId= ?)
-										 )");
-        $req->execute(array($sprintId));
-        return $this->fetchAll($req);
-    }
-	
-	 // Dependencies handling
-    
-    public function getDependentTasks($taskId)
-    {
-        $sql = "SELECT * FROM Tasks WHERE taskId 
-						in (SELECT tsDependentId FROM TasksToTasks WHERE taskId = ?)";
-        
-        $req = $this->_db->prepare($sql);
-        $req->execute(array($taskId));
-        return $this->fetchAll($req);
-    }
-    
-    public function getDependOnTasks($taskId)
-    {
-        $sql = "SELECT * FROM Tasks WHERE taskId
-                    in (SELECT taskId FROM TasksToTasks WHERE tsDependentId = ?)";
-        
-        $req = $this->_db->prepare($sql);
-        $req->execute(array($taskId));
-        return $this->fetchAll($req);
-    }
-<<<<<<< HEAD
 
-    public function getAllTaskDependencies() 
-    {
-        $sql = "SELECT * from TasksToTasks";
-        $req = $this->_db->prepare($sql);
-        $req->execute(array($taskId));
-        return $this->fetchAll($req);
-    }
-=======
->>>>>>> 3c983f9466bfed44b71b02a3ec58877b7166017c
-    
-    public function addDependentTask($tsDependentId, $taskId)
-    {
-        $sql = "INSERT INTO TasksToTasks(taskId, tsDependentId)
-                  VALUES(?, ?)";
-        
-        $req = $this->_db->prepare($sql);
-        $req->execute(array($taskId, $tsDependentId));
-        $req->closeCursor();
-    }
-    
-    public function removeDependentTask($tsDependentId, $taskId)
-    {
-        $sql = "DELETE FROM TasksToTasks
-                WHERE taskId = ? AND tsDependentId = ?";
-        
-        $req = $this->_db->prepare($sql);
-        $req->execute(array($taskId, $tsDependentId));
-        $req->closeCursor();
-    }
-    
-    public function removeDependentTasks($taskId)
-    {
-        $sql = "DELETE FROM TasksToTasks WHERE taskId = ?";
-        
-        $req = $this->_db->prepare($sql);
-        $req->execute(array($taskId));
-        $req->closeCursor();
-    }
-    
-    public function removeDependOnTasks($taskId)
-    {
-        $sql = "DELETE FROM TasksToTasks WHERE tsDependentId = ?";
-        
-        $req = $this->_db->prepare($sql);
-        $req->execute(array($taskId));
-        $req->closeCursor();
-    }
-<<<<<<< HEAD
-	
-=======
-	
->>>>>>> 3c983f9466bfed44b71b02a3ec58877b7166017c
-=======
-    }
 
     // Bindings with sprints.
 	 public function getTasksBySprint($sprintId)
@@ -312,6 +217,14 @@ class TaskDatabase extends AbstractDatabase
 
 
 	 // Dependencies handling
+    public function getAllTaskDependencies()
+    {
+        $sql = "SELECT * from TasksToTasks";
+        $req = $this->_db->prepare($sql);
+        $req->execute(array());
+        return $this->fetchAll($req);
+    }
+
     public function getDependentTasks($taskId)
     {
         $sql = "SELECT * FROM Tasks WHERE taskId 
@@ -369,5 +282,4 @@ class TaskDatabase extends AbstractDatabase
         $req->execute(array($taskId));
         $req->closeCursor();
     }
->>>>>>> rjorel
 }

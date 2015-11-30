@@ -14,43 +14,38 @@
 </head>
 
 <body id="<?php echo $context->getPageId(); ?>">
-    <div class="header">
-        <h3 class="title"><?php echo $context->getHeader(); ?></h3> 
+<div class="header">
+    <h3 class="title"><?php echo $context->getHeader(); ?></h3>
+</div>
+
+<div class="body ">
+    <div class="menu">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div  class=" sidebar liste">
+                    <ul class="nav ">
+                        <li class="menu-p">Dashboard</li>
+                        <li class="menu-li"><a href="?userstories">Backlog </a></li>
+                        <li class="menu-li"><a href="?tasks">Tasks </a></li>
+                        <li class="menu-li"><a href="?sprints">Sprints</a></li>
+                        <li class="menu-li"><a href="?developers">Developers</a></li>
+                        <li class="menu-li"><a href="?github">GitHub informations</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="body ">
-	      <div class="menu">
-
- <div class="container-fluid">
-      <div class="row">
-       <div  class=" sidebar liste">
-            <ul class="nav ">
-<<<<<<< HEAD
-            <li class="menuP"> <a href="?"> Menu</a> </li>
-=======
-            <li class="menuP"> <a> Menu</a> </li>
->>>>>>> 3c983f9466bfed44b71b02a3ec58877b7166017c
-            <li class="menuLi"><a href="?userstories">Backlog </a></li>
-            <li class="menuLi"><a href="?tasks">Tasks </a></li>
-            <li class="menuLi"><a href="?sprints">Sprints</a></li>
-            <li class="menuLi"><a href="?developers">Developers</a></li>
-           
-          </ul>
-          
-        </div>
-        </div>
-        </div>
-        </div>
 
     <div class="content">
+
 <?php
-    include($context->getPageUrl());
+    require $context->getPageUrl();
 ?>
 
-    
+
     </div>
-    </div>
-    
+</div>
 
 </body>
 </html>

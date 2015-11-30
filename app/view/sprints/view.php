@@ -1,21 +1,17 @@
 <?php $data = $context->getData(); ?>
 
 <table class="table table-striped table-list ">
-<<<<<<< HEAD
-
-=======
->>>>>>> 3c983f9466bfed44b71b02a3ec58877b7166017c
     <tr>
-        <th>Identifier:</th>
+        <th>Identifier</th>
         <td class="table-td2" id="view_sprint_identifier"><?php echo $data['sprint']->sprintIdentifier; ?></td>
     </tr>
     <tr>
-        <th>Duration:</th>
+        <th>Duration</th>
         <td class="table-td2" id="view_sprint_duration"><?php echo $data['sprint']->sprintDuration; ?></td>
     </tr>
   
 	<tr>
-        <th>Description:</th>
+        <th>Description</th>
         <td class="table-td2" id="view_sprint_description"><?php echo $data['sprint']->sprintDescription; ?></td>
     </tr>
 </table>
