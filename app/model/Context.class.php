@@ -21,6 +21,8 @@ class Context
     private $_header;
 
     private $_data;
+    private $_githubAuthor;
+    private $_githubRepo;
 
 
     public function __construct()
@@ -77,5 +79,21 @@ class Context
 
     public function setData($data) {
         $this->_data = $data;
+    }
+
+    public function getGithubRepo() {
+        return $this->_githubRepo;
+    }
+
+    public function setGithubRepo($data) {
+        $this->_githubRepo = $data;
+    }
+
+    public function getGithubAuthor() {
+        return $this->_githubAuthor;
+    }
+
+    public function setGithubAuthor($data) {
+        $this->_githubAuthor = $data;
     }
 }

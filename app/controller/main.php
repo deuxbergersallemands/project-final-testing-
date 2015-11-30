@@ -3,7 +3,20 @@
 require "model/Context.class.php";
 
 
+$githubDB = new \model\GithubDatabase;
+
+
 $context = new Context();
+if (isset($_GET['github'])){    
+	if (!empty($_POST['author']) && !empty($_POST['repository']))
+	$githubDB->setGithubData($_POST['author'], $_POST['repository']);
+}
+
+$data = $githubDB->getGithubData();
+//foreach ($githubDB->getGithubData() as $data) {
+  $context->setGithubAuthor($data->author);
+  $context->setGithubRepo($data->repository);
+//}
 
 if (isset($_GET['tasks']))
     include("controller/tasks.php");

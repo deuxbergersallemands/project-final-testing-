@@ -2,13 +2,14 @@
 
 require_once('assets/git/github-php-client-master/client/GitHubClient.php');
 
-$owner = 'deuxbergersallemands';
-$repo = 'project-final-testing-';
-
 $client = new GitHubClient();
 $client->setPage();
-$commits = $client->repos->commits->listCommitsOnRepository($owner, $repo);
 
+$author = $context->getGithubAuthor();
+$repo = $context->getGithubRepo();
+
+if (!empty($client->repos->commits->listCommitsOnRepository($author, $repo)))
+   $commits = $client->repos->commits->listCommitsOnRepository($author, $repo);
 
 
 $db = new \model\TaskDatabase;
@@ -21,6 +22,7 @@ $pert->buildNodes($db->getTasks(), $db->getAllTaskDependencies());
 $context->setData($db->getTasks());         
 $context->setPageUrl("tasks/list.php");
 $context->setHeader("Tasks");
+
 
 
 if (isset($_GET['add']))
