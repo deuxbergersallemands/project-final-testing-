@@ -6,9 +6,9 @@ namespace model;
 abstract class AbstractDatabase
 {
     protected $_host = "localhost";
-    protected $_dbname = "rjorel";
-    protected $_username = "rjorel";
-    protected $_passwd = "truc";
+    protected $_dbname = "cdp";
+    protected $_username = "root";
+    protected $_passwd = "root";
     protected $_db;
 
 
