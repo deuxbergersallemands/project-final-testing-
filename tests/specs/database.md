@@ -194,6 +194,8 @@ d'une US d'un coup peut être intéressant, ainsi que l'inverse.
 
 * removeDependentUserStories(usId) -> supprime toutes les dépendances d'autre US d'une US,
 * removeDependOnUserstories(usId)  -> supprime toutes les dépendances d'une US.
+<<<<<<< HEAD
+=======
 
 
 ## Dépendance de tâche
@@ -221,3 +223,4 @@ d'une tâche d'un coup peut être intéressant, ainsi que l'inverse.
 
 * removeDependentTasks(taskId) -> supprime toutes les dépendances d'autre tâche d'une tâche,
 * removeDependOnTasks(taskId)  -> supprime toutes les dépendances d'une tâche.
+>>>>>>> master

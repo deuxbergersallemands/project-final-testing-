@@ -4,8 +4,7 @@
     <a href="?sprints&amp;add"><img src="<?php echo $context::ADD_BUTTON_IMG; ?>" /><button type="button" class="btn btn-link">Add sprint</button></a>
     <button id="help" class="btn btn-link"><img src="<?php echo $context::HELP_BUTTON_IMG; ?>" /></button>
 
-	<a href="?sprints&amp;gantt=<?php echo $sprint->sprintId; ?>"><img src="<?php echo $context::VIEW_BUTTON_IMG; ?>" /><button type="button" class="btn btn-link">Generate GANTT Diagram</button></a>
-   
+
 	</div>
 
 
@@ -22,10 +21,19 @@
         <td class="table-td"><?php echo $sprint->sprintIdentifier; ?></td>
         <td class="table-td">
             <?php echo $sprint->sprintDuration; ?>
-            <a class="icon" name="DEL" href="?sprints&amp;del=<?php echo $sprint->sprintId; ?>"><img src="<?php echo $context::DEL_BUTTON_IMG; ?>" /></a>
-            <a class="icon" name="EDIT" href="?sprints&amp;edit=<?php echo $sprint->sprintId; ?>"><img src="<?php echo $context::EDIT_BUTTON_IMG; ?>" /></a>
-            <a class="icon" name="MANAGE" href="?sprints&amp;manage=<?php echo $sprint->sprintId; ?>"><img  src="<?php echo $context::MANAGE_BUTTON_IMG; ?>" /></a>
-            <a class="icon" name="VIEW" href="?sprints&amp;id=<?php echo $sprint->sprintId; ?>"><img src="<?php echo $context::VIEW_BUTTON_IMG; ?>" /></a>
+            <a class="icon" name="DEL" href="?sprints&amp;del=<?php echo $sprint->sprintId; ?>">
+                <img src="<?php echo $context::DEL_BUTTON_IMG; ?>" />
+            </a>
+            <a class="icon" name="EDIT" href="?sprints&amp;edit=<?php echo $sprint->sprintId; ?>">
+                <img src="<?php echo $context::EDIT_BUTTON_IMG; ?>" />
+            </a>
+            <a class="icon" name="MANAGE" href="?sprints&amp;manage=<?php echo $sprint->sprintId; ?>">
+                <img  src="<?php echo $context::MANAGE_BUTTON_IMG; ?>" />
+            </a>
+            <a class="icon" name="VIEW" href="?sprints&amp;id=<?php echo $sprint->sprintId; ?>">
+                <img src="<?php echo $context::VIEW_BUTTON_IMG; ?>" />
+            </a>
+        </td>
     </tr>
 <?php
     }
